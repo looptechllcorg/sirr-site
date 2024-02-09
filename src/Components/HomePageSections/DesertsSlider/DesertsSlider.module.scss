@@ -1,0 +1,78 @@
+#DesertsSlider{
+	.DesertsSliderWrapper{
+		display: flex;
+		position: relative;
+		.DesertsSliderLeft{
+			width: 35%;
+		}
+		.DesertsSliderCenter{
+			width: 30%;
+		    display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 0 20px;
+			.desertTitle{
+				font-size: 2.5rem;
+				font-weight: 500;
+			}
+			.desertDescription{
+				font-size: 1rem;
+				line-height: 1.5rem;
+				margin: 1rem 0 1.8rem;
+				font-weight: 400;
+				font-family: 'Inter', sans-serif;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 3;
+				overflow: hidden;
+			}
+		}
+		.DesertsSliderRight{
+			width: 35%;
+			}
+		}
+	} 
+
+	// DesertsSlider responsive 
+@media only screen and (max-width : 750px) {
+	#DesertsSlider{
+		.DesertsSliderWrapper{
+			// display: flex;
+			flex-direction: column;
+			.DesertsSliderLeft{
+				// width: 35%;
+				display: none;
+			}
+			.DesertsSliderCenter{
+				width: 100%;
+				margin: 40px 0;
+				// height: 250px;
+				// display: flex;
+				// flex-direction: column;
+				// justify-content: center;
+				// align-items: center;
+				// padding: 0 40px;
+				// .desertTitle{
+				// 	font-size: 2.5rem;
+				// 	font-weight: 500;
+				// }
+				// .desertDescription{
+				// 	font-size: 1rem;
+				// 	line-height: 1.5rem;
+				// 	margin: 1rem 0 2.2rem;
+				// 	font-weight: 400;
+				// 	font-family: 'Inter', sans-serif;
+				// 	display: -webkit-box;
+				// 	-webkit-box-orient: vertical;
+				// 	-webkit-line-clamp: 3;
+				// 	overflow: hidden;
+				// }
+			}
+			.DesertsSliderRight{
+				width: 100%;
+				}
+			}
+		} 
+
+}

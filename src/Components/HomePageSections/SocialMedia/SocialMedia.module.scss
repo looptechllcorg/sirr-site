@@ -1,0 +1,14 @@
+// import all site color list
+@import "../../../siteColorList/Colors.scss";
+
+#SocialMedia{
+	.SocialMediaSliderWrapper{
+		// sliderin css-nin davami index.css faylindadir: 
+		// ( socialMedia slider style) adi ile 
+			img{
+				width: 100%;
+				height: 284px;
+				object-fit: cover;
+			}
+		}
+	}

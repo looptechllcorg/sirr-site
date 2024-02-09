@@ -1,0 +1,173 @@
+//   import allSite color list
+@import "../../siteColorList/Colors.scss";
+
+.header{
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	nav{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 110px;
+		// background-color: transparent;
+		padding: 0 100px;
+		.navLogo{
+		   flex: .4;
+	   img{
+		width: 190px;
+	   }
+		}		
+		.navPages{
+		
+            flex: 1;
+			.MobileLangSearch{
+				display: none;
+			}
+			.navPageList{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			a{
+				color:$headerNavLinkColor;
+				padding: 0 15px;
+				font-size: 1rem;
+				font-family: IBM Plex Serif;
+			}
+		      }
+			.mobileSocial{
+				display: none;
+			}
+		}
+		.SearchLang{
+			display: flex;
+		   justify-content: flex-end;
+		   align-items: center;
+			flex: .5;
+				.serachIcon{
+					margin-right: 25px;
+					cursor: pointer;
+					height: 25px;
+			         }
+			.lang{
+				.selectLang{
+					border: 1px solid $headerLangSelectBorderColor;
+					font-size: 15px;
+					background-color: transparent;
+					color: $headerLangSelectedColor;
+					cursor: pointer;
+					outline: none;
+					height: 30px;
+					border-radius: 5px;
+					padding: 0px 0px 1px 4px !important;
+					font-family: 'IBM Plex Serif', serif;
+					option{
+						color: $headerLangOptionColor;
+					}
+				   }
+			}
+		}
+		.HamburgerMenu{
+			border: 1px solid rgb(255, 255, 255,);
+			padding: 9px 10px 5px 10px;
+			margin-bottom: 20px;
+			border-radius: 100%;
+			cursor: pointer;
+			display: none;
+			.HamburgerMenuCloseIcon{
+				font-size: 25px;
+			}
+		}
+	}
+}
+.navBlack{
+	background-color: black;
+}
+
+
+// header responsive start 
+@media only screen and ( max-width :950px) {
+	.header{
+		background-color: black;
+		color: white;
+		nav{
+			padding: 0 20px;
+			.navLogo{
+			   img{
+				width: 140px;
+			   }
+			}		
+			.navPages{
+				position: fixed;
+				right: -100%;
+				top: 110px;
+				background-color: black;
+				height: 70vh;
+				width: 250px;
+				transition: .7s ease;
+				.MobileLangSearch{
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					 width: 100%;   
+				     padding: 0 15px 12px;
+					.mobileLang{
+						.langCategory{
+                            font-size: 20px;
+							margin-right: 11px;
+							cursor: pointer;
+						}
+					}
+					.mobileSearchIcon{
+						img{
+							display: inline-block;
+							border: 1px solid white;
+						    padding: 12px;
+							border-radius: 100%;
+							cursor: pointer;
+						}
+					}
+				}
+				.navPageList{
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				a{  
+					display: inline-block;
+					margin: 7px 0;
+					&:hover{
+						color: rgba(230, 168, 76, 1);
+					}
+				}
+			}
+				.mobileSocial{
+					display: block;
+					padding: 30px 7px;
+					a{
+						padding: 10px 5px;
+						img{
+							padding: 7px;
+							border: 1px solid $socialBorderColor;
+							border-radius: 100%;
+							cursor: pointer;
+						}
+					}
+				}
+
+			}
+			.hiddenMenu{
+				right: 0;
+			}
+			.SearchLang{
+				display: none;
+			}
+			.HamburgerMenu{
+				display: block;
+			}
+			
+		}
+	}
+	
+}

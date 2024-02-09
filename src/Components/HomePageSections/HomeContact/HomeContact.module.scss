@@ -1,0 +1,103 @@
+@import "../../../siteColorList/Colors.scss";
+
+#HomeContactWrapper{
+	.HomeContact{
+    	background-image: url("../../../assets/images/homeContactBgImg.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		justify-content: center;
+		align-items: center;   
+		font-family: 'Inter', sans-serif;
+		.contactUsWrapper{
+         background-color: $HomeContactBgColor;
+		 color: $HomeContactColor;
+		 border-radius: 5px;
+		 padding: 40px;	
+		 margin: 50px 30px;
+		 width: 670px;
+		 .NameContactUs{
+			text-align: center;
+		    margin: 0 auto;
+			font-size: 40px;
+			font-weight: 500;
+		 }
+		 .contactUs{	
+			display: flex;
+			justify-content: space-between;
+		.Branches{
+		height: 392px;
+		overflow-y: auto;
+	    width: 300px;
+		padding: 0 10px;
+	    &:hover {
+			&::-webkit-scrollbar-thumb {
+				background-color: white;
+			}
+		}
+		&::-webkit-scrollbar{
+			width: 1px;
+		}
+		&::-webkit-scrollbar-thumb{
+			background-color: transparent;
+		}
+		}
+		
+		.social{
+          display: flex;
+		  flex-direction: column;
+		  justify-content: flex-end;
+		  .instagram,
+		  .facebook{
+			color: white;
+			display: flex;
+			align-items: center;
+			margin-top: 14px;
+			 img{
+				width: 24px;
+				height: 24px;
+				object-fit: cover;
+				margin-right: 7px;
+			 }
+		  }
+		}
+	}
+	}
+}
+}
+// &::-webkit-scrollbar{
+// 	width: 1px;
+// 	background-color: red;
+// }
+// &::-webkit-scrollbar-thumb{
+// 	background: yellow;
+
+// }
+
+// HomeContactWrapper responsive
+@media only screen and (max-width: 800px) {
+	#HomeContactWrapper{
+		.HomeContact{
+			.contactUsWrapper{
+			 padding: 20px 30px 20px 10px;	
+			 width: auto;
+			 .NameContactUs{
+			    text-align: start;
+				font-size: 25px;
+				padding: 0px 0 15px 7px;
+			 }
+			 .contactUs{	
+				
+			.Branches{
+			height: 250px;
+			width: auto;
+			}
+			.social{
+			  display: none;
+			}
+		}
+		}
+	}
+	}
+}

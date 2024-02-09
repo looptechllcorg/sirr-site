@@ -1,0 +1,32 @@
+// import all site color list
+@import "../../siteColorList/Colors.scss";
+
+.SocialListWrapper{
+	position: fixed;
+	top: 125px;
+	right: 0;
+	right: calc((100% - 1500px) / 2);     
+	z-index: 999;
+	width: 50px;
+	background-color: $socialBgColor;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 24px 0;
+	.facebook{
+		margin: 14px 0;
+	}
+	img{
+		padding: 7px;
+		border: 1px solid $socialBorderColor;
+		border-radius: 100%;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 1500px) {
+	.SocialListWrapper {
+	  right: 0; 
+	}
+  }

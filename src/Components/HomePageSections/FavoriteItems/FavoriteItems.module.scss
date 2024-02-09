@@ -1,0 +1,30 @@
+@import "../../../siteColorList/Colors.scss";
+
+#FavoriteItems{
+	.FavoriteItemsWrapper{
+		text-align: center;
+	
+		.categoriesTitleSlider{
+			margin: 40px 0;
+		}
+		.CategoryProduct{
+			padding: 0 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(17rem,1fr));
+			gap: 1.5rem 1rem;
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+ // PrCart responsive 
+ @media only screen and (max-width : 950px) {
+	#FavoriteItems{
+		.FavoriteItemsWrapper{
+			.CategoryProduct{
+				grid-template-columns: repeat(auto-fit, minmax(11rem,1fr));
+			}
+		}
+	}
+	
+ }

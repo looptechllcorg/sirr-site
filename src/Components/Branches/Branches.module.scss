@@ -1,0 +1,91 @@
+.BranchesWrapper{
+	font-family: 'Inter', sans-serif;
+	  display: flex;
+	  position: relative;
+	  .branchesLine{
+		margin-right: 20px;
+		&::before {
+		    content: "";
+			width: 9px;
+			height: 9px;
+			background-color: white;
+			border-radius: 100%;
+			position: absolute;
+			top: 0;
+			left: -3px;
+		  }
+		  &::after{
+			content: "";
+			width: 9px;
+			height: 9px;
+			background-color: white;
+			border-radius: 100%;
+			position: absolute;
+			bottom: -9px;
+			left: -3px;
+		  }
+	  }
+	  .Branch{
+
+	.branchesTitle{
+		font-size: 20px;
+		font-weight: 500;
+		padding-top: 25px;
+	}
+	.branchesLocationAdress{
+		display: flex;
+		.Adress{   
+			font-size: 14px;
+			font-weight: 500;
+			margin: 15px 7px;
+		}
+	}
+	.Phones{
+		padding-bottom: 10px;
+		.PhoneIcon{
+			margin-right: 7px;
+		}
+		.phone{
+			display: inline-block;
+			margin: 3px 0;
+		}
+	}
+	}
+}
+
+
+//BranchesWrapper responsive
+@media only screen and (max-width: 800px) {
+	.BranchesWrapper{
+		// padding: 20px 30px 20px 10px;	
+		  .branchesLine{
+			margin-right: 10px;
+		  }
+		  .Branch{
+	
+		.branchesTitle{
+			font-size: 15px;
+			padding-top: 16px;
+		}
+		.branchesLocationAdress{
+			.Adress{   
+				font-size: 12px;
+				margin: 10px 7px;
+			}
+		}
+		.Phones{
+			padding-bottom: 0;
+			.PhoneIcon{
+				margin-right: 7px;
+			}
+			.phone{
+				display: inline-block;
+				margin: 3px 0;
+				font-size: 14px;
+			}
+		}
+		}
+	}
+	
+
+}

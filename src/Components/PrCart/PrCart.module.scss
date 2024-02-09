@@ -1,0 +1,120 @@
+@import "../../siteColorList/Colors.scss";
+
+
+.PrCartWrapper{
+	width: 100%;
+	cursor: pointer;
+	.prImg{    
+	 width: 100%;
+	 aspect-ratio: 3/4;
+	 position: relative;
+	 transition: .5s ease-in-out;
+	 overflow: hidden;
+	img{
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+	 border-radius: 5px;
+	}
+	.overlayImgTitle{
+	 display: none;
+	}
+	.overlayPriceUnit{
+	 display: block;
+	 width: 100%;
+	 height: 30px;
+	 font-size: 22px;
+	 font-weight: 700;
+	 position: absolute;
+	 bottom: -30px;
+	 left: 0;
+	 opacity: 0;
+	 z-index: -1;
+	 transition: .5s ease-in-out;
+	 background-color: $FavoriteItemsOverlayPriceUnitBgColor;
+	 color: $FavoriteItemsOverlayPriceUnitColor;
+	 .priceUnitLine{
+		 display:inline-flex;
+		 width: 40px;
+		 margin: 5px .5rem;
+		 height: 1px;
+		 border: none;
+		 background-color: $FavoriteItemsPriceUnitLineBgColor;
+	 }
+	}  
+	}
+
+    .prTitle{
+      font-size: 22px;
+	  font-weight: 700;
+	  line-height: 26px;
+	  text-align: start;
+	  opacity: 1;
+	  transition: .5s ease-in-out;
+     }
+ &:hover {
+	 .prImg{
+		 transform: scale(1.1);
+		 transition: .5s ease-in-out;
+		 border-radius: 5px;
+		   }
+	 .overlayImgTitle{
+		 display: block;
+		 position: absolute;
+		 top: 0;
+		 left: 0;
+		 width: 100%;
+		 height: 100%;
+		 background-color:$FavoriteItemsOverlayImgTitleBgColor;
+	 .OverlayPrTitle{
+			 height: 100%;
+			 color: $FavoriteItemsOverlayPrTitleColor;
+			 font-size: 24px;
+			 font-weight: 700;
+			 line-height: 28px;
+			 display: flex;
+			 justify-content: center;
+			 align-items: center;
+		 }
+	   }
+	   .overlayPriceUnit{
+		 bottom: 0;
+		 z-index: 1;
+		 opacity: 1;
+		 transition: .5s ease-in-out;
+	   }
+		.prTitle{
+		   opacity: 0;
+		}
+ }
+ }
+
+ // PrCart responsive 
+@media only screen and (max-width : 950px) {
+	.PrCartWrapper{
+		.prImg{    
+		 aspect-ratio: 1/1;
+		 border-radius: 5px;
+		.overlayImgTitle{
+		 display: none;
+		}
+		}
+		.prTitle{
+			margin-top: 10px;
+		    opacity: 1;
+		 }
+	 &:hover {
+		 .prImg{
+			 transform: scale(1);
+			   }
+		   .overlayPriceUnit{
+			 opacity: 0;
+		   }
+			.prTitle{
+			   opacity: 1;
+			}
+	 }
+	 }
+	
+}
+ 

@@ -1,0 +1,65 @@
+// import all site color list
+@import  "../../siteColorList/Colors.scss";
+
+#FooterSection{
+	.FooterWrapper{
+		padding: 10px 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.LogoSocial{
+			.FooterLogo{
+				display: inline-block;
+			}
+			.footerSocila{
+				display: flex;
+				justify-content: space-around;
+			
+				a{
+					padding: 10px 9px 4px 10px;
+					border-radius: 100%;
+					border: 2px solid rgba(127, 57, 44, 1);
+					margin: 14px 5px;
+				img{
+					width: 20px;
+					height: 20px;
+					object-fit: cover;
+				}
+				}
+			}
+		}
+		.FooterPages{
+			display: flex;
+			justify-content: space-between;
+			a{
+				margin-left: 30px;
+				font-size: 20px;
+				color: $FooterNavLinkColor;
+			}
+		}
+	}
+	.line{
+		width: 100%;
+	}
+	.looptech{
+		display: block;
+		text-align: center;
+		padding: 7px 0;
+	}
+}
+
+
+// FooterSection responsive
+@media only screen and (max-width: 800px) {
+	#FooterSection{
+		.FooterWrapper{
+			flex-direction: column;
+			.FooterPages{
+				flex-direction: column;
+				a{
+					margin: 7px 0;
+				}
+			}
+		}
+	}
+}

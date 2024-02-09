@@ -1,0 +1,31 @@
+@import "../../siteColorList/Colors.scss";
+
+.TitleListWrapper{
+	text-align: center;
+	.mainTitle{
+		color: $TitleListMainTitleColor;
+		font-size: 20px;
+		font-weight: 400;
+		font-style: italic;
+       
+	}
+	.detailedTitle{
+		    margin: 3px 0 30px;
+		    font-size: 40px;
+			font-weight: 500;
+			line-height: 40px;
+			color: black;
+	}
+}
+
+// TitleList responsive 
+@media only screen and (max-width : 1050px) {
+	.TitleListWrapper{
+		.detailedTitle{
+				margin: 3px 0 30px;
+				font-size: 30px;
+				font-weight: 500;
+				line-height: 30px;
+		}
+	}
+}
