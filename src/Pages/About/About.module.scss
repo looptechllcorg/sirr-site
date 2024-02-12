@@ -1,0 +1,128 @@
+// import all site color list
+@import "../../siteColorList/Colors.scss";
+
+#about{
+	.aboutBgImg{
+		width: 100%;
+		height: 100vh;
+		background-image: url("../../assets/images/aboutBgImg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		margin-top: -110px;
+		position: relative;
+		.overlay{
+			position: absolute;
+			top: 0;    
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			z-index: 9;
+			background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.2));
+		.bgOnTitle{
+			position: absolute;
+			top: 50%;
+			left: 180px;
+			transform: translate(-50%,-50%);
+			font-size: 40px;
+			font-weight: 500;
+			color: white;
+		}
+		}
+	
+	}
+	.HouseHistory{
+		padding: 50px 0;
+		.HouseHistoryDescription{
+			font-size: 16px;
+			line-height: 25px;
+			padding: 10px 170px;
+			text-align: center;
+			font-family: 'Inter', sans-serif;
+			color: rgba(23, 23, 23, .8);
+		
+		}
+	}
+	.videoBgImg{
+		width: 100%;
+		height: 85vh;
+		background-image: url("../../assets/images/aboutVideoBgImg.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: relative;
+		.videoBgOverlay{
+           position: absolute;
+		   top: 0;
+		   left: 0;
+		   background-color: rgba(0, 0, 0, 0.4);
+		   width: 100%;
+		   height: 100%;
+		}
+	}
+	.aboutOurCatalog{
+	 display: flex;
+	 padding: 80px 0;
+	 .OurCatalog{
+	 flex: 1;
+	 background-color: rgba(255, 251, 245, 1);
+	 	padding-left: 100px;
+	 .aboutOurCatalogTitle{
+	         padding-top: 24px;
+	        font-size: 35px;
+		 	font-weight: 500;
+	 }
+	    .descrioption{
+		font-size: 13px;
+		line-height: 25px;
+	    padding: 20px 80px 33px 0;
+		color: rgba(23, 23, 23, .8);
+		font-family: 'Inter', sans-serif;
+		}
+	 }
+	 .aboutOurCatalogImg{
+	 flex: 1;
+	 width: 100%;
+	 height: 55vh;
+	 }
+	 }
+	 .OurInformation{
+      display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(17rem,1fr));
+      row-gap: 2rem;
+	  padding-top: 40px;
+	 .infoWrapper{
+	 text-align: center;
+	 .infoTitle{
+	  margin-top: 10px;
+	  font-size: 18px;
+	  font-weight: 500;
+	 }
+	 }
+	 }
+
+}
+
+
+// about page responsive 
+@media only screen and (max-width : 950px) {
+	#about{
+		.aboutBgImg{
+			.overlay{
+			.bgOnTitle{
+				position: absolute;
+				top: 50%;
+				left: 100px;
+			}
+			}
+		
+		}
+		.HouseHistory{
+		  padding: 25px 20px;
+		.HouseHistoryDescription{
+			padding: 0;
+			text-align: start;
+		}
+	    }
+	}
+}

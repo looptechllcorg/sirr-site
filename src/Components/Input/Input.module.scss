@@ -1,0 +1,11 @@
+// import all site style scss
+@import "../../siteColorList/Colors.scss";
+
+.input{
+	border: none;
+	outline: none;
+	font-size: 15px;
+	font-weight: 500;
+	font-family: 'IBM Plex Serif', serif;
+	border-bottom: 1px solid black;
+}

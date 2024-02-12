@@ -1,0 +1,13 @@
+// import all site style scss
+@import "../../siteColorList/Colors.scss";
+
+.formWrapper{
+	text-align: center;
+	.formGroup{
+		width: 50%;
+		margin: 30px auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(10rem,1fr));
+	    gap: 3rem 2rem;
+	}
+}

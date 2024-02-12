@@ -7,6 +7,7 @@
 	left: 0;
 	z-index: 9999;
 	width: 100%;
+	// background-color: black;
 	nav{
 		display: flex;
 		justify-content: space-between;
@@ -78,6 +79,7 @@
 			display: none;
 			.HamburgerMenuCloseIcon{
 				font-size: 25px;
+				color: white;
 			}
 		}
 	}
@@ -90,13 +92,14 @@
 // header responsive start 
 @media only screen and ( max-width :950px) {
 	.header{
-		background-color: black;
-		color: white;
+		// background-color: black;
+		// color: white;
 		nav{
 			padding: 0 20px;
 			.navLogo{
 			   img{
 				width: 140px;
+				
 			   }
 			}		
 			.navPages{

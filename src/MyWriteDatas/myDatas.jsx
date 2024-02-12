@@ -17,6 +17,7 @@ import bg3 from "../assets/images/bg3.png"
 import bg4 from "../assets/images/bg4.png"
 import bg5 from "../assets/images/bg5.png"
 import bg6 from "../assets/images/bg6.png"
+import aboutOurCatalogImg from "../assets/images/ourCatalogImg.png"
 
 
 import StoryBgImg from "../assets/images/MostlyStoryCakeStoreBgImg.svg"
@@ -165,3 +166,15 @@ export const MostlyStoryCakeStoreDatas={
 
 export const SocialMediaSliderDatas=[img12,img11,img10,img9,img8,img7,img6,img12,img11,img10,img9,img8,img7,img6]
 	
+export const aboutOurCatalogDatas={
+	detailedTitle:"Our catalog",
+	description:"It is a long established fact that a reader will be distracted by the readable content of a page whenIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use",
+	image:aboutOurCatalogImg
+}
+
+export const contactTextImgDatas={
+	mainTitle:"Mostly story cake store",
+	detailedTitle:"We cook everything fresh from own ovens short cake item!",
+	description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mode",
+	image:aboutOurCatalogImg
+}
