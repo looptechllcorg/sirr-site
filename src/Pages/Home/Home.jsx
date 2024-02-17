@@ -16,7 +16,7 @@ export default function Home() {
 	<FavoriteItems/>
 	<MostlyStoryCakeStore/>
 	<SocialMedia/>
-	<HomeContact/>
+	{/* <HomeContact/> */}
 	</>
   )
 }

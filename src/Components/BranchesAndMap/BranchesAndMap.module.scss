@@ -1,0 +1,37 @@
+// import site all color list
+@import "../../siteColorList/Colors.scss";
+
+.BranchesAndMapWrapper{
+	display: flex;
+	.contactBranchesWarapper{
+		width: 50%;
+		
+		
+		background-color: black;
+		color: white;
+		.ContactBranches{
+         width: 490px;
+		 padding: 20px 7px 25px;
+		 margin: 0 auto;
+		 overflow-y: scroll;
+		 height: 392px;
+		 &:hover {
+			&::-webkit-scrollbar-thumb {
+				background-color: yellow;
+				padding-top: 20px;
+			}
+		}
+		&::-webkit-scrollbar{
+			width: 1px;
+		}
+		&::-webkit-scrollbar-thumb{
+			background-color: transparent;
+		}
+		}
+	
+	}
+	.contactMapWrapper{
+		width: 50%;
+		height: 400px;
+	}
+}

@@ -2,6 +2,9 @@
 	font-family: 'Inter', sans-serif;
 	  display: flex;
 	  position: relative;
+	//   border: 1px solid red;
+	//   color: aqua;
+	  cursor: pointer;
 	  .branchesLine{
 		margin-right: 20px;
 		&::before {
@@ -42,15 +45,32 @@
 	}
 	.Phones{
 		padding-bottom: 10px;
+		display: flex;
+		flex-wrap: wrap;
 		.PhoneIcon{
 			margin-right: 7px;
 		}
-		.phone{
-			display: inline-block;
-			margin: 3px 0;
+		.phonesWrapper{
+			.phones{
+				display: inline-block;
+				margin: 3px 0;
+				color: white;
+			}
+			.line{
+				margin: 0 7px;
+			}
+			&:last-child{
+				.line{
+					display: none;
+				}
+			}
 		}
+		
 	}
 	}
+}
+.active{
+	color:rgba(230, 168, 76, 1);
 }
 
 

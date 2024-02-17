@@ -11,6 +11,7 @@ import contactBgImg from "../../assets/images/contactPageBgImg.jpg"
 // import my write data
 import { contactTextImgDatas } from "../../MyWriteDatas/myDatas"
 import ContactFormGroup from "../../Components/ContactFormGroup/ContactFormGroup"
+import BranchesAndMap from "../../Components/BranchesAndMap/BranchesAndMap"
 
 export default function Contact() {
   return (
@@ -22,7 +23,9 @@ export default function Contact() {
 
 			<TextAndImgSideBySide bgColor={"transparent"} data={contactTextImgDatas}/>
 	     
-		 <ContactFormGroup/>
+		     <ContactFormGroup/>
+
+			 <BranchesAndMap />
 	
 		</div>
 	  

@@ -8,7 +8,7 @@ export default function TextAndImgSideBySide({data,bgColor}) {
   return (
 	<div className={style.TextAndImg}>
 	<div style={{backgroundColor:bgColor}} className={style.TextWrapper}>
-	     <TitleList textStart={"start"} detailedTitle={data.detailedTitle} mainTitle={data.mainTitle}/>
+	     <TitleList textPosition={"start"} detailedTitle={data.detailedTitle} mainTitle={data.mainTitle}/>
 		 <p  className={style.descrioption}>
 	       {data.description}
 		</p>

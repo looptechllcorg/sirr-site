@@ -3,11 +3,49 @@
 
 .formWrapper{
 	text-align: center;
+	width: 50%;
+	margin: 30px auto;
+	.formTitle{
+		font-size: 32px;
+		line-height: 38px;   
+		font-weight: 500;
+		padding: 0 50px;
+	}
+	.formShortInfo{
+         font-size: 12px;
+		 line-height: 19px;
+		 font-family: 'Inter', sans-serif; 
+	     margin: 14px auto;
+		 width: 300px;
+	   }
 	.formGroup{
-		width: 50%;
-		margin: 30px auto;
+		.inputList{
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(10rem,1fr));
-	    gap: 3rem 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(12rem,1fr));
+	}
+	textarea{
+		border: none;
+		resize: none;
+		outline: none;
+		border-bottom: 1px solid black;
+		margin: 20px 0;
+		width: 95%;
+	    padding-right: 50px;
+		font-size: 15px;
+		font-weight: 500;
+		font-family: "IBM Plex Serif", serif;
 	}
 }
+}
+
+
+@media only screen and (max-width: 850px) {
+	.formWrapper{
+		width: 100%;
+	.formTitle{
+		font-size: 25px;
+		line-height: 30px;   
+		padding: 0;
+	}
+		}
+	}

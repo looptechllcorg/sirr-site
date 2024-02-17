@@ -1,0 +1,144 @@
+// import all site color
+@import "../../siteColorList/Colors.scss";
+
+#details{
+	.prDetailsWrapper{
+		width: 100%;
+		padding: 80px 100px;
+		display: flex;
+		.MobilePrDetailsTitle{
+			display: none;
+		}
+		.MobilePrDetailsPrice{
+			display: none;
+		}
+		.prDetailsImg{
+			width: 470px;
+			height: 400px;
+			// aspect-ratio: 3/3;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+		    }
+		.prDetailsInfo{
+			width: 50%;
+			margin: 20px 0 0 40px;
+			.prDetailsTitle{
+				font-size: 32px;
+				font-weight: 500;
+				line-height: 38px;
+			}
+			.prDetailsPrice{
+				font-size: 32px;
+				font-weight: 500;
+				color: $prDetailsPriceUnitQuantityColor;
+				margin: 10px 0;
+			}
+			.CallMe{
+				display: block;
+				border: 1px solid $prDetailsCallMeBtnBorderColor;
+				background-color: $prDetailsCallMeBtnBgColor;
+				padding: 7px 60px;
+               border-radius: 5px;
+			   margin: 20px 0;
+			   cursor: pointer;
+			}
+			.prDetailsDescription{
+			    width: 80%;
+				margin: 30px 0;
+				font-size: 16px;
+				line-height: 22px;
+				opacity: 0.7;
+				font-family: "Inter", sans-serif;
+			}
+			.PrDetailsSize{
+				margin: 10px 0 0 0;
+				font-size: 24px;
+				font-weight: 500;
+				.unitQuantity{
+				color: $prDetailsPriceUnitQuantityColor;
+				}
+			}
+		     }
+	}
+	.line{
+		margin-bottom: 80px;
+	}
+	.seeAlsoPrWrapper{
+		width: 100%;
+		padding: 30px 100px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(12rem,1fr));
+		gap: 2rem;
+		img{
+			width: 100%;
+			aspect-ratio: 1/1.1;
+			object-fit: cover;
+			border-radius: 5px;
+		}
+		.seeAlsoPrTitle{
+			color: black;
+			font-weight: 700;
+			font-size: 22px;
+			line-height: 26px;
+		}
+	}
+}
+
+
+// ====  Details  ===== section responsive start
+@media only screen and (max-width: 950px) {
+	#details{
+		.prDetailsWrapper{
+			padding: 40px 10px;
+			.prDetailsInfo{
+				width: 50%;
+				.prDetailsDescription{
+					width: 100%;
+				}
+				 }
+		}
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	#details{
+		.prDetailsWrapper{
+			flex-direction: column;
+			.MobilePrDetailsTitle{
+				display: block;
+				font-size: 32px;
+				font-weight: 500;
+				line-height: 38px;
+			}
+			.MobilePrDetailsPrice{
+				display: block;
+				font-size: 35px;
+				font-weight: 500;
+				color: $prDetailsPriceUnitQuantityColor;
+				margin: 10px 0;
+			}
+			.prDetailsImg{
+				width: auto;
+				}
+			.prDetailsInfo{
+				width: 100%;
+				margin: 20px 0;
+				.prDetailsTitle{
+			    	display: none;
+				}
+				.prDetailsPrice{
+					display: none;
+				}
+				.CallMe{
+				    width: 100%;
+					padding: 15px 60px;
+				}
+				 }
+		}
+	}
+}

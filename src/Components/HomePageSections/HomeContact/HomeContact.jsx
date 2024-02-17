@@ -20,8 +20,8 @@ export default function HomeContact() {
                  <Branches/>
                  <Branches/>
                  <Branches/>
-                 {/* <Branches/> */}
-                 {/* <Branches/> */}
+                 <Branches/>
+                 <Branches/>
 				</div>
 
 				<div className={style.social}>

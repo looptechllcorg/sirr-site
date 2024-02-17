@@ -99,62 +99,92 @@ export const DesertsSliderRightDatas=[
 export const FavoriteItemsDatas=[
 	{
 		id:1,
-		image:img1,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img1,
+		title:"Şokoladlı-albalı tort Şokoladlı-albalı tort dfsfdsfsfsfsdfdsfsf",
+		slug:"sokoladli-albali-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"20.99",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img2,img3,img4,img5,img7]
 	},
 	{
 		id:2,
-		image:img2,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img2,
+		title:"Meyveli tort",
+		slug:"meyveli-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"87.50",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img8,img6,img11,img5,img7]
 	},
 	{
 		id:3,
-		image:img3,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img3,
+		title:"Cemli tort",
+		slug:"cemli-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"32.99",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img6,img2,img11,img9,img1]
 	},
 	{
 		id:4,
-		image:img4,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img4,
+		title:"Napaleon tort",
+		slug:"napaleon-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"120.40",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img5,img3,img12,img6,img10]
 	},
 	{
 		id:5,
-		image:img5,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img5,
+		title:"Qarisiq tort",
+		slug:"qarisiq-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"91.99",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img6,img8,img4,img12,img9]
 	},
 	{
 		id:6,
-		image:img6,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img6,
+		title:"Qozlu tort",
+		slug:"qozlu-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"78.00",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img11,img5,img4,img1,img8]
 	},
 	{
 		id:7,
-		image:img7,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img7,
+		title:"Balli  tort",
+		slug:"balli-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"20.30",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img5,img3,img1,img10,img6]
 	},
 	{
 		id:8,
-		image:img8,
-		title:"Şokoladlı-albalı tort",
+		CoverImage:img8,
+		title:"Yungul tort",
+		slug:"yungul-tort",
+		quantity:"1",
 		unit:"kq",
-		price:"20"
+		price:"20.99",
+		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
+		gallery:[img4,img1,img3,img9,img2]
 	},
-
-
 ]
 
 export const MostlyStoryCakeStoreDatas={
@@ -178,3 +208,25 @@ export const contactTextImgDatas={
 	description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default mode",
 	image:aboutOurCatalogImg
 }
+
+export const BranchesDatas=[
+	{id:1,
+	title:"Office at Narimanov",
+	working_hours:"Hər zaman açıq",
+	address:"Heydər Əliyev prospekti 68",
+	phones:"070 266 16 26/012 566 16 20/070 266 16 26/012 566 16 20",
+	}
+	,{id:2,
+	title:"Office at Inshaatchilar",
+	"working_hours":null,
+	address:"Hüseyn Cavid prospekti 47F",
+	phones:"070 338 51 50/012 538 51 50",
+	},
+	{id:3,
+	title:"Office at Elmlar",
+	"working_hours":null,
+	address:"İnşaatçılar prospekti 28",
+	phones:"070 610 89 00/012 510 89 00",
+	},
+
+]

@@ -2,10 +2,10 @@
 import style from "./Button.module.scss"
 
 
-export default function Button({text,textColor, borderStyle}) {
+export default function Button({text,textColor, borderStyle, btnType}) {
   return (
-	<div style={{color:textColor, border:borderStyle}} className={style.button}>
+	<button type={btnType} style={{color:textColor, border:borderStyle}} className={style.button}>
 	  {text}
-	</div>
+	</button>
   )
 }

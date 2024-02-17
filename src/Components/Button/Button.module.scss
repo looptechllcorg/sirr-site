@@ -1,12 +1,14 @@
 @import "../../siteColorList/Colors.scss";
 
 .button{
-	display: inline-block;
+	// display:block;
 	padding: 10px 30px;
+	// width: 164px;
+	// height: 43px;
 	background-color: transparent;
+	font-family: 'IBM Plex Serif', serif;
 	color: $buttonColor;
-	opacity: 1;
-	font-size: 0.875rem;
+	font-size: 14px;
 	font-weight: 500;
 	border: 1px solid $buttonBorderColor;
     border-radius: 5px;

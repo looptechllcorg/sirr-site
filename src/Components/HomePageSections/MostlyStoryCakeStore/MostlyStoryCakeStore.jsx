@@ -18,7 +18,7 @@ export default function MostlyStoryCakeStore() {
 				</div>
 				<div className={style.storeDescriptionWrapper}>
 					<div className={style.storeDescription}>
-                     <TitleList textStart={"start"} mainTitle={MostlyStoryCakeStoreDatas.mainTitle} detailedTitle={MostlyStoryCakeStoreDatas.detailedTitle} detailedTitleColor={"white"}/>
+                     <TitleList textPosition={"start"} mainTitle={MostlyStoryCakeStoreDatas.mainTitle} detailedTitle={MostlyStoryCakeStoreDatas.detailedTitle} detailedTitleColor={"white"}/>
 				     <p className={style.description}>{MostlyStoryCakeStoreDatas.description}</p>
                       <Button textColor={"white"} borderStyle={"1px solid white"} text={"Read more"}/>
 				</div>   

@@ -7,6 +7,6 @@ export default function MainBgImage({bgImg, bgImgOnText}) {
 		  <div className={style.overlay}>
 		  <h3 className={style.bgOnTitle}>{bgImgOnText}</h3>
 		  </div>
-		  </div>
-  )
+		  </div>   
+  )   
 }
