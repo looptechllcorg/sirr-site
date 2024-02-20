@@ -1,5 +1,3 @@
-
-
 // import style scss
 import style from "./MainSlider.module.scss"
 
@@ -10,13 +8,12 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { EffectFade, Navigation,Autoplay, Pagination} from 'swiper/modules';
-// import react icons
-import { FaArrowRight } from "react-icons/fa6";
-import { FaArrowLeft } from "react-icons/fa6";
 // import my write datas
 import { MainSliderDatas } from "../../../MyWriteDatas/myDatas";
 import Button from "../../Button/Button";
 import { Link } from "react-router-dom";
+import ArrowLeftIcon from "../../../assets/icons/ArrowLeftIcon";
+import ArrowRightIcon from "../../../assets/icons/ArrowRightIcon";
    
 
 export default function MainSlider() {  
@@ -53,8 +50,8 @@ export default function MainSlider() {
 			
 				</SwiperSlide>
 			))}
-            	    <div className="mainSlider-swiper-button-prev"><FaArrowRight /></div>
-					<div className="mainSlider-swiper-button-next"><FaArrowLeft /></div>
+            	    <div className="mainSlider-swiper-button-prev"><ArrowRightIcon/></div>
+					<div className="mainSlider-swiper-button-next"><ArrowLeftIcon/></div>
       </Swiper>
 		</div>
 	  

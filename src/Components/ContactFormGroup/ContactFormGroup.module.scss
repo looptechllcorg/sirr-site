@@ -28,12 +28,17 @@
 		resize: none;
 		outline: none;
 		border-bottom: 1px solid black;
-		margin: 20px 0;
 		width: 95%;
 	    padding-right: 50px;
 		font-size: 15px;
 		font-weight: 500;
 		font-family: "IBM Plex Serif", serif;
+	}
+	.errorMessage{
+		color: $InputAndTextareaErrorMsgColor;
+		width: 95%;
+		text-align: start;
+		margin: 0 auto 35px;
 	}
 }
 }

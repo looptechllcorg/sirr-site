@@ -15,12 +15,12 @@ function App() {
 
   return (
     <>
-     <Header/>
+     <Header/> 
      
      <ScrollToTop/>
      <Routes>
       <Route path="/" element={<Home/>}/>
-      {/* <Route path="/about us" element={<About/>}/> */}
+       {/* <Route path="/about us" element={<About/>}/>  */}
       <Route path="/product" element={<Product/>}/>
       <Route path="/media" element={<Media/>}/>
       <Route path="/contact" element={<Contact/>}/>

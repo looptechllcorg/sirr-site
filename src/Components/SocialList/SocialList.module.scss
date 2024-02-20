@@ -14,15 +14,32 @@
 	justify-content: center;
 	align-items: center;
 	padding: 24px 0;
-	.facebook{
+	.facebookIcon{
 		margin: 14px 0;
 	}
-	img{
-		padding: 7px;
+
+	.instagramIcon,
+	.facebookIcon,
+	.WhatsappIcon
+	{
+		width: 47px;
+		height: 47px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		background-color: $socialBgColor;
 		border: 1px solid $socialBorderColor;
 		border-radius: 100%;
 		cursor: pointer;
+	}
+	.instagramIcon:hover{
+		background-color: #E1306C;
+	}
+	.facebookIcon:hover{
+		background-color: #4267B2;
+	}
+	.WhatsappIcon:hover{
+		background-color: green;
 	}
 }
 

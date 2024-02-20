@@ -17,7 +17,7 @@ export default function Contact() {
   return (
 	<section id={style.contact}>
 		<SocialList/>
-		<div style={{paddingTop:0}} className="container">
+		<div style={{paddingTop:0}} className="container">  
 
 			<MainBgImage bgImg={contactBgImg} bgImgOnText={"Contact"}/>
 

@@ -9,5 +9,16 @@
 	font-family: 'IBM Plex Serif', serif;
 	border-bottom: 1px solid black;
 	width: 90%;
-	margin: 20px 0;
+}
+.InpError{
+    color:$InputAndTextareaErrorMsgColor;
+    text-align: start;
+    width: 90%;
+    margin: 0 auto 35px;
+}
+
+// number (telefon) inputun css
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
 }

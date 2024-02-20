@@ -5,8 +5,8 @@
 	display: flex;
 	padding: 80px 0;
 	.TextWrapper{
-	flex: 1;
-	background-color: rgba(255, 251, 245, 1);
+		flex: 1;
+	   background-color: rgba(255, 251, 245, 1);
 		padding-left: 100px;
 	   .descrioption{
 	   font-size: 13px;
@@ -18,8 +18,12 @@
 	}
 	.image{
 	flex: 1;
+	img{
 	width: 100%;
-	height: 55vh;
+	height: 100%;
+    aspect-ratio: 1/.3;
+	object-fit: cover;
+	}
 	}
 	}
 
@@ -36,7 +40,10 @@
 		   }
 		}
 		.image{
-		  padding-top: 30px;
+		  margin-top: 30px;
+		  img{
+			aspect-ratio: 1/.5;
+			}
 		}
 		}
 }

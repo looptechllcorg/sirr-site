@@ -14,7 +14,9 @@ export default function TextAndImgSideBySide({data,bgColor}) {
 		</p>
 		<Button text={"View Catalogue"}/>
 	</div>
-	<img className={style.image} src={data.image} alt="" />   
+	<div className={style.image}>
+	<img  src={data.image} alt="" />   
+	</div>
 </div>
   )
 }

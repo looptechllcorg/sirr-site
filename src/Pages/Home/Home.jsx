@@ -6,6 +6,7 @@ import FavoriteItems from '../../Components/HomePageSections/FavoriteItems/Favor
 import MostlyStoryCakeStore from '../../Components/HomePageSections/MostlyStoryCakeStore/MostlyStoryCakeStore'
 import HomeContact from '../../Components/HomePageSections/HomeContact/HomeContact'
 import SocialMedia from '../../Components/HomePageSections/SocialMedia/SocialMedia'
+import VideoPlayer from '../../Components/VideoPlayer/VideoPlayer'
 
 export default function Home() {
   return (
