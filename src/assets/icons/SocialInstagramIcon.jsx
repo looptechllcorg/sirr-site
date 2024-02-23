@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SocialInstagram(props) {
+export default function SocialInstagramIcon(props) {
   return (
 	<svg
 	xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +9,7 @@ export default function SocialInstagram(props) {
 	fill="none"
 	viewBox="0 0 17 17"
 	{...props}
-  >
+  >   
 	<path
 	  stroke="#fff"
 	  strokeWidth="1.097"

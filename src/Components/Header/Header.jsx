@@ -8,11 +8,11 @@ import serachIcon from "../../assets/icons/searchIcon.svg";
 import { Select } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
-// import socila icons list
-import instagramIcon from "../../assets/icons/instagram.svg";
-import facebookIcon from "../../assets/icons/facebook.svg";
-import whatsappIcon from "../../assets/icons/whatsapp.svg";
+import { useEffect, useRef, useState } from "react";
+import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
+import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
+import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
+
 
 export default function Header() {
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
@@ -31,6 +31,10 @@ export default function Header() {
     const FuncShowHidenMenu = () => {
         setShowHiddenMenu(!showHiddenMenu);
     };
+
+ 
+
+
     return (
         <section className={`${style.header} ${navColorChange ? style.navBlack : ""}`}>
             <div style={{ padding: 0 }} className="container">
@@ -51,7 +55,8 @@ export default function Header() {
                         </div>
                         <ul className={style.navPageList}>
                             <li>
-                                <NavLink onClick={()=>showHiddenMenu()}
+                                <NavLink
+                                    onClick={() => showHiddenMenu()}
                                     to={"/about us"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -62,7 +67,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                onClick={()=>showHiddenMenu()}
+                                    onClick={() => showHiddenMenu()}
                                     to={"/product"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -73,7 +78,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                onClick={()=>showHiddenMenu()}
+                                    onClick={() => showHiddenMenu()}
                                     to={"/media"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -84,7 +89,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                onClick={()=>showHiddenMenu()}
+                                    onClick={() => showHiddenMenu()}
                                     to={"/contact"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -96,13 +101,13 @@ export default function Header() {
                         </ul>
                         <div className={style.mobileSocial}>
                             <a className={style.instagram} target="_blank" rel="noreferrer" href="https://www.instagram.com/">
-                                <img src={instagramIcon} alt="burada instagram iconu var" />
+                                <SocialInstagramIcon/>
                             </a>
                             <a className={style.facebook} target="_blank" rel="noreferrer" href="https://www.facebook.com/">
-                                <img src={facebookIcon} alt="burada facebook iconu var" />
+                                <SocialFacebookIcon/>
                             </a>
                             <a className={style.whatsapp} target="_blank" rel="noreferrer" href="https://web.whatsapp.com/">
-                                <img src={whatsappIcon} alt="burada whatsapp iconu var" />
+                                <SocialWhatsappIcon/>
                             </a>
                         </div>
                     </div>
@@ -120,7 +125,7 @@ export default function Header() {
                             </Select>
                         </div>
                     </div>
-                    <div onClick={() => FuncShowHidenMenu()} className={style.HamburgerMenu}>
+                    <div  onClick={() => FuncShowHidenMenu()} className={style.HamburgerMenu}>
                         {showHiddenMenu ? <IoMdClose className={style.HamburgerMenuCloseIcon} /> : <RxHamburgerMenu className={style.HamburgerMenuCloseIcon} />}
                     </div>
                 </nav>

@@ -8,6 +8,7 @@ import Product from "./Pages/Product/Product"
 import Media from "./Pages/Media/Media"
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop"
 import PrDetailsPage from "./Pages/PrDetailsPage/PrDetailsPage"
+import { GlobalProvider } from "./Contexts/GlobalContext"
 
 
 
@@ -15,12 +16,13 @@ function App() {
 
   return (
     <>
+    <GlobalProvider>
      <Header/> 
      
      <ScrollToTop/>
      <Routes>
       <Route path="/" element={<Home/>}/>
-       {/* <Route path="/about us" element={<About/>}/>  */}
+      <Route path="/about us" element={<About/>}/> 
       <Route path="/product" element={<Product/>}/>
       <Route path="/media" element={<Media/>}/>
       <Route path="/contact" element={<Contact/>}/>
@@ -29,6 +31,7 @@ function App() {
       
      </Routes>
      <Footer/>
+     </GlobalProvider>
     </>
   )
 }

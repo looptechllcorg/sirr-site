@@ -8,7 +8,7 @@ export default function SocialFacebookIcon(props) {
       height="24"
       fill="none"
       viewBox="0 0 24 24"
-	  {...props}
+	  {...props}      
     >
       <path
         fill="#fff"

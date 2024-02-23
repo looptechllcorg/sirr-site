@@ -7,13 +7,11 @@
 	left: 0;
 	z-index: 9999;
 	width: 100%;
-	// background-color: black;
 	nav{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		height: 110px;
-		// background-color: transparent;
 		padding: 0 100px;
 		.navLogo{
 		   flex: .4;
@@ -117,8 +115,9 @@
 					 width: 100%;   
 				     padding: 0 15px 12px;
 					.mobileLang{
+						color: white;
 						.langCategory{
-                            font-size: 20px;
+                            font-size: 18px;
 							margin-right: 11px;
 							cursor: pointer;
 						}
@@ -146,19 +145,18 @@
 				}
 			}
 				.mobileSocial{
-					display: block;
-					padding: 30px 7px;
+					display: flex;
 					a{
-						padding: 10px 5px;
-						img{
-							padding: 7px;
-							border: 1px solid $socialBorderColor;
-							border-radius: 100%;
-							cursor: pointer;
-						}
+						width: 47px;
+						height: 47px;
+						border-radius: 50%;
+						border: 1px solid white;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						margin: 8px 10px;
 					}
 				}
-
 			}
 			.hiddenMenu{
 				right: 0;

@@ -37,6 +37,9 @@
 	}
 	.branchesLocationAdress{
 		display: flex;
+		.locationIcon{
+			margin-top: 10px;
+		}
 		.Adress{   
 			font-size: 14px;
 			font-weight: 500;
@@ -48,7 +51,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		.PhoneIcon{
-			margin:4px 7px 0 0;
+			margin:0 7px 0 0;
 		}
 		.phonesWrapper{
 			.phones{

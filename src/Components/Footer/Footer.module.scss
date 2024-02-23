@@ -14,17 +14,16 @@
 			.footerSocila{
 				display: flex;
 				justify-content: space-around;
-			
+			    margin: 0 auto;
 				a{
-					padding: 10px 9px 4px 10px;
-					border-radius: 100%;
 					border: 2px solid rgba(127, 57, 44, 1);
-					margin: 14px 5px;
-				img{
-					width: 20px;
-					height: 20px;
-					object-fit: cover;
-				}
+					margin: 4px 0;
+					width: 28px;
+					height: 28px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border-radius: 50%;
 				}
 			}
 		}
@@ -42,11 +41,24 @@
 		width: 100%;
 	}
 	.looptech{
-		display: block;
-		text-align: center;
 		padding: 7px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: black;
+			.title{ 
+				color: white;
+			     margin-right: 14px; 
+				 font-size: 20px;
+			       }
+			.looptechLogo{
+				width: 120px;
+				height: 20px;
+				pointer-events:none;
+				color: black;
+			}
+		}
 	}
-}
 
 
 // FooterSection responsive

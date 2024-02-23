@@ -6,17 +6,18 @@ import storyImg from "../../../assets/images/cakeStore.png"
 import { MostlyStoryCakeStoreDatas} from "../../../MyWriteDatas/myDatas"
 import TitleList from "../../TitleList/TitleList"
 import Button from "../../Button/Button";
-import { useEffect, useState } from "react";
 import VideoPlayer from "../../VideoPlayer/VideoPlayer";
+import homeVideo from "../../../assets/video/video3Miami.mp4"
+// import { useContext} from "react";
+// import { GlobalContext } from "../../../Contexts/GlobalContext";
+import videoStartImage from "../../../assets/images/videoStartImg.png"
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 
 
 export default function MostlyStoryCakeStore() {
-	const [showVideo, setShowVideo]=useState(true)
-
-
-		const onClickShowHiddenVideo=()=>{
-			setShowVideo(!showVideo)
-		}
+//   const {showHiddenVideo, onClickShowHiddenVideo}=useContext(GlobalContext)
 
 	
 	
@@ -24,11 +25,12 @@ export default function MostlyStoryCakeStore() {
 	<section id={style.MostlyStoryCakeStoreWrapper}>
 		<div className="container">    
 		
-		   {showVideo ? null : <VideoPlayer/> }  
+		   {/* {showHiddenVideo ?      */}
 			<div className={style.Storewrapper}>
 				<div className={style.storyImg}>
 				<img src={storyImg} alt="" />
 				</div>
+
 				<div className={style.storeDescriptionWrapper}>
 					<div className={style.storeDescription}>
                      <TitleList textPosition={"start"} mainTitle={MostlyStoryCakeStoreDatas.mainTitle} detailedTitle={MostlyStoryCakeStoreDatas.detailedTitle} detailedTitleColor={"white"}/>
@@ -36,9 +38,26 @@ export default function MostlyStoryCakeStore() {
                       <Button textColor={"white"} borderStyle={"1px solid white"} text={"Read more"}/>
 				</div>   
 				</div>
-				<button  onClick={()=>onClickShowHiddenVideo()}  
-				className={style.playVideo}>play</button>  
+				
+				{/* <Fancybox> */}
+				{/* <button 
+				//  onClick={onClickShowHiddenVideo}  
+				className={style.playVideoBtn}>
+					<img src={videoStartImage} alt="" />
+				</button>    */}
+				{/* <VideoPlayer data={homeVideo}/>  */}
+				{/* </Fancybox> */}
+
+				<button className={style.playVideoBtn} onClick={() => Fancybox.show([{ src: "#modal" }])}>
+			     	<img src={videoStartImage} alt="" />
+                   </button>
+
+				   <div id="modal" className="fancybox-content">
+				   <VideoPlayer data={homeVideo}/> 
+                 </div>
+
 			</div>
+			 {/* : <VideoPlayer data={homeVideo}/>    */}
 		</div>
 	  
 	</section>

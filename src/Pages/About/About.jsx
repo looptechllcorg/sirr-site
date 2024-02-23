@@ -8,12 +8,19 @@ import aboutBgImg from "../../assets/images/aboutBgImg.jpg"
 // import my write datas
 import { aboutOurCatalogDatas } from "../../MyWriteDatas/myDatas"
 import TextAndImgSideBySide from "../../Components/TextAndImgSideBySide/TextAndImgSideBySide"
+import AboutVideo from "../../assets/video/video1.mp4"  
+import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer"
+import videoStartImage from "../../assets/images/videoStartImg.png"
+import { useContext, useState } from "react"
+import { GlobalContext } from "../../Contexts/GlobalContext"
  
 
 export default function About() {
+	const {showHiddenVideo, onClickShowHiddenVideo}=useContext(GlobalContext)
+	
   return (
 	<section id={style.about}>
-		<SocialList/>
+		<SocialList/>    
 		<div style={{paddingTop:0}} className="container">
 
          <MainBgImage bgImg={aboutBgImg} bgImgOnText={"About us"}/>
@@ -25,11 +32,18 @@ export default function About() {
 			</p>
 		  </div>
 
-		   <div className={style.videoBgImg}>
-			<div className={style.videoBgOverlay}></div>
+		 {
+			showHiddenVideo ? 
+			<div className={style.videoBgImg}>
+			<div className={style.videoBgOverlay}></div>  
+			
+			<button onClick={onClickShowHiddenVideo} className={style.startVideoBtn}><img src={videoStartImage} alt="" /></button>
 		   </div>
+		   : <VideoPlayer data={AboutVideo}/>
+		 }  
+		       
 		
-     <TextAndImgSideBySide data={aboutOurCatalogDatas}/>
+           <TextAndImgSideBySide data={aboutOurCatalogDatas}/>
 
 		<div className={style.OurInformation}>
 			<span className={style.infoWrapper}>icon <h6 className={style.infoTitle}>17 years activity</h6></span>

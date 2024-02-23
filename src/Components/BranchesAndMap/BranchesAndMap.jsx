@@ -24,7 +24,7 @@ const icon = L.icon({
 const position = [51.505, -0.09]
 
 export default function BranchesAndMap() {
-	const [activeBranch, setActiveBranch]=useState(BranchesDatas[0]);
+	const [activeBranch, setActiveBranch]=useState(BranchesDatas[0]);  
 
 	const onClickBranch=()=>{
 		setActiveBranch(!activeBranch)

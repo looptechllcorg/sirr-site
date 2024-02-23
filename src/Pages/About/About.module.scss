@@ -9,7 +9,7 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
-		margin-top: -110px;
+		margin-top: -110px;   
 		position: relative;
 		.overlay{
 			position: absolute;
@@ -45,7 +45,7 @@
 	}
 	.videoBgImg{
 		width: 100%;
-		height: 85vh;
+		height: 78vh;
 		background-image: url("../../assets/images/aboutVideoBgImg.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -58,6 +58,14 @@
 		   background-color: rgba(0, 0, 0, 0.4);
 		   width: 100%;
 		   height: 100%;
+		}
+		.startVideoBtn{
+			border-radius: 80%;
+			cursor: pointer;
+			margin: auto;
+			top: 30%;
+			position: relative;
+			display: flex;
 		}
 	}
 	.aboutOurCatalog{
