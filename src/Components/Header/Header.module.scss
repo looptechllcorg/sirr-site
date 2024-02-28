@@ -131,7 +131,7 @@
 					justify-content: space-between;
 					align-items: center;
 					 width: 100%;   
-				     padding: 0 15px 12px;
+				     padding: 10px 15px 12px;
 					.mobileLang{
 						color: white;
 						.langCategory{
@@ -164,8 +164,12 @@
 				}
 			        }
 					.searchInput{
-						top: -70px;
-						width: 65%;
+						top: -92px;
+						width: 100%;
+						left: 0;
+						font-size: 17px;
+						color: green;
+						padding-left: 14px;
 					  }
 				    }
 				.mobileSocial{

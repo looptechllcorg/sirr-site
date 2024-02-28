@@ -10,6 +10,7 @@ import ScrollToTop from "./Components/ScrollToTop/ScrollToTop"
 import PrDetailsPage from "./Pages/PrDetailsPage/PrDetailsPage"
 import { GlobalProvider } from "./Contexts/GlobalContext"
 import SearchResult from "./Pages/SearchResult/SearchResult"
+import { SearchProvider } from "./Contexts/SearchContext"
 
 
 
@@ -18,12 +19,13 @@ function App() {
   return (
     <>
     <GlobalProvider>
+    <SearchProvider>
      <Header/> 
      
      <ScrollToTop/>
      <Routes>
       <Route path="/" element={<Home/>}/>
-      {/* <Route path="/about us" element={<About/>}/>  */}
+      <Route path="/about us" element={<About/>}/> 
       <Route path="/product" element={<Product/>}/>
       <Route path="/media" element={<Media/>}/>
       <Route path="/contact" element={<Contact/>}/>
@@ -33,6 +35,7 @@ function App() {
       
      </Routes>
      <Footer/>
+     </SearchProvider>  
      </GlobalProvider>
     </>
   )

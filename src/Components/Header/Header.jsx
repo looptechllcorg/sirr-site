@@ -8,32 +8,54 @@ import serachIcon from "../../assets/icons/searchIcon.svg";
 import { Select } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useRef, useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
+import { SearchContext } from "../../Contexts/SearchContext";
 
 
 export default function Header() {
+    const {searchInpValue, setSearchInpValue} =useContext(SearchContext);
+    const inputRef = useRef(null); 
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
     const [navColorChange, setNavColorChange] = useState(false);
     const [searchInputShow, setSearchInputShow]=useState(false);
-    const [searchInpValue, setSearchInpValue]=useState("")
+    const [noIcon, setNoIcon]=useState(true)
+    // const [noInput,setNoInput]=useState(true)
     const navigate=useNavigate()
  
+    // site search 
     const onChangeInput=(e)=>{
          setSearchInpValue(e.target.value)
     }
      
+    const handleKeyDown=(e)=>{
+        if(searchInpValue !== "" && e.key === "Enter"){
+          navigate(`/search?searchInpValue=${searchInpValue}`)
+             setSearchInputShow(false)
+             setNoIcon(false)
+        }
+        else{
+            return false
+        }
+    }
     const handleShowSearchInput=()=>{
           if(searchInpValue === ""){
         setSearchInputShow(!searchInputShow)
           }
           else{
-            navigate("/search")
+            navigate(`/search?searchInpValue=${searchInpValue}`)
+            setSearchInputShow(false)
+            setNoIcon(false)
           }
     }
 
+    const ClearInputValue=()=>{
+        setSearchInpValue("")
+    }
+
+    // scroll nav change color function start
     const FuncNavColorChange = () => {
         if (window.scrollY > 80) {
             setNavColorChange(true);
@@ -48,7 +70,6 @@ export default function Header() {
         setShowHiddenMenu(!showHiddenMenu);
     };
 
- 
 
 
     return (
@@ -66,7 +87,7 @@ export default function Header() {
                                 <span className={style.langCategory}>RU</span>
                             </div>
                             <span className={style.mobileSearchIcon}>
-                                <img src={serachIcon} alt="" />
+                                <img onClick={handleShowSearchInput} src={serachIcon} alt="" />
                             </span>
                         </div>
                         <div className={style.pageAndSearch}>
@@ -117,10 +138,12 @@ export default function Header() {
                             </li>
                         </ul>
                       {
-                     searchInputShow ? <input 
+                        searchInputShow ? <input 
                      className={style.searchInput}
                       value={searchInpValue}
                       onChange={onChangeInput}
+                      onKeyDown={handleKeyDown}
+                      ref={inputRef}
                        /> : ""
                       }  
                         </div>
@@ -131,13 +154,15 @@ export default function Header() {
                             <a className={style.facebook} target="_blank" rel="noreferrer" href="https://www.facebook.com/">
                                 <SocialFacebookIcon/>
                             </a>
-                            <a className={style.whatsapp} target="_blank" rel="noreferrer" href="https://web.whatsapp.com/">
+                            <a className={style.whatsapp}  target="_blank" rel="noreferrer" href="https://wa.me/+994554446640">
                                 <SocialWhatsappIcon/>
                             </a>
                         </div>
                     </div>
                     <div className={style.SearchLang}>
-                        <img onClick={handleShowSearchInput} className={style.serachIcon} src={serachIcon} alt="burada axtaris iconu var" />
+                     
+                     { noIcon ?   <img onClick={handleShowSearchInput} className={style.serachIcon} src={serachIcon} alt="burada axtaris iconu var" />
+                          :""    }
                         <div className={style.lang}>
                             <Select
                                 //  w="60px" h="30"
