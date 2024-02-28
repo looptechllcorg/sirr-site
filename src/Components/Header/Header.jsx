@@ -1,14 +1,14 @@
 // import style scss
 import style from "./Header.module.scss";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 // import  nav logo
 import navLogo from "../../assets/logo/whiteLogoSirr.svg";
 import serachIcon from "../../assets/icons/searchIcon.svg";
 import { Select } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
@@ -17,6 +17,22 @@ import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
 export default function Header() {
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
     const [navColorChange, setNavColorChange] = useState(false);
+    const [searchInputShow, setSearchInputShow]=useState(false);
+    const [searchInpValue, setSearchInpValue]=useState("")
+    const navigate=useNavigate()
+ 
+    const onChangeInput=(e)=>{
+         setSearchInpValue(e.target.value)
+    }
+     
+    const handleShowSearchInput=()=>{
+          if(searchInpValue === ""){
+        setSearchInputShow(!searchInputShow)
+          }
+          else{
+            navigate("/search")
+          }
+    }
 
     const FuncNavColorChange = () => {
         if (window.scrollY > 80) {
@@ -53,6 +69,7 @@ export default function Header() {
                                 <img src={serachIcon} alt="" />
                             </span>
                         </div>
+                        <div className={style.pageAndSearch}>
                         <ul className={style.navPageList}>
                             <li>
                                 <NavLink
@@ -99,6 +116,14 @@ export default function Header() {
                                 </NavLink>
                             </li>
                         </ul>
+                      {
+                     searchInputShow ? <input 
+                     className={style.searchInput}
+                      value={searchInpValue}
+                      onChange={onChangeInput}
+                       /> : ""
+                      }  
+                        </div>
                         <div className={style.mobileSocial}>
                             <a className={style.instagram} target="_blank" rel="noreferrer" href="https://www.instagram.com/">
                                 <SocialInstagramIcon/>
@@ -112,7 +137,7 @@ export default function Header() {
                         </div>
                     </div>
                     <div className={style.SearchLang}>
-                        <img className={style.serachIcon} src={serachIcon} alt="burada axtaris iconu var" />
+                        <img onClick={handleShowSearchInput} className={style.serachIcon} src={serachIcon} alt="burada axtaris iconu var" />
                         <div className={style.lang}>
                             <Select
                                 //  w="60px" h="30"
@@ -125,7 +150,9 @@ export default function Header() {
                             </Select>
                         </div>
                     </div>
-                    <div  onClick={() => FuncShowHidenMenu()} className={style.HamburgerMenu}>
+
+
+                    <div className={style.HamburgerMenu}  onClick={() => FuncShowHidenMenu()} >
                         {showHiddenMenu ? <IoMdClose className={style.HamburgerMenuCloseIcon} /> : <RxHamburgerMenu className={style.HamburgerMenuCloseIcon} />}
                     </div>
                 </nav>

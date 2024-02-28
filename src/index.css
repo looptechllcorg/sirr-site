@@ -71,15 +71,15 @@ svg{
   z-index: 9999999;
   cursor: pointer;
   transition: .4s ease;
-svg{
+/* svg{
   fill: white;
-}
-&:hover svg{
+} */
+/* &:hover svg{
  fill: green;
-}
+} */
 }
 .mainSliderWrapper{
-  height: 100vh;
+  height: 96vh;
   width: 100%;
   position: relative;
 }
@@ -175,7 +175,19 @@ svg{
   border-radius: 10px;
   opacity: .3;
 }
+.fancybox__content{
+  /* width: 200px !important;
+  height: 200px !important; */
+  aspect-ratio: 1/.5 !important;
+  border: 2px solid rgba(230, 168, 76, 1);
+}
+.fancybox__backdrop{
+  background: transparent !important;
+}
 
+.fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
+  padding-top: 130px;
+}
 @media only screen and (max-width : 550px) {
   .SocialMediaSlider .swiper-pagination-bullet {
     width: 10px;

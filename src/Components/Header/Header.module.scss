@@ -5,7 +5,7 @@
 	position: sticky;
 	top: 0;
 	left: 0;
-	z-index: 9999;
+	z-index: 999;
 	width: 100%;
 	nav{
 		display: flex;
@@ -25,6 +25,8 @@
 			.MobileLangSearch{
 				display: none;
 			}
+			.pageAndSearch{
+				position: relative;
 			.navPageList{
 				display: flex;
 				justify-content: space-between;
@@ -36,6 +38,22 @@
 				font-family: IBM Plex Serif;
 			}
 		      }
+			  .searchInput{
+				position: absolute;
+				top: 99px;
+				left: 14px;
+				background-color: transparent; 
+				width: 135%;
+				border: none;
+				font-size: 30px;
+				font-weight: 700;
+				border-bottom: 2px solid rgba(230, 168, 76, 1);
+				color: red;
+				&:focus {
+					outline: none;
+				}
+			  }
+			}
 			.mobileSocial{
 				display: none;
 			}
@@ -90,8 +108,8 @@
 // header responsive start 
 @media only screen and ( max-width :950px) {
 	.header{
-		// background-color: black;
-		// color: white;
+		background-color: black;
+		color: white;
 		nav{
 			padding: 0 20px;
 			.navLogo{
@@ -132,6 +150,7 @@
 						}
 					}
 				}
+				.pageAndSearch{
 				.navPageList{
 				flex-direction: column;
 				justify-content: flex-start;
@@ -143,7 +162,12 @@
 						color: rgba(230, 168, 76, 1);
 					}
 				}
-			}
+			        }
+					.searchInput{
+						top: -70px;
+						width: 65%;
+					  }
+				    }
 				.mobileSocial{
 					display: flex;
 					a{

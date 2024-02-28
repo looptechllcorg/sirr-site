@@ -8,10 +8,10 @@ import aboutBgImg from "../../assets/images/aboutBgImg.jpg"
 // import my write datas
 import { aboutOurCatalogDatas } from "../../MyWriteDatas/myDatas"
 import TextAndImgSideBySide from "../../Components/TextAndImgSideBySide/TextAndImgSideBySide"
-import AboutVideo from "../../assets/video/video1.mp4"  
+import AboutVideo from "../../assets/video/video3Miami.mp4"  
 import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer"
 import videoStartImage from "../../assets/images/videoStartImg.png"
-import { useContext, useState } from "react"
+import { useContext} from "react"
 import { GlobalContext } from "../../Contexts/GlobalContext"
  
 

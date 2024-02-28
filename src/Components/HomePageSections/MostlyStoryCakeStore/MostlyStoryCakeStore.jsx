@@ -6,26 +6,15 @@ import storyImg from "../../../assets/images/cakeStore.png"
 import { MostlyStoryCakeStoreDatas} from "../../../MyWriteDatas/myDatas"
 import TitleList from "../../TitleList/TitleList"
 import Button from "../../Button/Button";
-import VideoPlayer from "../../VideoPlayer/VideoPlayer";
-import homeVideo from "../../../assets/video/video3Miami.mp4"
-// import { useContext} from "react";
-// import { GlobalContext } from "../../../Contexts/GlobalContext";
 import videoStartImage from "../../../assets/images/videoStartImg.png"
-import { Fancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
+import Fancybox from "../Fancybox";
 
 
 export default function MostlyStoryCakeStore() {
-//   const {showHiddenVideo, onClickShowHiddenVideo}=useContext(GlobalContext)
-
-	
-	
   return (
 	<section id={style.MostlyStoryCakeStoreWrapper}>
 		<div className="container">    
 		
-		   {/* {showHiddenVideo ?      */}
 			<div className={style.Storewrapper}>
 				<div className={style.storyImg}>
 				<img src={storyImg} alt="" />
@@ -39,25 +28,14 @@ export default function MostlyStoryCakeStore() {
 				</div>   
 				</div>
 				
-				{/* <Fancybox> */}
-				{/* <button 
-				//  onClick={onClickShowHiddenVideo}  
-				className={style.playVideoBtn}>
-					<img src={videoStartImage} alt="" />
-				</button>    */}
-				{/* <VideoPlayer data={homeVideo}/>  */}
-				{/* </Fancybox> */}
-
-				<button className={style.playVideoBtn} onClick={() => Fancybox.show([{ src: "#modal" }])}>
-			     	<img src={videoStartImage} alt="" />
-                   </button>
-
-				   <div id="modal" className="fancybox-content">
-				   <VideoPlayer data={homeVideo}/> 
-                 </div>
-
+			       
+                <Fancybox>
+				<a className={style.videoWrapper} href={`https://www.youtube.com/watch?v=Dmhws_sBEic&pp=ygUFbWlhbWk%3D`} 
+                                          data-fancybox="gallery">
+                 <img className={style.playVideoBtn} src={videoStartImage} alt="" />
+                </a>
+				 </Fancybox>
 			</div>
-			 {/* : <VideoPlayer data={homeVideo}/>    */}
 		</div>
 	  
 	</section>

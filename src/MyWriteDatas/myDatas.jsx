@@ -11,13 +11,12 @@ import img9 from "../assets/images/img9.png"
 import img10 from "../assets/images/img10.png"
 import img11 from "../assets/images/img11.png"
 import img12 from "../assets/images/img12.png"
-import bg1 from "../assets/images/bg1.png"
-import bg2 from "../assets/images/bg2.png"
-import bg3 from "../assets/images/bg3.png"
-import bg4 from "../assets/images/bg4.png"
-import bg5 from "../assets/images/bg5.png"
-import bg6 from "../assets/images/bg6.png"
-import aboutOurCatalogImg from "../assets/images/ourCatalogImg.png"
+import bg1 from "../assets/images/aboutVideoBgImg.jpg"
+import bg2 from "../assets/images/contactPageBgImg.jpg"
+import bg3 from "../assets/images/prDetailsBgImg.jpg"
+import bg4 from "../assets/images/ourCatalogImg.jpg"
+import bg5 from "../assets/images/searchBgImg.jpg"
+import aboutOurCatalogImg from "../assets/images/ourCatalogImg.jpg"
 
 
 import StoryBgImg from "../assets/images/MostlyStoryCakeStoreBgImg.svg"
@@ -27,13 +26,13 @@ import StoryBgImg from "../assets/images/MostlyStoryCakeStoreBgImg.svg"
 export const MainSliderDatas=[
 	{
 		id:1,
-		image:bg5,
+		image:bg1,
 		title:"Qarışıq Tortlar",
 		description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequuntur facere incidunt nulla ab voluptatibus maiores, pariatur, eaque saepe porro iusto corrupti est blanditiis error sequi possimus placeat earum?"
 	},
 	{  
 		id:2,
-		image:bg4,
+		image:bg2,
 		title:"Meyvəli Tortlar",
 		description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequuntur facere incidunt nulla ab voluptatibus maiores, pariatur, eaque saepe porro iusto corrupti est blanditiis error sequi possimus placeat earum?"
 	},
@@ -45,8 +44,14 @@ export const MainSliderDatas=[
 	},
 	{
 		id:4,
-		image:bg2,  
+		image:bg4,  
 		title:"Yüngül Tortlar",
+		description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequuntur facere incidunt nulla ab voluptatibus maiores, pariatur, eaque saepe porro iusto corrupti est blanditiis error sequi possimus placeat earum?"
+	},
+	{
+		id:5,
+		image:bg5,  
+		title:"Balli Tortlar",
 		description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequuntur facere incidunt nulla ab voluptatibus maiores, pariatur, eaque saepe porro iusto corrupti est blanditiis error sequi possimus placeat earum?"
 	},
 ]
@@ -94,6 +99,10 @@ export const DesertsSliderRightDatas=[
 		id:4,
 		image:"https://minimalistbaker.com/wp-content/uploads/2015/03/AMAZING-Vegan-Chocolate-Hazelnut-Cake-1-bowl-SUPER-RICH-and-glutenfree-vegan.jpg"
 	},
+]
+ 
+export const FavoriteItemsCategoryDatas=[
+	"Bulka","Tort","Milli Sirniyatlar","Desertlər","Paxlavalar","Keks", "Piroqlar","Peraskiler","Bulka","Ruletler","Peceniyalar", "Bişmələr",
 ]
 
 export const FavoriteItemsDatas=[

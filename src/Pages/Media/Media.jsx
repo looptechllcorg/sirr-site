@@ -3,7 +3,7 @@ import style from "./Media.module.scss"
 import SocialList from "../../Components/SocialList/SocialList"
 import MainBgImage from "../../Components/MainBgImage/MainBgImage"
 // import image
-import mediaBgImg from "../../assets/images/bg1.png"
+import mediaBgImg from "../../assets/images/ourCatalogImg.jpg"
 
 
 
