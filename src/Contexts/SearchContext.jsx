@@ -8,13 +8,18 @@ export const SearchProvider=({children})=>{
 	const [searchInpValue, setSearchInpValue]=useState("")
 
  
-    
+	const onChangeInput=(e)=>{
+		setSearchInpValue(e.target.value)
+   }
 
-   
+   const ClearInputValue=()=>{
+	setSearchInpValue("")
+}
+
 	return(
 		<SearchContext.Provider value={{
 			searchInpValue,
-			setSearchInpValue,
+			onChangeInput
 			}}>
 			{children}
 		</SearchContext.Provider>

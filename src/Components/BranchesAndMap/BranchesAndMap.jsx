@@ -21,14 +21,20 @@ const icon = L.icon({
 
 
 
-const position = [51.505, -0.09]
+ const defaultPosition = [40.440708, 49.769798];
 
 export default function BranchesAndMap() {
 	const [activeBranch, setActiveBranch]=useState(BranchesDatas[0]);  
 
-	const onClickBranch=()=>{
-		setActiveBranch(!activeBranch)
-	}
+	// const onClickBranch=()=>{
+	// 	setActiveBranch(!activeBranch)    
+	// }
+	const [mapCenter, setMapCenter] = useState(defaultPosition);
+
+	const onClickBranch = (branch) => {
+	  setActiveBranch(branch);
+	  setMapCenter([branch.latitude, branch.longitude]);
+	};
 
   return (
 	<div className={style.BranchesAndMapWrapper}>
@@ -36,7 +42,12 @@ export default function BranchesAndMap() {
 			<div className={style.ContactBranches}>
 				{
 					BranchesDatas.map(branch=>(
-                      <Branches funk={onClickBranch} ac={activeBranch} key={branch.id} data={branch} />
+                      <Branches 
+					   key={branch.id} 
+					   data={branch} 
+					   onClick={() => onClickBranch(branch)}
+					   isActive={branch.id === activeBranch.id}
+					   />
 					))
 				}
 			
@@ -45,14 +56,14 @@ export default function BranchesAndMap() {
 		<div className={style.contactMapWrapper}>
 		<MapContainer
 		 style={{width:"100%", height:"100%"}}
-		  center={position} 
-		  zoom={13}
+		 center={mapCenter}
+		  zoom={11}
 		   scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"  
     />
-    <Marker position={position} icon={icon}>
+    <Marker position={mapCenter}  icon={icon}>
       {/* <Popup>
       </Popup> */}
     </Marker>

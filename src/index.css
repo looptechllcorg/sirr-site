@@ -188,6 +188,10 @@ svg{
 .fancybox__container:not(.is-compact) .fancybox__slide.has-close-btn {
   padding-top: 130px;
 }
+/* google map style */
+.leaflet-bar{
+  display: none;
+}
 @media only screen and (max-width : 550px) {
   .SocialMediaSlider .swiper-pagination-bullet {
     width: 10px;

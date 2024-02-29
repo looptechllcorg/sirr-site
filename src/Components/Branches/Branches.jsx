@@ -4,11 +4,11 @@ import PhoneIcon from "../../assets/icons/PhoneIcon"
 import LocationIcon from "../../assets/icons/LocationIcon"
 
 
-export default function Branches({data,funk,ac}) {
+export default function Branches({data,isActive,onClick}) {   
 
   return (   
-	<div onClick={()=>funk()}
-	 className={`${style.BranchesWrapper} ${ac ? style.active: ""}`}>
+	<div onClick={onClick}
+	 className={`${style.BranchesWrapper} ${isActive ? style.active: ""}`}>
 	     <hr className={style.branchesLine} />
 		 <div className={style.Branch}>
 	         <h5 className={style.branchesTitle}>{data.title}</h5>   

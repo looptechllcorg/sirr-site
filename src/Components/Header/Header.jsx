@@ -8,7 +8,7 @@ import serachIcon from "../../assets/icons/searchIcon.svg";
 import { Select } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState,useRef } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
@@ -16,21 +16,16 @@ import { SearchContext } from "../../Contexts/SearchContext";
 
 
 export default function Header() {
-    const {searchInpValue, setSearchInpValue} =useContext(SearchContext);
-    const inputRef = useRef(null); 
+    const {searchInpValue, onChangeInput} =useContext(SearchContext);
+    const searchInputRef = useRef(null);
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
     const [navColorChange, setNavColorChange] = useState(false);
     const [searchInputShow, setSearchInputShow]=useState(false);
     const [noIcon, setNoIcon]=useState(true)
-    // const [noInput,setNoInput]=useState(true)
     const navigate=useNavigate()
  
     // site search 
-    const onChangeInput=(e)=>{
-         setSearchInpValue(e.target.value)
-    }
-     
-    const handleKeyDown=(e)=>{
+    const handleKeyDownHeaderInput=(e)=>{
         if(searchInpValue !== "" && e.key === "Enter"){
           navigate(`/search?searchInpValue=${searchInpValue}`)
              setSearchInputShow(false)
@@ -49,10 +44,6 @@ export default function Header() {
             setSearchInputShow(false)
             setNoIcon(false)
           }
-    }
-
-    const ClearInputValue=()=>{
-        setSearchInpValue("")
     }
 
     // scroll nav change color function start
@@ -142,8 +133,9 @@ export default function Header() {
                      className={style.searchInput}
                       value={searchInpValue}
                       onChange={onChangeInput}
-                      onKeyDown={handleKeyDown}
-                      ref={inputRef}
+                      onKeyDown={handleKeyDownHeaderInput}
+                      ref={searchInputRef}
+                      id="homeSearch"
                        /> : ""
                       }  
                         </div>
@@ -161,7 +153,14 @@ export default function Header() {
                     </div>
                     <div className={style.SearchLang}>
                      
-                     { noIcon ?   <img onClick={handleShowSearchInput} className={style.serachIcon} src={serachIcon} alt="burada axtaris iconu var" />
+                     { noIcon ?  
+                     <label htmlFor="homeSearch">
+                         <img  onClick={() => {
+                                    handleShowSearchInput();
+                                    }}
+                                     className={style.serachIcon} src={serachIcon} 
+                                     alt="burada axtaris iconu var" />
+                               </label>
                           :""    }
                         <div className={style.lang}>
                             <Select
