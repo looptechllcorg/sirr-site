@@ -109,7 +109,7 @@ export const FavoriteItemsDatas=[
 	{
 		id:1,
 		CoverImage:img1,
-		title:"Şokoladlı-albalı tort Şokoladlı-albalı tort dfsfdsfsfsfsdfdsfsf",
+		title:"Şokoladlı-albalı tort",
 		slug:"sokoladli-albali-tort",
 		quantity:"1",
 		unit:"kq",
@@ -224,6 +224,7 @@ export const BranchesDatas=[
 	working_hours:"Hər zaman açıq",
 	address:"Heydər Əliyev prospekti 68",
 	phones:"070 266 16 26/012 566 16 20/070 266 16 26/012 566 16 20",
+	coordinates: ["40.440708","49.769798"],
 	latitude:"40.440708",
 	longitude:"49.769798",
 	}
@@ -232,6 +233,7 @@ export const BranchesDatas=[
 	"working_hours":null,
 	address:"Hüseyn Cavid prospekti 47F",
 	phones:"070 338 51 50/012 538 51 50",
+	coordinates: ["40.377370", "49.815310"],
 	latitude:"40.377370",
 	longitude:"49.815310",
 	},
@@ -240,6 +242,7 @@ export const BranchesDatas=[
 	"working_hours":null,
 	address:"İnşaatçılar prospekti 28",
 	phones:"070 610 89 00/012 510 89 00",
+	coordinates: ["40.380620", "49.822000"],
 	latitude:"40.380620",
 	longitude:"49.822000",
 	},

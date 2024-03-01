@@ -8,9 +8,9 @@ export default function Branches({data,isActive,onClick}) {
 
   return (   
 	<div onClick={onClick}
-	 className={`${style.BranchesWrapper} ${isActive ? style.active: ""}`}>
+	 className={`${style.BranchesWrapper} ${isActive ? style.active : ""}`}>
 	     <hr className={style.branchesLine} />
-		 <div className={style.Branch}>
+		   <div className={style.Branch}>
 	         <h5 className={style.branchesTitle}>{data.title}</h5>   
 				<div className={style.branchesLocationAdress}>
 					<LocationIcon className={style.locationIcon}/>

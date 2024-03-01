@@ -14,7 +14,7 @@ import { useState } from "react";
 
 const icon = L.icon({
 	iconUrl:mapLocation,  
-	iconSize:[58,58]  
+	iconSize:[35,45] ,
  }) 
 
 
@@ -25,15 +25,12 @@ const icon = L.icon({
 
 export default function BranchesAndMap() {
 	const [activeBranch, setActiveBranch]=useState(BranchesDatas[0]);  
-
-	// const onClickBranch=()=>{
-	// 	setActiveBranch(!activeBranch)    
-	// }
+	
 	const [mapCenter, setMapCenter] = useState(defaultPosition);
 
 	const onClickBranch = (branch) => {
 	  setActiveBranch(branch);
-	  setMapCenter([branch.latitude, branch.longitude]);
+	  setMapCenter([branch.coordinates[0], branch.coordinates[1]]);
 	};
 
   return (
@@ -47,6 +44,7 @@ export default function BranchesAndMap() {
 					   data={branch} 
 					   onClick={() => onClickBranch(branch)}
 					   isActive={branch.id === activeBranch.id}
+					   acBran={activeBranch}
 					   />
 					))
 				}
@@ -55,17 +53,16 @@ export default function BranchesAndMap() {
 		</div>
 		<div className={style.contactMapWrapper}>
 		<MapContainer
-		 style={{width:"100%", height:"100%"}}
+		 style={{width:"100%", height:"100%", objectFit:"cover"}}
 		 center={mapCenter}
-		  zoom={11}
-		   scrollWheelZoom={false}>
+		 zoom={11}
+		 scrollWheelZoom={true}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"  
     />
     <Marker position={mapCenter}  icon={icon}>
-      {/* <Popup>
-      </Popup> */}
+     
     </Marker>
   </MapContainer>
 

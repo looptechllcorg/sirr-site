@@ -5,8 +5,6 @@
 	display: flex;
 	.contactBranchesWarapper{
 		width: 50%;
-		
-		
 		background-color: black;
 		color: white;
 		.ContactBranches{
@@ -17,7 +15,7 @@
 		 height: 392px;
 		 &:hover {
 			&::-webkit-scrollbar-thumb {
-				background-color: yellow;
+				background-color: rgba(230, 168, 76, 1);
 				padding-top: 20px;
 			}
 		}
@@ -33,5 +31,43 @@
 	.contactMapWrapper{
 		width: 50%;
 		height: 400px;
+	}
+}
+
+
+//BranchesAndMapWrapper responsive
+@media only screen and (max-width: 950px) {
+	.BranchesAndMapWrapper{
+		flex-wrap: wrap;
+		.contactBranchesWarapper{
+			width: 100%;
+			// background-color: black;
+			// color: white;
+			.ContactBranches{
+			 width: 100%;
+			 padding: 20px 20px 25px;
+			 margin: 0 auto;
+			 overflow-y: scroll;
+			 height: 392px;
+			 &:hover {
+				&::-webkit-scrollbar-thumb {
+					background-color: rgba(230, 168, 76, 1);
+					padding-top: 20px;
+				}
+			}
+			&::-webkit-scrollbar{
+				width: 1px;
+			}
+			&::-webkit-scrollbar-thumb{
+				background-color: transparent;
+			}
+			}
+		
+		}
+		.contactMapWrapper{
+			width: 95%;
+			height: 320px;
+			margin: 0 auto;
+		}
 	}
 }

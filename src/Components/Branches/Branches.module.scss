@@ -2,11 +2,11 @@
 	font-family: 'Inter', sans-serif;
 	  display: flex;
 	  position: relative;
-	//   border: 1px solid red;
-	//   color: aqua;
 	  cursor: pointer;
 	  .branchesLine{
 		margin-right: 20px;
+		color: red;
+		// height: 7px;
 		&::before {
 		    content: "";
 			width: 9px;
@@ -29,7 +29,6 @@
 		  }
 	  }
 	  .Branch{
-
 	.branchesTitle{
 		font-size: 20px;
 		font-weight: 500;
@@ -72,16 +71,17 @@
 	}
 	}
 }
-.isActive{
+.active{
 	color:rgba(230, 168, 76, 1);
-	background-color: red;
+	a{
+		color: rgba(230, 168, 76, 1) !important;
+	}
 }
 
 
 //BranchesWrapper responsive
 @media only screen and (max-width: 800px) {
 	.BranchesWrapper{
-		// padding: 20px 30px 20px 10px;	
 		  .branchesLine{
 			margin-right: 10px;
 		  }
