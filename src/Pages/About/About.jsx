@@ -13,6 +13,7 @@ import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer"
 import videoStartImage from "../../assets/images/videoStartImg.png"
 import { useContext} from "react"
 import { GlobalContext } from "../../Contexts/GlobalContext"
+import SiteWay from "../../Components/SiteWay/SiteWay"
  
 
 export default function About() {
@@ -25,6 +26,7 @@ export default function About() {
 
          <MainBgImage bgImg={aboutBgImg} bgImgOnText={"About us"}/>
 
+         <SiteWay data={["Home Page","About us"]}/>
 		  <div className={style.HouseHistory}>
 			<TitleList mainTitle={"Our history"} detailedTitle={"Our cake house history"}/>
 			<p className={style.HouseHistoryDescription}>

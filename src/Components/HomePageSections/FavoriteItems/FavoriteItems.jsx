@@ -2,12 +2,13 @@
 import PrCart from "../../PrCart/PrCart"
 import style from "./FavoriteItems.module.scss"
 // import my write datas
-import { FavoriteItemsDatas } from "../../../MyWriteDatas/myDatas"
+import { FavoriteItemsAndProductPageDatas } from "../../../MyWriteDatas/myDatas"
 import TitleList from "../../TitleList/TitleList"
 import Button from "../../Button/Button"
 import FavoriteCategories from "../../FavoritCategories/FavoritCategories"
 // import my write datas
 import { FavoriteItemsCategoryDatas } from "../../../MyWriteDatas/myDatas"
+import { Link } from "react-router-dom"
 
 export default function FavoriteItems() {
   return (
@@ -22,13 +23,15 @@ export default function FavoriteItems() {
 
           <div className={style.CategoryProduct}>
 			{
-				FavoriteItemsDatas.map(item=>(
+				FavoriteItemsAndProductPageDatas.slice(0,8).map(item=>(
                      <PrCart key={item.id} data={item}/>
 				))
 			}
 			
 		  </div>
+		     <Link to="/products">
 				<Button text={"More than"}/>
+			</Link>
 			</div>
 		</div>
 	  

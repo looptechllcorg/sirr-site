@@ -12,6 +12,7 @@ import contactBgImg from "../../assets/images/contactPageBgImg.jpg"
 import { contactTextImgDatas } from "../../MyWriteDatas/myDatas"
 import ContactFormGroup from "../../Components/ContactFormGroup/ContactFormGroup"
 import BranchesAndMap from "../../Components/BranchesAndMap/BranchesAndMap"
+import SiteWay from "../../Components/SiteWay/SiteWay"
 
 export default function Contact() {
   return (
@@ -20,7 +21,7 @@ export default function Contact() {
 		<div style={{paddingTop:0}} className="container">  
 
 			<MainBgImage bgImg={contactBgImg} bgImgOnText={"Contact"}/>
-
+            <SiteWay data={["Home Page","Contact us"]}/>
 			<TextAndImgSideBySide bgColor={"transparent"} data={contactTextImgDatas}/>
 	     
 		     <ContactFormGroup/>

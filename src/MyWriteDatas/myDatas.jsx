@@ -11,6 +11,20 @@ import img9 from "../assets/images/img9.png"
 import img10 from "../assets/images/img10.png"
 import img11 from "../assets/images/img11.png"
 import img12 from "../assets/images/img12.png"
+import img13 from "../assets/images/img13.png"
+import img14 from "../assets/images/img14.png"
+import img15 from "../assets/images/img15.png"
+import img16 from "../assets/images/img16.png"
+import img17 from "../assets/images/img17.png"
+import img18 from "../assets/images/img18.png"
+import img19 from "../assets/images/img19.png"
+import img20 from "../assets/images/img20.png"
+import img21 from "../assets/images/img21.png"
+import img22 from "../assets/images/img22.png"
+import img23 from "../assets/images/img23.png"
+import img24 from "../assets/images/img24.png"
+
+
 import bg1 from "../assets/images/aboutVideoBgImg.jpg"
 import bg2 from "../assets/images/contactPageBgImg.jpg"
 import bg3 from "../assets/images/prDetailsBgImg.jpg"
@@ -105,10 +119,10 @@ export const FavoriteItemsCategoryDatas=[
 	"Bulka","Tort","Milli Sirniyatlar","Desertlər","Paxlavalar","Keks", "Piroqlar","Peraskiler","Bulka","Ruletler","Peceniyalar", "Bişmələr",
 ]
 
-export const FavoriteItemsDatas=[
+export const FavoriteItemsAndProductPageDatas=[
 	{
 		id:1,
-		CoverImage:img1,
+		CoverImage:img7,
 		title:"Şokoladlı-albalı tort",
 		slug:"sokoladli-albali-tort",
 		quantity:"1",
@@ -194,6 +208,141 @@ export const FavoriteItemsDatas=[
 		description:"Flour, butter, eggs, sugar, milk chocolate, black chocolate,boiled condensed milk, vegetable cream, baking powder,vanilla, emulsifier, water...",
 		gallery:[img4,img1,img3,img9,img2]
 	},
+	{
+		id:9,
+		CoverImage:img13,
+		title:"Şokoladlı-albalı tort",
+		quantity: "1",
+		unit: "kq",
+		price: "20.00",
+		slug: "sokoladlı-albalı-tort",
+	},
+	{
+		id:10,
+		CoverImage:img14,
+		title:"Royal Chocolate tort",
+		quantity: "1",
+		unit: "kq",
+		price: "23.00",
+		slug: "Royal-Chocolate-tort",
+	},
+	{
+		id:11,
+		CoverImage:img15,
+		title:"Moka tort",
+		quantity: "1",
+		unit: "kq",
+		price: "26.00",
+		slug: "Moka-tort",
+	},
+	{
+		id:12,
+		CoverImage:img16,
+		title:"Skazka şokoladlı tort",
+		quantity: "1",
+		unit: "kq",
+		price: "29.00",
+		slug: "Skazka şokoladlı-tort",
+	},
+	{
+		id:13,
+		CoverImage:img17,
+		title:"Şokoladlı-albalı tort",
+		quantity: "1",
+		unit: "kq",
+		price: "32.00",
+		slug: "sokoladlı-albalı-tort",
+	},
+	{
+		id:14,
+		CoverImage:img18,
+		title:"Albalı tort",
+		quantity: "1",
+		unit: "kq",
+		price: "35.00",
+		slug: "Albalı-tort",
+	},
+	{
+		id:15,
+		CoverImage:img19,
+		title:"Kudryaş tort",
+		quantity: "1",
+		unit: "kq",
+		price: "38.00",
+		slug: "Kudryaş-tort",
+	},
+	{
+		id:16,
+		CoverImage:img20,
+		title:"Trufel tort",
+		quantity: "1",
+		unit: "kq",
+		price: "41.00",
+		slug: "Trufel-tort",
+	},
+	{
+		id:17,
+		CoverImage:img21,
+		title:"Mars tort",
+		quantity: "1",
+		unit: "kq",
+		price: "43.00",
+		slug: "Mars-tort",
+	},
+	{
+		id:18,
+		CoverImage:img22,
+		title:"Mix berry tort",
+		quantity: "1",
+		unit: "kq",
+		price: "46.00",
+		slug: "Mix-berry-tort",
+	},
+	{
+		id:19,
+		CoverImage:img23,
+		title:"Profiterole tort",
+		quantity: "1",
+		unit: "kq",
+		price: "49.00",
+		slug: "Profiterole-tort",
+	},
+	{
+		id:20,
+		CoverImage:img24,
+		titleprTitle:"Abşeron tort",
+		quantity: "1",
+		unit: "kq",
+		price: "52.00",
+		slug: "Abşeron-tort",
+	},
+	{
+		id:21,
+		CoverImage:img7,
+		title:"Napoleon tort",
+		quantity: "1",
+		unit: "kq",
+		price: "55.00",
+		slug: "Napoleon-tort",
+	},
+	{
+		id:22,
+		CoverImage:img8,
+		title:"Black Forest tort",
+		quantity: "1",
+		unit: "kq",
+		price: "58.00",
+		slug: "Black-Forest-tort",
+	},
+	{
+		id:23,
+		CoverImage:img3,
+		title:"Mix fruit tort",
+		quantity: "1",
+		unit: "kq",
+		price: "61.00",
+		slug: "Mix-fruit-tort",
+	},
 ]
 
 export const MostlyStoryCakeStoreDatas={
@@ -248,3 +397,7 @@ export const BranchesDatas=[
 	},
 
 ]
+
+
+
+  

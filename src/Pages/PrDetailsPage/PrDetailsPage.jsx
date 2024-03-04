@@ -2,7 +2,7 @@
 import { Link, useParams } from "react-router-dom"
 import style from "./PrDetailsPage.module.scss"
 // import my write datas
-import { FavoriteItemsDatas } from "../../MyWriteDatas/myDatas";
+import { FavoriteItemsAndProductPageDatas } from "../../MyWriteDatas/myDatas";
 import SocialList from "../../Components/SocialList/SocialList";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
 // import image
@@ -13,16 +13,16 @@ import { useEffect, useState } from "react";
 
 export default function PrDetailsPage() {
 	const {slug}=useParams()
-	const findProduct=FavoriteItemsDatas.find(product=> slug === product.slug)
+	const findProduct=FavoriteItemsAndProductPageDatas.find(product=> slug === product.slug)
 
 	const getRandomItems = (arr, count) =>
-    arr.sort(() => Math.random() - 0.5).slice(0, count);
+     arr.sort(() => Math.random() - 0.5).slice(0, count);
 
-  const [randomItems, setRandomItems] = useState(getRandomItems(FavoriteItemsDatas, 3));
+  const [randomItems, setRandomItems] = useState(getRandomItems(FavoriteItemsAndProductPageDatas, 3));
 
   useEffect(() => {
-    setRandomItems(getRandomItems(FavoriteItemsDatas, 4));
-  }, [FavoriteItemsDatas]);
+    setRandomItems(getRandomItems(FavoriteItemsAndProductPageDatas, 4));
+  }, [FavoriteItemsAndProductPageDatas]);
 
 
 
@@ -31,7 +31,7 @@ export default function PrDetailsPage() {
   return (
 	<section id={style.details}>
 		<SocialList/>
-	<div style={{paddingTop:0}}  className="container"> 
+	<div style={{paddingTop:0}}  className="container">  
 
 	 <MainBgImage bgImg={prDetailsBgImg}   bgImgOnText={"product Details"}/>
 	

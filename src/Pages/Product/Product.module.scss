@@ -1,0 +1,11 @@
+// import all site color list 
+@import "../../siteColorList/Colors.scss";
+
+.FilterAndProduct{
+	.ProductWrapper{
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+		gap: 2rem;
+	}
+	
+}

@@ -18,9 +18,6 @@ const icon = L.icon({
  }) 
 
 
-
-
-
  const defaultPosition = [40.440708, 49.769798];
 
 export default function BranchesAndMap() {
@@ -44,7 +41,6 @@ export default function BranchesAndMap() {
 					   data={branch} 
 					   onClick={() => onClickBranch(branch)}
 					   isActive={branch.id === activeBranch.id}
-					   acBran={activeBranch}
 					   />
 					))
 				}

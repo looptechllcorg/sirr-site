@@ -1,0 +1,38 @@
+// import site all color list
+@import "../../siteColorList/Colors.scss";
+
+.prCartWrapper{
+	.prImg{
+     width: 100%;
+	 aspect-ratio: 1/1.1;
+	 object-fit: cover;
+	}
+	.prtitle{
+        font-size: 21px;
+		line-height: 30px;
+		font-weight: 700;
+		color: $productPageTitleColor;
+		word-break: break-word;
+	}
+	.prUnitPrice{
+		display: flex;
+		align-items: center;
+		.unit{
+			font-size: 20px;
+			font-weight: 700;
+			color: $productPagePriceColor;
+		}
+		.line{
+			background-color: $productPageLineBgColor;
+			border: none;
+			flex: 1;
+			height: 1px;
+			margin: 7px 7px 0;
+		}
+		.price{
+			font-size: 20px;
+			font-weight: 700;
+			color: $productPagePriceColor;
+		}
+	}
+}

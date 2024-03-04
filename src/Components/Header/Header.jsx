@@ -97,12 +97,12 @@ export default function Header() {
                             <li>
                                 <NavLink
                                     onClick={() => showHiddenMenu()}
-                                    to={"/product"}
+                                    to={"/products"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                                     }}
                                 >
-                                    Product
+                                    Products
                                 </NavLink>
                             </li>
                             <li>

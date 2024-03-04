@@ -25,7 +25,7 @@ export default function Branches({data,isActive,onClick}) {
 						</a>
 						<span className={style.line}>/</span>   
 						</div>
-					))}
+					))}  
 				</div>
 			</div>
 	</div>

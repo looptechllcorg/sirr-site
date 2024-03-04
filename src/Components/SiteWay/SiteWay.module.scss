@@ -1,0 +1,27 @@
+// import all site color list
+@import "../../siteColorList/Colors.scss";
+
+
+.SiteWayWrapper{
+	padding: 10px 170px;
+   a{  
+	font-size: 20px;
+	margin: 20px 2px;
+	color: $SiteWayPageColor;
+	.line{
+		display: inline-block;
+		height: 14px;
+		margin: 0px 4px -1px 8px;
+		width: 1.2px;
+		border: none;
+		background-color: $SiteWayPageBetweenLineColor;
+	}
+ &:last-child{
+	color: $SiteWayActivePageColor;
+	.line{
+		display: none;
+	}
+ }
+}
+
+}
