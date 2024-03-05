@@ -3,7 +3,7 @@
 
 
 .SiteWayWrapper{
-	padding: 10px 170px;
+	// padding: 10px 170px;
    a{  
 	font-size: 20px;
 	margin: 20px 2px;
@@ -16,12 +16,9 @@
 		border: none;
 		background-color: $SiteWayPageBetweenLineColor;
 	}
- &:last-child{
-	color: $SiteWayActivePageColor;
-	.line{
-		display: none;
-	}
- }
 }
-
+.activePage{
+	color: $SiteWayActivePageColor;
+	font-size: 20px;
+}
 }

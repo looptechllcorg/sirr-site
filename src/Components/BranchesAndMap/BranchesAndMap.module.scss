@@ -9,10 +9,10 @@
 		color: white;
 		.ContactBranches{
          width: 490px;
+		 height: 392px;
 		 padding: 20px 7px 25px;
 		 margin: 0 auto;
 		 overflow-y: scroll;
-		 height: 392px;
 		 &:hover {
 			&::-webkit-scrollbar-thumb {
 				background-color: rgba(230, 168, 76, 1);

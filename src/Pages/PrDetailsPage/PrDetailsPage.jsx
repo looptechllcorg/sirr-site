@@ -9,6 +9,7 @@ import MainBgImage from "../../Components/MainBgImage/MainBgImage";
 import prDetailsBgImg from "../../assets/images/prDetailsBgImg.jpg"
 import TitleList from "../../Components/TitleList/TitleList";
 import { useEffect, useState } from "react";
+import SiteWay from "../../Components/SiteWay/SiteWay";
 
 
 export default function PrDetailsPage() {
@@ -34,8 +35,9 @@ export default function PrDetailsPage() {
 	<div style={{paddingTop:0}}  className="container">  
 
 	 <MainBgImage bgImg={prDetailsBgImg}   bgImgOnText={"product Details"}/>
-	
+	 <SiteWay data={["Home Page","Products","Product Details"]}/>
 	  <div className={style.prDetailsWrapper}>
+	
 		     <h3 className={style.MobilePrDetailsTitle}>{findProduct.title}</h3>
 			<span className={style.MobilePrDetailsPrice}>{findProduct.price} ₼</span>
 		<div className={style.prDetailsImg}>

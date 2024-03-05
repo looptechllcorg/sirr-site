@@ -6,6 +6,7 @@ import searchBgImg from "../../assets/images/searchBgImg.jpg"
 import { useContext } from "react"
 import { SearchContext } from "../../Contexts/SearchContext"
 import serachIcon from "../../assets/icons/searchResultPageIcon.svg";
+import SiteWay from "../../Components/SiteWay/SiteWay"
 
 
 
@@ -16,7 +17,7 @@ export default function SearchResult() {
 	<section id={style.SearchResultWrapper}>
 		<div style={{paddingTop:0}} className="container">
 			<MainBgImage bgImg={searchBgImg} bgImgOnText={"Search"} bgImgHeight={"400px"}/>
-                 
+			<SiteWay data={["Home Page","Search"]}/>
            <div className={style.resultSearch}>
 				<input 
 				onChange={onChangeInput}

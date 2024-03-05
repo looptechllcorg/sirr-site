@@ -2,9 +2,13 @@
 @import "../../siteColorList/Colors.scss";
 
 .FilterAndProduct{
+	padding: 10px 100px;
+	display: flex;
+	column-gap: 2rem;
 	.ProductWrapper{
+		width: calc(100% - 300px);
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 		gap: 2rem;
 	}
 	

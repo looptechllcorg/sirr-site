@@ -39,7 +39,7 @@ export default function Footer() {
                             About us
                         </NavLink>
                         <NavLink
-                            to={"/product"}
+                            to={"/products"}
                             style={({ isActive }) => {
                                 return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                             }}
