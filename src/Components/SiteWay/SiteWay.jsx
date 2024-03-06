@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import style from "./SiteWay.module.scss"
 
-export default function SiteWay({data}) {
+export default function SiteWay({data,paddingStyle}) {
 	let navigate=useNavigate();
 
 	  const handleLinkClick = (page, e) => {
@@ -15,7 +15,7 @@ export default function SiteWay({data}) {
 	  };
 
   return (
-	<div className={style.SiteWayWrapper}>
+	<div style={{paddingBottom:paddingStyle}} className={style.SiteWayWrapper}>
 	    {
 			data.slice(0,(data.length - 1)).map((page, i)=>(
 				<a href={`/${page}`} key={i}onClick={(e) => handleLinkClick(page, e)}>

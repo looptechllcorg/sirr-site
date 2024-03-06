@@ -9,24 +9,37 @@ import ProductPagePrCart from "../../Components/ProductPagePrCart/ProductPagePrC
 import { FavoriteItemsAndProductPageDatas } from "../../MyWriteDatas/myDatas"
 import SiteWay from "../../Components/SiteWay/SiteWay"
 import ProductsPageFilter from "../../Components/ProductsPageFilter/ProductsPageFilter"
+import { useState } from "react"
 
 export default function Product() {
+	const [showHiddenFilterComponent, setShowHiddenFilterComponent]=useState(true)
+   
+	const onClickshowHiddenFilterComponent=()=>{
+		setShowHiddenFilterComponent(!showHiddenFilterComponent)
+	}
+
   return (
 	<section id={style.Product}>
 		<SocialList/>
 		<div style={{paddingTop:0}} className="container">
 		  <MainBgImage bgImg={productBgImg} bgImgOnText={"Products"}/>
 		  <SiteWay data={["Home Page","Products"]}/>
+		  <button onClick={onClickshowHiddenFilterComponent} className={style.filterShow}>open</button>
+
 		  <div className={style.FilterAndProduct}>
-		    <ProductsPageFilter/>
+			{
+				showHiddenFilterComponent ? <ProductsPageFilter 
+				 showHiddenState={showHiddenFilterComponent}
+				/> : ""
+			}
+		
+			
            <div className={style.ProductWrapper}>   
-		  
             {
 				FavoriteItemsAndProductPageDatas.map(product=>(
 					<ProductPagePrCart key={product.id} data={product}/>
 				))
 			}
-			
 		   </div>
 		  </div>
 		</div>

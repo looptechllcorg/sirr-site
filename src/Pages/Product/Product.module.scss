@@ -1,15 +1,47 @@
 // import all site color list 
 @import "../../siteColorList/Colors.scss";
 
+
+#Product{
+	.filterShow{
+		margin: 0 0 20px 100px;
+		display: none;
+	}
 .FilterAndProduct{
 	padding: 10px 100px;
 	display: flex;
 	column-gap: 2rem;
+	
 	.ProductWrapper{
-		width: calc(100% - 300px);
+		width: calc(100% - 280px);
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 		gap: 2rem;
 	}
+}
+}
+
+// Product page responsive
+@media only screen and (max-width: 650px) {
+	#Product{
 	
+		.filterShow{
+			margin: 0 0 20px 100px;
+			display: block;
+		}
+	.FilterAndProduct{
+		position: relative;
+		padding: 10px 20px;
+		display: flex;
+		column-gap: 0;
+		
+		
+		.ProductWrapper{
+			width:100% ;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+			gap: 2rem;
+		}
+	}
+	}
 }

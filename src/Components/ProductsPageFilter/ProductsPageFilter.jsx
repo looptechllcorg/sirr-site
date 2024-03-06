@@ -1,23 +1,28 @@
 // import style scss
 import { useState } from "react"
 import style from  "./ProductsPageFilter.module.scss"
-import { object } from "yup"
 
 
-export default function ProductsPageFilter() {
-	const [openCloseFilter, setOpenCloseFilter]=useState(true)
- 
-	const onClickOpenCloseFunc=(filterName)=>{
-     setOpenCloseFilter(openCloseFilter === filterName ? "" : filterName )
+export default function ProductsPageFilter({showHiddenState}) {
+	const [openCloseFilter, setOpenCloseFilter]=useState({
+		CategoryFilter:true,
+		sortFilter:true,
+		priceFilter:true   
+	})
+    
+	const onClickOpenCloseFunc=(item)=>{
+     setOpenCloseFilter(prevState => ({ ...prevState, [item]: !prevState[item]
+	  }));
 	}
   return (
-	<div className={style.filterWrapper}>
+	<div className={`${style.filterWrapper} ${showHiddenState ? '' : style.active}`}>
 		<div className={style.CategoryFilter}>
 		  <div onClick={()=>onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
 		   <h4>All Categories</h4>
-		   <span>-</span>
+		   <span>{openCloseFilter.CategoryFilter ? "-" : "+"}</span>
 		   </div>
-		{openCloseFilter === "CategoryFilter" ? "":  <ul className={style.categoryName}>
+		{openCloseFilter.CategoryFilter &&
+		  <ul className={style.categoryName}>
 			<li>adada</li>
 			<li>adada</li>
 			<li>adada</li>
@@ -54,21 +59,28 @@ export default function ProductsPageFilter() {
 			onClick={()=>onClickOpenCloseFunc("sortFilter")}
 			className={style.titleFilter}>
 			<h4 >Sort by</h4>
-			<span>-</span>
+			<span>{openCloseFilter.sortFilter ? "-" : "+"}</span>
 			</div>
            
-		  {openCloseFilter === "sortFilter" ? "" : <ul>
+		  {openCloseFilter.sortFilter && 
+		  <ul>
+			<li>sdd</li>
+			<li>dds</li>
 			<li>sdd</li>
 			<li>dds</li>
 		   </ul>
           }
 		</div>
 		<div className={style.priceFilter}>
-		<div className={style.titlePrice}>
+		<div
+		onClick={()=>onClickOpenCloseFunc("priceFilter")} 
+		className={style.titlePrice}>
 		   <h4>Price</h4>
-		   <span>-</span>
+		   <span>{openCloseFilter.priceFilter ? "-" : "+"}</span>
 		   </div>
-
+		   { openCloseFilter.priceFilter &&
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+           }
 		</div>
 	</div>
   )

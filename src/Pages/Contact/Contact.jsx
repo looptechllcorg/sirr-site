@@ -21,7 +21,7 @@ export default function Contact() {
 		<div style={{paddingTop:0}} className="container">  
 
 			<MainBgImage bgImg={contactBgImg} bgImgOnText={"Contact"}/>
-            <SiteWay data={["Home Page","Contact us"]}/>
+            <SiteWay data={["Home Page","Contact us"]} paddingStyle={0}/>
 			<TextAndImgSideBySide bgColor={"transparent"} data={contactTextImgDatas}/>
 	     
 		     <ContactFormGroup/>
