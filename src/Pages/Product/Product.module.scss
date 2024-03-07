@@ -3,15 +3,19 @@
 
 
 #Product{
-	.filterShow{
-		margin: 0 0 20px 100px;
-		display: none;
-	}
+
 .FilterAndProduct{
 	padding: 10px 100px;
 	display: flex;
 	column-gap: 2rem;
-	
+	position: relative;
+	.mobileFilter{
+		display: none;
+		.filterShow{
+			margin: 0 0 20px 100px;
+		          }
+	}
+
 	.ProductWrapper{
 		width: calc(100% - 280px);
 		display: grid;
@@ -31,10 +35,31 @@
 		}
 	.FilterAndProduct{
 		position: relative;
-		padding: 10px 20px;
+		padding: 50px 20px 0;
 		display: flex;
 		column-gap: 0;
-		
+		.mobileFilter{
+			display: block;
+			.filterShow{
+			    margin: 0 0 20px 100px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				position: absolute;
+				top: -20px;
+				left: -80px;
+				cursor: pointer;
+				background-color: transparent;
+				padding: 8px 20px;
+				border: 1px solid rgba(23, 23, 23, 0.1);
+				width: 120px;
+				font-size: 18px;
+				border-radius: 5px;
+					  }
+		}
+		.webFilter{
+	      display: none;
+		}
 		
 		.ProductWrapper{
 			width:100% ;

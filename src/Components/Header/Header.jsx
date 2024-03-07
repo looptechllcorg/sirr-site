@@ -85,7 +85,7 @@ export default function Header() {
                         <ul className={style.navPageList}>
                             <li>
                                 <NavLink
-                                    onClick={() => showHiddenMenu()}
+                                    onClick={showHiddenMenu}
                                     to={"/about us"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -96,7 +96,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                    onClick={() => showHiddenMenu()}
+                                    onClick={showHiddenMenu}
                                     to={"/products"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -107,7 +107,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                    onClick={() => showHiddenMenu()}
+                                    onClick={showHiddenMenu}
                                     to={"/media"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -118,7 +118,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                    onClick={() => showHiddenMenu()}
+                                    onClick={showHiddenMenu}
                                     to={"/contact"}
                                     style={({ isActive }) => {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};

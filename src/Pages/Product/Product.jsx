@@ -10,9 +10,10 @@ import { FavoriteItemsAndProductPageDatas } from "../../MyWriteDatas/myDatas"
 import SiteWay from "../../Components/SiteWay/SiteWay"
 import ProductsPageFilter from "../../Components/ProductsPageFilter/ProductsPageFilter"
 import { useState } from "react"
+import FilterIcon from "../../assets/icons/FilterIcon"
 
 export default function Product() {
-	const [showHiddenFilterComponent, setShowHiddenFilterComponent]=useState(true)
+	const [showHiddenFilterComponent, setShowHiddenFilterComponent]=useState(false)
    
 	const onClickshowHiddenFilterComponent=()=>{
 		setShowHiddenFilterComponent(!showHiddenFilterComponent)
@@ -24,14 +25,18 @@ export default function Product() {
 		<div style={{paddingTop:0}} className="container">
 		  <MainBgImage bgImg={productBgImg} bgImgOnText={"Products"}/>
 		  <SiteWay data={["Home Page","Products"]}/>
-		  <button onClick={onClickshowHiddenFilterComponent} className={style.filterShow}>open</button>
-
+          
 		  <div className={style.FilterAndProduct}>
-			{
-				showHiddenFilterComponent ? <ProductsPageFilter 
-				 showHiddenState={showHiddenFilterComponent}
-				/> : ""
-			}
+  
+		  <div className={style.mobileFilter}>
+		     {showHiddenFilterComponent && <ProductsPageFilter  closeFunc={onClickshowHiddenFilterComponent}/> }
+			 <button onClick={onClickshowHiddenFilterComponent} 
+		   className={style.filterShow}>Filter <FilterIcon/></button>
+		   </div>      
+
+		       <div className={style.webFilter}>
+			    <ProductsPageFilter /> 
+				</div>
 		
 			
            <div className={style.ProductWrapper}>   

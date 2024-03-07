@@ -1,9 +1,10 @@
 // import style scss
 import { useState } from "react"
 import style from  "./ProductsPageFilter.module.scss"
+import CloseIcon from "../../assets/icons/CloseIcon";
 
 
-export default function ProductsPageFilter({showHiddenState}) {
+export default function ProductsPageFilter({closeFunc}) {
 	const [openCloseFilter, setOpenCloseFilter]=useState({
 		CategoryFilter:true,
 		sortFilter:true,
@@ -15,7 +16,9 @@ export default function ProductsPageFilter({showHiddenState}) {
 	  }));
 	}
   return (
-	<div className={`${style.filterWrapper} ${showHiddenState ? '' : style.active}`}>
+	<div className={style.filterWrapper}>
+		 <button className={style.closeBtn}
+		  onClick={closeFunc}><CloseIcon/></button>
 		<div className={style.CategoryFilter}>
 		  <div onClick={()=>onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
 		   <h4>All Categories</h4>

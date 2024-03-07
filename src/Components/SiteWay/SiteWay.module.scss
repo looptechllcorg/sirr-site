@@ -24,3 +24,30 @@
 	font-weight: 500;
 }
 }
+
+
+// Product page responsive
+@media only screen and (max-width: 950px) {
+	.SiteWayWrapper{
+		padding: 20px 17px 40px;
+	//    a{  
+	// 	font-size: 16px;
+	// 	font-weight: 500;
+	// 	margin: 20px 2px;
+	// 	color: $SiteWayPageColor;
+	// 	.line{
+	// 		display: inline-block;
+	// 		height: 14px;
+	// 		margin: 0px 4px -1px 8px;
+	// 		width: 1.2px;
+	// 		border: none;
+	// 		background-color: $SiteWayPageBetweenLineColor;
+	// 	}
+	// }
+	// .activePage{
+	// 	color: $SiteWayActivePageColor;
+	// 	font-size: 17px;
+	// 	font-weight: 500;
+	// }
+	}
+}
