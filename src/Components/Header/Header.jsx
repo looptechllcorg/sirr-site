@@ -13,9 +13,12 @@ import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
 import { SearchContext } from "../../Contexts/SearchContext";
+import { LanguageContext } from "../../Contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 
 export default function Header() {
+    const {siteLang, onChangeLang,onClickLang}=useContext(LanguageContext);
     const {searchInpValue, onChangeInput} =useContext(SearchContext);
     const searchInputRef = useRef(null);
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
@@ -23,6 +26,7 @@ export default function Header() {
     const [searchInputShow, setSearchInputShow]=useState(false);
     const [noIcon, setNoIcon]=useState(true)
     const navigate=useNavigate()
+    const {t}=useTranslation()
  
     // site search 
     const handleKeyDownHeaderInput=(e)=>{
@@ -61,8 +65,6 @@ export default function Header() {
         setShowHiddenMenu(!showHiddenMenu);
     };
 
-
-
     return (
         <section className={`${style.header} ${navColorChange ? style.navBlack : ""}`}>
             <div style={{ padding: 0 }} className="container">
@@ -73,9 +75,9 @@ export default function Header() {
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
                             <div className={style.mobileLang}>
-                                <span className={style.langCategory}>AZ</span>
-                                <span className={style.langCategory}>EN</span>
-                                <span className={style.langCategory}>RU</span>
+                                <span onClick={()=> onClickLang("az")} className={style.langCategory}>AZ</span>
+                                <span onClick={()=>onClickLang("en")} className={style.langCategory}>EN</span>
+                                <span onClick={()=>onClickLang("ru")} className={style.langCategory}>RU</span>
                             </div>
                             <span className={style.mobileSearchIcon}>
                                 <img onClick={handleShowSearchInput} src={serachIcon} alt="" />
@@ -91,7 +93,8 @@ export default function Header() {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                                     }}
                                 >
-                                    About us
+                                    {/* About us */}
+                                    {t("about")}
                                 </NavLink>
                             </li>
                             <li>
@@ -164,7 +167,8 @@ export default function Header() {
                           :""    }
                         <div className={style.lang}>
                             <Select
-                                //  w="60px" h="30"
+                                value={siteLang}
+                                onChange={onChangeLang}
                                 className={style.selectLang}
                                 focusBorderColor="transparent"
                             >

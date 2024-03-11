@@ -35,7 +35,7 @@ export default function Product() {
 		   </div>      
 
 		       <div className={style.webFilter}>
-			    <ProductsPageFilter /> 
+			      <ProductsPageFilter /> 
 				</div>
 		
 			

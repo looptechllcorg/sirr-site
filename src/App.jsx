@@ -11,6 +11,7 @@ import PrDetailsPage from "./Pages/PrDetailsPage/PrDetailsPage"
 import { GlobalProvider } from "./Contexts/GlobalContext"
 import SearchResult from "./Pages/SearchResult/SearchResult"
 import { SearchProvider } from "./Contexts/SearchContext"
+import { LanguageProvider } from "./Contexts/LanguageContext"
 
 
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
     <GlobalProvider>
+    <LanguageProvider>
     <SearchProvider>
      <Header/> 
      
@@ -36,6 +38,7 @@ function App() {
      </Routes>
      <Footer/>
      </SearchProvider>  
+     </LanguageProvider>  
      </GlobalProvider>
     </>
   )

@@ -2,6 +2,7 @@
 import { useState } from "react"
 import style from  "./ProductsPageFilter.module.scss"
 import CloseIcon from "../../assets/icons/CloseIcon";
+import ReactSlider from 'react-slider'
 
 
 export default function ProductsPageFilter({closeFunc}) {
@@ -10,7 +11,7 @@ export default function ProductsPageFilter({closeFunc}) {
 		sortFilter:true,
 		priceFilter:true   
 	})
-    
+    const [value, setValue]=useState([])
 	const onClickOpenCloseFunc=(item)=>{
      setOpenCloseFilter(prevState => ({ ...prevState, [item]: !prevState[item]
 	  }));
@@ -82,8 +83,26 @@ export default function ProductsPageFilter({closeFunc}) {
 		   <span>{openCloseFilter.priceFilter ? "-" : "+"}</span>
 		   </div>
 		   { openCloseFilter.priceFilter &&
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-           }
+		<>
+		<ReactSlider
+		className="horizontal-slider"
+		thumbClassName="example-thumb"
+		trackClassName="example-track"
+		defaultValue={[0,150]}
+		min={0}
+		max={150}
+		onChange={(value, index) => setValue(value)}
+		renderThumb={(props, state) => <div {...props}></div>}
+	/>
+	   <div className={style.filterResult}>
+		  <span className={style.minValue}>{value[0]} AZN</span>
+		  <span> - </span>
+		  <span className={style.maxValue}>{value[1]} AZN</span>
+	  </div>
+	    </>
+		   }
+		   
+             
 		</div>
 	</div>
   )
