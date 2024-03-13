@@ -41,12 +41,35 @@
 	 .sortFilter{
 		padding: 40px 0;
 		.titleFilter{
+			margin-bottom: 10px;
 			font-size: 1.7rem;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			cursor: pointer;
-		}
+		       }
+		.sortWrapper{
+           display: flex;
+			.sortAZ,
+			.sortZA{
+				display: flex;
+				align-items: center;
+				border: none;
+				background: transparent;
+				margin-right: 30px;
+				cursor: pointer;
+			 .line{
+				margin-right: 2px;
+			 }
+			 .az,
+			 .za {
+				display: flex;
+				flex-direction: column;
+			 }
+			   }	
+			  
+			   }	   
+		   
 	 } 
 
 	 .priceFilter{
@@ -73,6 +96,17 @@
 				text-align: center;
 			}
 		}
+	 }
+	 .filterResultBtn{
+		margin: 30px 0 0;
+		padding: 10px 14px;
+		border-radius: 5px;
+	    width: 100%;
+		border: none;  
+		background-color: rgba(230, 168, 76, 1);
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
 	 }
 }
 

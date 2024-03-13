@@ -3,7 +3,10 @@ import { useState } from "react"
 import style from  "./ProductsPageFilter.module.scss"
 import CloseIcon from "../../assets/icons/CloseIcon";
 import ReactSlider from 'react-slider'
-
+import ArrowDown from "../../assets/icons/ArrowDown";
+import {FavoriteItemsCategoryDatas} from "../../MyWriteDatas/myDatas";
+// import useFormik 
+import { useFormik } from 'formik'
 
 export default function ProductsPageFilter({closeFunc}) {
 	const [openCloseFilter, setOpenCloseFilter]=useState({
@@ -13,9 +16,39 @@ export default function ProductsPageFilter({closeFunc}) {
 	})
     const [value, setValue]=useState([])
 	const onClickOpenCloseFunc=(item)=>{
-     setOpenCloseFilter(prevState => ({ ...prevState, [item]: !prevState[item]
-	  }));
+     setOpenCloseFilter(prevState => ({ ...prevState, [item] : !prevState[item] }));
+	          
 	}
+   
+	// const [categoryFilter, setCategoryFilter]=useState([])
+
+	// const onChangeCategory=(e)=>{
+
+	// }
+
+	const {handleChange,values, resetForm} = useFormik({
+		initialValues: {
+		   category:[]
+		},
+		onSubmit:async (values) => {
+			console.log(values);
+    //  try {    
+	// 	await looptech.api().post(urls.contactPost, JSON.stringify(values));
+	// 	   const MySwal= withReactContent(Swal);
+	// 	   MySwal.fire({
+	// 		title: <strong>{looptech.translate("swalAlertTitle")}</strong>,
+	// 		html: <i>{looptech.translate("swalAlertHTML")}</i>,   
+	// 		icon: 'success'
+	// 	  });
+	//  } catch (error) {     
+	// 	console.log(error);   
+	// 	alert("error var !!!")
+	//  }  
+		  resetForm(); 
+		},
+		// validationSchema,   
+	  });
+       console.log(values);
   return (
 	<div className={style.filterWrapper}>
 		 <button className={style.closeBtn}
@@ -27,34 +60,20 @@ export default function ProductsPageFilter({closeFunc}) {
 		   </div>
 		{openCloseFilter.CategoryFilter &&
 		  <ul className={style.categoryName}>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
-			<li>adada</li>
+			{
+				FavoriteItemsCategoryDatas.map((categoryName,index)=>(
+					<div key={index}>
+					<input 
+					    type="checkbox"
+					    value={categoryName}
+					    name="category"
+					    onChange={handleChange}
+					/>
+                    <span>{categoryName} ({index})</span>
+					</div>
+				))
+			}
 		   </ul>
-		 
 		   }
 		</div>
 	    
@@ -67,12 +86,22 @@ export default function ProductsPageFilter({closeFunc}) {
 			</div>
            
 		  {openCloseFilter.sortFilter && 
-		  <ul>
-			<li>sdd</li>
-			<li>dds</li>
-			<li>sdd</li>
-			<li>dds</li>
-		   </ul>
+		   <div className={style.sortWrapper}>
+		   <button className={style.sortAZ}>
+		            <span className={style.line}><ArrowDown/></span>
+			      <div className={style.az}>
+				   <span>A</span> 
+		           <span>Z</span> 
+				 </div>
+			</button>
+		    <button className={style.sortZA}>
+		            <span className={style.line}><ArrowDown/></span>
+			      <div className={style.za}>
+				   <span>Z</span> 
+		           <span>A</span> 
+				 </div>
+			</button>
+		   </div>
           }
 		</div>
 		<div className={style.priceFilter}>
@@ -104,6 +133,7 @@ export default function ProductsPageFilter({closeFunc}) {
 		   
              
 		</div>
+		<button className={style.filterResultBtn}>Filter result</button>
 	</div>
   )
 }
