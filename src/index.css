@@ -193,8 +193,13 @@ svg{
   display: none;
 }
 
+.horizontal-slider {
+	display: flex;
+	align-items: center;
+}
+
 .example-track{
-  top: 20px;
+//   top: 20px;
   height: 3px;
   background:rgba(23, 23, 23, .3);
 }
@@ -211,25 +216,18 @@ svg{
   cursor: pointer;
   border-radius: 100%;
   box-sizing: border-box;
-}
-.example-thumb-1{
-  top: 5px;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: 1px solid rgba(230, 168, 76, 1);
-  color: black;
-  width: 31px;
-  height: 31px;
-}
-/* .example-thumb-1{
-  width: 30px;
-} */
-.example-thumb-0{
-  background-color: transparent;
-  border: 1px solid rgba(230, 168, 76, 1);
-  color: black;
   width: 21px;
   height: 21px;
-  top: 11px;
+//   top: 11px;
+//   top: 5px;
+}
+
+.example-thumb:active{
+	width: 1.75rem;
+	height: 1.75rem;
+	// top: 8px;
 }
 
 @media only screen and (max-width : 550px) {

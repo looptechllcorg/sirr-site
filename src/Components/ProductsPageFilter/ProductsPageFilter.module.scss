@@ -3,7 +3,7 @@
 
 .filterWrapper{
 	width: 280px;
-	padding: 5px 10px 40px 20px;
+	// padding: 5px 10px 40px 20px;
 	.closeBtn{
 		display: block;
 		width: 47px;
@@ -17,7 +17,7 @@
 	.CategoryFilter{
 	  .titleCategory{
 		font-size: 1.5rem;
-		padding-bottom: 20px;
+		margin-bottom: 20px;
        display: flex;
 	   justify-content: space-between;
 	   align-items: center;
@@ -31,8 +31,10 @@
 			background-color: rgba(230, 168, 76, 1);
 			padding-top: 20px;
 			height: 30px;
+			border-radius: 1rem;
 		}
 		&::-webkit-scrollbar{
+			border-radius: 1rem;
 			width: 4px;
 			background-color: rgba(23, 23, 23, .1);
 		}
@@ -85,7 +87,8 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			margin-top: 75px;
+			// margin-top: 75px;
+			margin-top: 2rem;
 			.minValue,
 			.maxValue{
 				width: 100px;
