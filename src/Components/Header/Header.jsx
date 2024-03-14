@@ -93,7 +93,6 @@ export default function Header() {
                                         return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                                     }}
                                 >
-                                    {/* About us */}
                                     {t("about")}
                                 </NavLink>
                             </li>

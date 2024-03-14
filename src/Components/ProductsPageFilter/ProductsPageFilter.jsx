@@ -1,139 +1,144 @@
 // import style scss
-import { useState } from "react"
-import style from  "./ProductsPageFilter.module.scss"
+import { useContext, useState } from "react";
+import style from "./ProductsPageFilter.module.scss";
 import CloseIcon from "../../assets/icons/CloseIcon";
-import ReactSlider from 'react-slider'
+import ReactSlider from "react-slider";
 import ArrowDown from "../../assets/icons/ArrowDown";
-import {FavoriteItemsCategoryDatas} from "../../MyWriteDatas/myDatas";
-// import useFormik 
-import { useFormik } from 'formik'
+import { FavoriteItemsCategoryDatas } from "../../MyWriteDatas/myDatas";
+// import useFormik
+import { useFormik } from "formik";
+import { GlobalContext } from "../../Contexts/GlobalContext";
+import sirrSite from "../../Helpers/Sirr";
+import urls from "../../ApiValues/urls";
+import ArrowUp from "../../assets/icons/ArrowUp";
 
-export default function ProductsPageFilter({closeFunc}) {
-	const [openCloseFilter, setOpenCloseFilter]=useState({
-		CategoryFilter:true,
-		sortFilter:true,
-		priceFilter:true   
-	})
-    const [value, setValue]=useState([])
-	const onClickOpenCloseFunc=(item)=>{
-     setOpenCloseFilter(prevState => ({ ...prevState, [item] : !prevState[item] }));
-	          
-	}
-   
-	// const [categoryFilter, setCategoryFilter]=useState([])
+export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
+    const [openCloseFilter, setOpenCloseFilter] = useState({
+            CategoryFilter: true,
+            sortFilter: true,
+            priceFilter: true,
+    });
 
-	// const onChangeCategory=(e)=>{
+    const { categoryNameDatas } = useContext(GlobalContext);
 
-	// }
+    const [value, setValue] = useState([]);
+    const onClickOpenCloseFunc = (item) => {
+        setOpenCloseFilter((prevState) => ({ ...prevState, [item]: !prevState[item] }));
+    };
 
-	const {handleChange,values, resetForm} = useFormik({
-		initialValues: {
-		   category:[]
-		},
-		onSubmit:async (values) => {
-			console.log(values);
-    //  try {    
-	// 	await looptech.api().post(urls.contactPost, JSON.stringify(values));
-	// 	   const MySwal= withReactContent(Swal);
-	// 	   MySwal.fire({
-	// 		title: <strong>{looptech.translate("swalAlertTitle")}</strong>,
-	// 		html: <i>{looptech.translate("swalAlertHTML")}</i>,   
-	// 		icon: 'success'
-	// 	  });
-	//  } catch (error) {     
-	// 	console.log(error);   
-	// 	alert("error var !!!")
-	//  }  
-		  resetForm(); 
-		},
-		// validationSchema,   
-	  });
-       console.log(values);
-  return (
-	<div className={style.filterWrapper}>
-		 <button className={style.closeBtn}
-		  onClick={closeFunc}><CloseIcon/></button>
-		<div className={style.CategoryFilter}>
-		  <div onClick={()=>onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
-		   <h4>All Categories</h4>
-		   <span>{openCloseFilter.CategoryFilter ? "-" : "+"}</span>
-		   </div>
-		{openCloseFilter.CategoryFilter &&
-		  <ul className={style.categoryName}>
-			{
-				FavoriteItemsCategoryDatas.map((categoryName,index)=>(
-					<div key={index}>
-					<input 
-					    type="checkbox"
-					    value={categoryName}
-					    name="category"
-					    onChange={handleChange}
-					/>
-                    <span>{categoryName} ({index})</span>
-					</div>
-				))
-			}
-		   </ul>
-		   }
-		</div>
-	    
-		<div className={style.sortFilter}>
-			<div
-			onClick={()=>onClickOpenCloseFunc("sortFilter")}
-			className={style.titleFilter}>
-			<h4 >Sort by</h4>
-			<span>{openCloseFilter.sortFilter ? "-" : "+"}</span>
-			</div>
-           
-		  {openCloseFilter.sortFilter && 
-		   <div className={style.sortWrapper}>
-		   <button className={style.sortAZ}>
-		            <span className={style.line}><ArrowDown/></span>
-			      <div className={style.az}>
-				   <span>A</span> 
-		           <span>Z</span> 
-				 </div>
-			</button>
-		    <button className={style.sortZA}>
-		            <span className={style.line}><ArrowDown/></span>
-			      <div className={style.za}>
-				   <span>Z</span> 
-		           <span>A</span> 
-				 </div>
-			</button>
-		   </div>
-          }
-		</div>
-		<div className={style.priceFilter}>
-		<div
-		onClick={()=>onClickOpenCloseFunc("priceFilter")} 
-		className={style.titlePrice}>
-		   <h4>Price</h4>
-		   <span>{openCloseFilter.priceFilter ? "-" : "+"}</span>
-		   </div>
-		   { openCloseFilter.priceFilter &&
-		<>
-		<ReactSlider
-		className="horizontal-slider"
-		thumbClassName="example-thumb"
-		trackClassName="example-track"
-		defaultValue={[0,150]}
-		min={0}
-		max={150}
-		onChange={(value, index) => setValue(value)}
-		renderThumb={(props, state) => <div {...props}></div>}
-	/>
-	   <div className={style.filterResult}>
-		  <span className={style.minValue}>{value[0]} AZN</span>
-		  <span> - </span>
-		  <span className={style.maxValue}>{value[1]} AZN</span>
-	  </div>
-	    </>
-		   }
-		   
-             
-		</div>
-		<button className={style.filterResultBtn}>Filter result</button>
-	</div>
-  )
+  
+
+    const { handleChange, handleSubmit, values, resetForm } = useFormik({
+        initialValues: {
+            categories: [],
+            sort: 'az'
+        },
+        onSubmit: async (values) => {
+            // if(value) values = {...values, price: value}
+             try {
+                let searchParams = new URLSearchParams();
+                if(values.categories) {
+                    values.categories.forEach(c => {
+                        searchParams.set('categories[]', c);
+                    })
+                }
+                if(values.sort) searchParams.set('sort', values.sort);
+                if(value.length) {
+                    searchParams.set('price[0]', value[0]);
+                    searchParams.set('price[1]', value[1]);
+                }
+            	let res = await sirrSite.api().get(`${urls.allProduct}?${searchParams.toString()}`);
+                setAllProductDatas(res.data.data.data)
+
+             } catch (error) {
+            	console.log(error);
+    
+             }
+            // resetForm()
+        },
+    });
+    return (
+        <form className={style.filterWrapper} onSubmit={handleSubmit}>
+            <button className={style.closeBtn} onClick={closeFunc}>
+                <CloseIcon />
+            </button>
+            <div className={style.CategoryFilter}>
+                <div onClick={() => onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
+                    <h4>All Categories</h4>
+                    <span>{openCloseFilter.CategoryFilter ? "-" : "+"}</span>
+                </div>
+                {openCloseFilter.CategoryFilter && (
+                    <ul className={style.categoryName}>
+                        {categoryNameDatas.map((categoryName) => (
+                            <div className={style.checkBoxWrapper} key={categoryName.id}>
+                                <input className={style.checkBoxInput} 
+                                type="checkbox"
+                                value={categoryName.slug}
+                                name="categories"
+                                onChange={handleChange}
+                                id={categoryName.title}
+                                 />
+                                 <label className={style.categoryTitle} htmlFor={categoryName.title}>
+
+                                 {categoryName.title} ({categoryName.products_count})
+                                 </label>
+                                <span >
+                                    
+                                </span>
+                            </div>
+                        ))}
+                    </ul>
+                )}
+            </div>
+
+            <div className={style.sortFilter}>
+                <div onClick={() => onClickOpenCloseFunc("sortFilter")} className={style.titleFilter}>
+                    <h4>Sort by</h4>
+                    <span>{openCloseFilter.sortFilter ? "-" : "+"}</span>
+                </div>
+
+                {openCloseFilter.sortFilter && (
+                    <div className={style.sortWrapper}>
+                        <input type="radio" onChange={handleChange} name="sort" id="az" value="az" hidden />
+                        <label htmlFor="az" className={style.sortAZ}>
+                            <span className={style.icon}>
+                              <ArrowUp />
+                            </span>
+                            <div className={style.az}>
+                                <span>A</span>
+                                <span>Z</span>
+                            </div>
+                        </label>
+                        <input type="radio" onChange={handleChange} name="sort" id="za" value="za" hidden />
+                        <label htmlFor="za" className={style.sortZA}>
+                            <span className={style.icon}>
+                                <ArrowDown />
+                            </span>
+                            <div className={style.za}>
+                                <span>Z</span>
+                                <span>A</span>
+                            </div>
+                        </label>
+                    </div>
+                )}
+            </div>
+            <div className={style.priceFilter}>
+                <div onClick={() => onClickOpenCloseFunc("priceFilter")} className={style.titlePrice}>
+                    <h4>Price</h4>
+                    <span>{openCloseFilter.priceFilter ? "-" : "+"}</span>
+                </div>
+                {openCloseFilter.priceFilter && (
+                    <>
+                        <ReactSlider className="horizontal-slider" thumbClassName="example-thumb" trackClassName="example-track" defaultValue={[0, 150]} min={0} max={150} onChange={(value, index) => setValue(value)} renderThumb={(props, state) => <div {...props}></div>} />
+                        <div className={style.filterResult}>
+                            <span className={style.minValue}>{value[0]} AZN</span>
+                            <span> - </span>
+                            <span className={style.maxValue}>{value[1]} AZN</span>
+                        </div>
+                    </>
+                )}
+            </div>
+            <button onClick={(e) => {handleSubmit(e); closeFunc();}}  className={style.filterResultBtn}>Filter result</button> 
+        </form>
+    );
 }

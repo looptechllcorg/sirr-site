@@ -10,11 +10,28 @@ import prDetailsBgImg from "../../assets/images/prDetailsBgImg.jpg"
 import TitleList from "../../Components/TitleList/TitleList";
 import { useEffect, useState } from "react";
 import SiteWay from "../../Components/SiteWay/SiteWay";
+import sirrSite from "../../Helpers/Sirr";
 
 
 export default function PrDetailsPage() {
 	const {slug}=useParams()
-	const findProduct=FavoriteItemsAndProductPageDatas.find(product=> slug === product.slug)
+	// const findProduct=FavoriteItemsAndProductPageDatas.find(product=> slug === product.slug)
+	const [oneProductData, setOneProductData]=useState({});
+
+	useEffect(()=>{
+      const getOneproduct = async ()=>{
+		try {
+			const ResOneProduct = await sirrSite.api().get(`${sirrSite.baseUrl}/products/${slug}`)
+                setOneProductData(ResOneProduct.data.data)
+		} catch (error) {
+			console.log(error);
+		}
+	  }
+	  getOneproduct()
+	},[])
+
+    //    console.log("one pro-- ",oneProductData);
+
 
 	const getRandomItems = (arr, count) =>
      arr.sort(() => Math.random() - 0.5).slice(0, count);
@@ -38,18 +55,18 @@ export default function PrDetailsPage() {
 	 <SiteWay data={["Home Page","Products","Product Details"]}/>
 	  <div className={style.prDetailsWrapper}>
 	
-		     <h3 className={style.MobilePrDetailsTitle}>{findProduct.title}</h3>
-			<span className={style.MobilePrDetailsPrice}>{findProduct.price} ₼</span>
+		     <h3 className={style.MobilePrDetailsTitle}>{oneProductData.title}</h3>
+			<span className={style.MobilePrDetailsPrice}>{oneProductData.price} ₼</span>
 		<div className={style.prDetailsImg}>
-           <img  src={findProduct.CoverImage} alt={findProduct.title} />
+           <img  src={`${sirrSite.baseUrlImage}${oneProductData.image}`} alt={oneProductData.title} />
 		 </div>
         <div className={style.prDetailsInfo}>
-			<h3 className={style.prDetailsTitle}>{findProduct.title}</h3>
-			<span className={style.prDetailsPrice}>{findProduct.price} ₼</span>
+			<h3 className={style.prDetailsTitle}>{oneProductData.title}</h3>
+			<span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
 			<button className={style.CallMe}>Call me</button>
 			<hr className={style.prDetailsLine}/>
-			<p className={style.prDetailsDescription}>{findProduct.description}</p>
-			<div className={style.PrDetailsSize}>Size: <span className={style.unitQuantity}>{findProduct.quantity} {findProduct.unit}</span></div>
+			<p className={style.prDetailsDescription}>{oneProductData.description}</p>
+			<div className={style.PrDetailsSize}>Size: <span className={style.unitQuantity}>{oneProductData.quantity} {oneProductData.unit}</span></div>
 		</div>
 	  </div>
 

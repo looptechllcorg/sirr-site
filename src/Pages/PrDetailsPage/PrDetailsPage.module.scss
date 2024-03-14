@@ -4,7 +4,7 @@
 #details{
 	.prDetailsWrapper{
 		width: 100%;
-		padding: 80px 100px;
+		padding: 0 100px 50px;
 		display: flex;
 		.MobilePrDetailsTitle{
 			display: none;
@@ -46,6 +46,9 @@
 			   margin: 20px 0;
 			   cursor: pointer;
 			}
+			// .prDetailsLine{
+			// 	border: 1px solid #171717;
+			// }
 			.prDetailsDescription{
 			    width: 80%;
 				margin: 30px 0;

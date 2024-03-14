@@ -9,12 +9,29 @@ import ProductPagePrCart from "../../Components/ProductPagePrCart/ProductPagePrC
 import { FavoriteItemsAndProductPageDatas } from "../../MyWriteDatas/myDatas"
 import SiteWay from "../../Components/SiteWay/SiteWay"
 import ProductsPageFilter from "../../Components/ProductsPageFilter/ProductsPageFilter"
-import { useState } from "react"
+import {  useEffect, useState } from "react"
 import FilterIcon from "../../assets/icons/FilterIcon"
+import sirrSite from "../../Helpers/Sirr"
+import urls from "../../ApiValues/urls"
 
 export default function Product() {
-	const [showHiddenFilterComponent, setShowHiddenFilterComponent]=useState(false)
-   
+	const [showHiddenFilterComponent, setShowHiddenFilterComponent]=useState(false);
+	
+		const [AllProductDatas, setAllProductDatas]=useState([]);
+
+		useEffect(()=>{
+			const getProductPageDatas=async ()=>{
+			  try {
+				   const ResPrPageDatas= await sirrSite.api().get(urls.allProduct)
+						setAllProductDatas(ResPrPageDatas.data.data.data)
+						
+			  } catch (error) {
+			   console.log(error);	
+			  }
+			}
+			getProductPageDatas()
+		  },[])
+	 
 	const onClickshowHiddenFilterComponent=()=>{
 		setShowHiddenFilterComponent(!showHiddenFilterComponent)
 	}
@@ -29,22 +46,24 @@ export default function Product() {
 		  <div className={style.FilterAndProduct}>
   
 		  <div className={style.mobileFilter}>
-		     {showHiddenFilterComponent && <ProductsPageFilter  closeFunc={onClickshowHiddenFilterComponent}/> }
+		     {showHiddenFilterComponent && <ProductsPageFilter 
+			 setAllProductDatas={setAllProductDatas}
+			 closeFunc={onClickshowHiddenFilterComponent}/> }
 			 <button onClick={onClickshowHiddenFilterComponent} 
 		   className={style.filterShow}>Filter <FilterIcon/></button>
 		   </div>      
 
 		       <div className={style.webFilter}>
-			      <ProductsPageFilter /> 
+			      <ProductsPageFilter  setAllProductDatas={setAllProductDatas}/> 
 				</div>
 		
 			
            <div className={style.ProductWrapper}>   
             {
-				FavoriteItemsAndProductPageDatas.map(product=>(
+				AllProductDatas.map(product=>(
 					<ProductPagePrCart key={product.id} data={product}/>
 				))
-			}
+			} 
 		   </div>
 		  </div>
 		</div>

@@ -2,10 +2,30 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { PropTypes } from 'prop-types';
 import { Pagination } from 'swiper/modules';
 import "./FavoritCategories.css"
+import { useContext, useEffect, useState } from 'react';
+import { GlobalContext } from '../../Contexts/GlobalContext';
+import sirrSite from '../../Helpers/Sirr';
+import urls from '../../ApiValues/urls';
+import PrCart from '../PrCart/PrCart';
 
-export default function FavoriteCategories({ categories }) {
-	const handleSlideChange = (e) => {
-		console.log(categories[e.realIndex]);
+export default function FavoriteCategories({ setProducts }) {
+	const {categoryNameDatas}=useContext(GlobalContext)
+
+	// const [categoryProductDatas, setCategoryProductDatas] = useState([])
+
+	const handleSlideChange =  async (e) => {
+		let searchParams = new URLSearchParams();
+		if(!(e.realIndex === 0)) {
+			let activeSlug = categoryNameDatas[e.realIndex + 1].slug;
+			searchParams.set('categories[]', activeSlug);
+		}
+		try {
+			let res = await sirrSite.api().get(`${urls.allProduct}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`);
+			setProducts(res.data.data.data)
+	   } catch (error) {
+			console.log(error);	
+	   }
+
 	};
 
 	return (
@@ -22,7 +42,8 @@ export default function FavoriteCategories({ categories }) {
 				slidesPerGroupAuto={true}
 				setWrapperSize={true}
 				modules={[Pagination]}
-				onRealIndexChange={handleSlideChange}
+				// onRealIndexChange={handleSlideChange}
+				onClick={handleSlideChange}
 				preventInteractionOnTransition={true}
 				slidesOffsetBefore={24}
 				pagination={{
@@ -33,12 +54,14 @@ export default function FavoriteCategories({ categories }) {
 					},
 				}}
 			>
-				{categories?.map((category, index) => (
-					<SwiperSlide className={`index-favorite-categories-item`} key={index}>
-						{category}
+				<SwiperSlide className={`index-favorite-categories-item`}>
+					All
+				</SwiperSlide>
+				{categoryNameDatas.map((category) => (
+					<SwiperSlide className={`index-favorite-categories-item`} key={category.id}>
+						{category.title}
 					</SwiperSlide>
 				))}
-				<div className="index-favorite-categories-slider-pagination"></div>
 			</Swiper>
 		</div>
 	)
