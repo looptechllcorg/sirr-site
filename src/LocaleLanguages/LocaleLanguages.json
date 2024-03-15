@@ -1,12 +1,12 @@
 {
 	"az":{
-		"about":"haqqimizda"
+		"about":"Haqqımızda"
 	     },
     "en":{
-		"about":"about"
+		"about":"About"
          },
 	"ru":{
-		"about":"O НAC"
+		"about": "О нас"
 	}	 
 
 }
