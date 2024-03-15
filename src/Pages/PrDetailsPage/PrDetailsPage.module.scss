@@ -1,89 +1,94 @@
 // import all site color
 @import "../../siteColorList/Colors.scss";
 
-#details{
-	.prDetailsWrapper{
+#details {
+	.prDetailsWrapper {
 		width: 100%;
-		padding: 0 100px 50px;
+		padding: 0 100px;
 		display: flex;
-		.MobilePrDetailsTitle{
+		.MobilePrDetailsTitle {
 			display: none;
 		}
-		.MobilePrDetailsPrice{
+		.MobilePrDetailsPrice {
 			display: none;
 		}
-		.prDetailsImg{
+		.prDetailsImg {
 			width: 470px;
 			height: 400px;
 			// aspect-ratio: 3/3;
-			img{
+			img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 			}
-
-		    }
-		.prDetailsInfo{
+		}
+		.prDetailsInfo {
 			width: 50%;
 			margin: 20px 0 0 40px;
-			.prDetailsTitle{
+			.prDetailsTitle {
 				font-size: 32px;
 				font-weight: 500;
 				line-height: 38px;
 			}
-			.prDetailsPrice{
+			.prDetailsPrice {
 				font-size: 32px;
 				font-weight: 500;
 				color: $prDetailsPriceUnitQuantityColor;
 				margin: 10px 0;
 			}
-			.CallMe{
-				display: block;
+			.CallMe {
+				width: 60%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				border: 1px solid $prDetailsCallMeBtnBorderColor;
 				background-color: $prDetailsCallMeBtnBgColor;
-				padding: 7px 60px;
-               border-radius: 5px;
-			   margin: 20px 0;
-			   cursor: pointer;
+				color: inherit;
+				padding: .5rem 2rem;
+				border-radius: 5px;
+				margin: 20px 0;
+				cursor: pointer;
 			}
 			// .prDetailsLine{
 			// 	border: 1px solid #171717;
 			// }
-			.prDetailsDescription{
-			    width: 80%;
+			.prDetailsDescription {
+				width: 80%;
 				margin: 30px 0;
 				font-size: 16px;
 				line-height: 22px;
 				opacity: 0.7;
 				font-family: "Inter", sans-serif;
 			}
-			.PrDetailsSize{
+			.PrDetailsSize {
 				margin: 10px 0 0 0;
 				font-size: 24px;
 				font-weight: 500;
-				.unitQuantity{
-				color: $prDetailsPriceUnitQuantityColor;
+				.unitQuantity {
+					color: $prDetailsPriceUnitQuantityColor;
 				}
 			}
-		     }
+		}
 	}
-	.line{
-		margin-bottom: 80px;
+	.line {
+		margin: 3rem 0;
+		border-top-color: rgba(23, 23, 23, .2);
+		border-bottom: 0;
 	}
-	.seeAlsoPrWrapper{
+	.seeAlsoPrWrapper {
 		width: 100%;
 		padding: 30px 100px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(12rem,1fr));
+		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 		gap: 2rem;
-		img{
+		img {
 			width: 100%;
 			aspect-ratio: 1/1.1;
 			object-fit: cover;
 			border-radius: 5px;
 		}
-		.seeAlsoPrTitle{
+		.seeAlsoPrTitle {
 			color: black;
 			font-weight: 700;
 			font-size: 22px;
@@ -92,56 +97,54 @@
 	}
 }
 
-
 // ====  Details  ===== section responsive start
 @media only screen and (max-width: 950px) {
-	#details{
-		.prDetailsWrapper{
+	#details {
+		.prDetailsWrapper {
 			padding: 40px 10px;
-			.prDetailsInfo{
+			.prDetailsInfo {
 				width: 50%;
-				.prDetailsDescription{
+				.prDetailsDescription {
 					width: 100%;
 				}
-				 }
+			}
 		}
 	}
 }
 
 @media only screen and (max-width: 700px) {
-	#details{
-		.prDetailsWrapper{
+	#details {
+		.prDetailsWrapper {
 			flex-direction: column;
-			.MobilePrDetailsTitle{
+			.MobilePrDetailsTitle {
 				display: block;
 				font-size: 32px;
 				font-weight: 500;
 				line-height: 38px;
 			}
-			.MobilePrDetailsPrice{
+			.MobilePrDetailsPrice {
 				display: block;
 				font-size: 35px;
 				font-weight: 500;
 				color: $prDetailsPriceUnitQuantityColor;
 				margin: 10px 0;
 			}
-			.prDetailsImg{
+			.prDetailsImg {
 				width: auto;
-				}
-			.prDetailsInfo{
+			}
+			.prDetailsInfo {
 				width: 100%;
 				margin: 20px 0;
-				.prDetailsTitle{
-			    	display: none;
-				}
-				.prDetailsPrice{
+				.prDetailsTitle {
 					display: none;
 				}
-				.CallMe{
-				    width: 100%;
-					padding: 15px 60px;
+				.prDetailsPrice {
+					display: none;
 				}
-				 }
+				.CallMe {
+					width: 100%;
+				}
+			}
 		}
 	}
 }

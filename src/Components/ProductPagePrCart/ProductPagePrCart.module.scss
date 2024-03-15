@@ -9,8 +9,8 @@
 	 border-radius: 3.75px;
 	}
 	.prtitle{
-        font-size: 21px;
-		line-height: 30px;
+        font-size: 1.125rem;
+		// line-height: 30px;
 		font-weight: 700;
 		color: $productPageTitleColor;
 		word-break: break-word;
@@ -19,7 +19,7 @@
 		display: flex;
 		align-items: center;
 		.unit{
-			font-size: 20px;
+			// font-size: 20px;
 			font-weight: 700;
 			color: $productPagePriceColor;
 		}
@@ -31,7 +31,7 @@
 			margin: 7px 7px 0;
 		}
 		.price{
-			font-size: 20px;
+			// font-size: 20px;
 			font-weight: 700;
 			color: $productPagePriceColor;
 		}

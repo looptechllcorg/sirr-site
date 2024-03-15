@@ -51,7 +51,7 @@ export default function PrDetailsPage() {
 		<SocialList/>
 	<div style={{paddingTop:0}}  className="container">  
 
-	 <MainBgImage bgImg={prDetailsBgImg}   bgImgOnText={"product Details"}/>
+	 <MainBgImage bgImg={prDetailsBgImg}   bgImgOnText={"Product"}/>
 	 <SiteWay data={["Home Page","Products","Product Details"]}/>
 	  <div className={style.prDetailsWrapper}>
 	
@@ -63,7 +63,7 @@ export default function PrDetailsPage() {
         <div className={style.prDetailsInfo}>
 			<h3 className={style.prDetailsTitle}>{oneProductData.title}</h3>
 			<span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
-			<button className={style.CallMe}>Call me</button>
+			<Link to={'#'} className={style.CallMe}>Call me</Link>
 			<hr className={style.prDetailsLine}/>
 			<p className={style.prDetailsDescription}>{oneProductData.description}</p>
 			<div className={style.PrDetailsSize}>Size: <span className={style.unitQuantity}>{oneProductData.quantity} {oneProductData.unit}</span></div>

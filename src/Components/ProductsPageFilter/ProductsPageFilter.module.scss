@@ -1,190 +1,175 @@
 // import site all color list
 @import "../../siteColorList/Colors.scss";
 
-.filterWrapper{
+.filterWrapper {
 	width: 280px;
-	.closeBtn{
+	.closeBtn {
 		display: block;
 		width: 47px;
 		height: 47px;
-		border: 1px solid rgba(23, 23, 23, .5);
+		border: 1px solid rgba(23, 23, 23, 0.5);
 		border-radius: 100%;
 		cursor: pointer;
 		// margin: 0 0 12px 210px;
 		margin-left: 94%;
 		display: none;
 	}
-	.CategoryFilter{
-	  .titleCategory{
-		font-size: 1.5rem;
-		margin-bottom: 20px;
-       display: flex;
-	   justify-content: space-between;
-	   align-items: center;
-	   cursor: pointer;
-	   }
-	   .categoryName{
-		height: 200px;
-		padding: 14px 0;
-		overflow-y: auto;
-		.checkBoxWrapper{
-
-input[type="checkbox"] {
-    display: none;
-}
-label {
-	display: inline-block;
-    cursor: pointer;
-    padding-left: 40px;
-    position: relative;
-    font-size: 20px;
-    margin-top: 15px;
-	color: rgba(23, 23, 23, .6);
-}
-label::before {
-    content: "";
-    display: inline-block;
-    width: 20px; 
-    height: 20px; 
-	border: none;
-    background-color: rgba(250, 238, 219, 1); 
-    margin-right: 20px; 
-    position: absolute;
-    left: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-}
-
-
-
-input[type="checkbox"]:checked + label::before {
-    content: "✔"; 
-    background-color: rgba(250, 238, 219, 1);
-    color: rgba(23, 23, 23, 1);
-    font-size: 20px;
-    width: 25px;
-    height: 25px;
-    display: inline-block;
-    text-align: center;
-    line-height: 23px; 
-}
-
-
-input[type="checkbox"]:checked + label{
-  color: rgba(230, 168, 76, 1);
-}
-
-
-
-
-
-
-
-
-
-	}
-		&::-webkit-scrollbar-thumb {
-			background-color: rgba(230, 168, 76, 1);
-			padding-top: 20px;
-			height: 30px;
-			border-radius: 1rem;
-		}
-		&::-webkit-scrollbar{
-			border-radius: 1rem;
-			width: 4px;
-			background-color: rgba(23, 23, 23, .1);
-		}
-	   }
-     }
-	 .sortFilter{
-		padding: 40px 0;
-		.titleFilter{
-			margin-bottom: 10px;
-			font-size: 1.7rem;
+	.CategoryFilter {
+		.titleCategory {
+			margin-bottom: 20px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			cursor: pointer;
-		       }
-		.sortWrapper{
-           display: flex;
-		   input:checked + label {
-			color: rgba(230, 168, 76, 1);
-			svg {
-				fill: rgba(230, 168, 76, 1)
-			   }
-		   }
+		}
+		.categoryName {
+			height: 200px;
+			padding: 14px 0;
+			overflow-y: auto;
+			padding: 0;
+			.checkBoxWrapper {
+				margin-bottom: .75rem;
+				input[type="checkbox"] {
+					display: none;
+				}
+				label {
+					display: inline-flex;
+					align-items: center;
+					cursor: pointer;
+					// padding-left: 40px;
+					position: relative;
+					color: rgba(23, 23, 23, 0.6);
+					line-height: 1;
+				}
+				label::before {
+					content: "‎";
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 1.25rem;
+					height: 1.25rem;
+					border: none;
+					background-color: rgba(250, 238, 219, 1);
+					margin-right: .5rem;
+					font-size: .75rem;
+					color: rgba(23, 23, 23, 1);
+					line-height: 23px;
+				}
+
+				input[type="checkbox"]:checked + label::before {
+					content: "✔";
+					background-color: rgba(250, 238, 219, 1);
+				}
+
+				input[type="checkbox"]:checked + label {
+					color: rgba(230, 168, 76, 1);
+				}
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: rgba(230, 168, 76, 1);
+				padding-top: 20px;
+				height: 30px;
+				border-radius: 1rem;
+			}
+			&::-webkit-scrollbar {
+				border-radius: 1rem;
+				width: 4px;
+				background-color: rgba(23, 23, 23, 0.1);
+			}
+		}
+	}
+	.sortFilter {
+		padding: 40px 0;
+		.titleFilter {
+			margin-bottom: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+		}
+		.sortWrapper {
+			display: flex;
+			input:checked + label {
+				color: rgba(230, 168, 76, 1);
+				svg {
+					fill: rgba(230, 168, 76, 1);
+				}
+			}
 			.sortAZ,
-			.sortZA{
+			.sortZA {
 				display: flex;
 				align-items: center;
 				border: none;
 				background: transparent;
 				margin-right: 30px;
 				cursor: pointer;
-			 .icon{
-				margin-right: 3px;
-				margin-top: 7px;
-			 }
-			 .az,
-			 .za {
-				display: flex;
-				flex-direction: column;
-				font-weight: 500;
-				font-size: 24px;
-				:first-child{
-					margin-bottom: -14px;
+				.icon {
+					margin-right: 3px;
+					margin-top: 7px;
 				}
-			 }
-			   }	
-			  
-			   }	   
-		   
-	 } 
-
-	 .priceFilter{
-		.titlePrice{
-		font-size: 1.7rem;
-		margin-bottom: 20px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		cursor: pointer;
+				.az,
+				.za {
+					display: flex;
+					flex-direction: column;
+					font-weight: 500;
+					font-size: 24px;
+					:first-child {
+						margin-bottom: -14px;
+					}
+				}
+			}
 		}
-		.filterResult{
+	}
+
+	.priceFilter {
+		.titlePrice {
+			margin-bottom: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+		}
+		.filterResult {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			// margin-top: 75px;
 			margin-top: 2rem;
 			.minValue,
-			.maxValue{
-				width: 100px;
-				height: 25px;
-				background-color:rgba(23, 23, 23, .3);
+			.maxValue {
+				// width: 100px;
+				// height: 25px;
+				flex: 1;
+				padding: .25rem 1rem;
+				background-color: rgba(23, 23, 23, 0.3);
 				border-radius: 5px;
 				color: white;
 				text-align: center;
 			}
+			.seperator{
+				margin: 0 .5rem;
+				font-weight: bold;
+				color: rgba(23, 23, 23, 0.3);
+				font-size: 1.5rem;
+			}
 		}
-	 }
-	 .filterResultBtn{
+	}
+	.filterResultBtn {
 		margin: 30px 0 0;
 		padding: 10px 14px;
 		border-radius: 5px;
-	    width: 100%;
-		border: none;  
+		width: 100%;
+		border: none;
 		background-color: rgba(230, 168, 76, 1);
 		color: white;
 		font-size: 20px;
 		cursor: pointer;
-	 }
+	}
 }
-
 
 // Product page filter responsive
 @media only screen and (max-width: 650px) {
-	.filterWrapper{
+	.filterWrapper {
 		// width: 280px;
 		width: 100%;
 		padding: 10px 70px 70px 20px;
@@ -194,7 +179,7 @@ input[type="checkbox"]:checked + label{
 		background-color: white;
 		z-index: 99;
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-		.closeBtn{
+		.closeBtn {
 			display: block;
 		}
 	}
