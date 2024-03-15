@@ -22,7 +22,7 @@ export const GlobalProvider=({children})=>{
 	  getCategoryData()
 	},[])
        
-	console.log("cat", categoryNameDatas);
+	// console.log("cat", categoryNameDatas);
 
 	const onClickShowHiddenVideo=()=>{
 		setShowHiddenVideo(!showHiddenVideo)  

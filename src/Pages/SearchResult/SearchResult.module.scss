@@ -9,7 +9,7 @@
 		 padding: 10px 100px;
 		 column-gap: 8rem;
 		 position: sticky;
-		 top: 110px;
+		 top: 101px;
 		 left: 0;
 		.resultSearchInput{
 			flex: 4;
@@ -34,6 +34,12 @@
 			background-color: $resultPageInputSearchLabelBgColor;
           	color: $resultPageInputSearchLabelColor;		
 		}
+	}
+	.searchResultWrapper{
+		padding: 20px 100px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(17rem,1fr));
+	    gap: 1rem;
 	}
 }    
 

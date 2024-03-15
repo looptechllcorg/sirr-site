@@ -198,8 +198,9 @@ svg{
 	align-items: center;
 }
 
+/* filter page price filter react slider style */
 .example-track{
-//   top: 20px;
+  /* top: 20px; */
   height: 3px;
   background:rgba(23, 23, 23, .3);
 }
@@ -220,14 +221,14 @@ svg{
   border: 1px solid rgba(230, 168, 76, 1);
   width: 21px;
   height: 21px;
-//   top: 11px;
-//   top: 5px;
+ /* top: 11px; */
+  /* top: 5px; */
 }
 
 .example-thumb:active{
 	width: 1.75rem;
 	height: 1.75rem;
-	// top: 8px;
+	/* top: 8px; */
 }
 
 @media only screen and (max-width : 550px) {

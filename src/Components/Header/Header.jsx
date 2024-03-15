@@ -8,7 +8,7 @@ import serachIcon from "../../assets/icons/searchIcon.svg";
 import { Select } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { useContext, useState,useRef } from "react";
+import { useContext, useState,} from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
@@ -19,31 +19,39 @@ import { useTranslation } from "react-i18next";
 
 export default function Header() {
     const {siteLang, onChangeLang,onClickLang}=useContext(LanguageContext);
-    const {searchInpValue, onChangeInput} =useContext(SearchContext);
-    const searchInputRef = useRef(null);
+    const {searchInpValue, onChangeInput,handleSearch,
+            	handleKeyDownHeaderInput,
+		    	searchInputShow,
+		    	setSearchInputShow,
+                noIcon } =useContext(SearchContext);
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
     const [navColorChange, setNavColorChange] = useState(false);
-    const [searchInputShow, setSearchInputShow]=useState(false);
-    const [noIcon, setNoIcon]=useState(true)
+    // const [searchInputShow, setSearchInputShow]=useState(false);
+    // const [noIcon, setNoIcon]=useState(true)
     const navigate=useNavigate()
     const {t}=useTranslation()
  
     // site search 
-    const handleKeyDownHeaderInput=(e)=>{
-        if(searchInpValue !== "" && e.key === "Enter"){
-          navigate(`/search?searchInpValue=${searchInpValue}`)
-             setSearchInputShow(false)
-             setNoIcon(false)
-        }
-        else{
-            return false
-        }
-    }
-    const handleShowSearchInput=()=>{
+
+    // const handleKeyDownHeaderInput=(e)=>{
+    //     if(searchInpValue !== "" && e.key === "Enter"){
+    //         handleSearch(e.target.value)
+    //       navigate(`/search?searchInpValue=${searchInpValue}`)
+    //          setSearchInputShow(false)
+    //          setNoIcon(false)
+    //     }
+    //     else{
+    //         return false
+    //     }
+    // }
+ 
+
+    const handleShowSearchInput=()=>{   
           if(searchInpValue === ""){
         setSearchInputShow(!searchInputShow)
-          }
+             }
           else{
+            handleSearch(searchInpValue)
             navigate(`/search?searchInpValue=${searchInpValue}`)
             setSearchInputShow(false)
             setNoIcon(false)
@@ -107,7 +115,7 @@ export default function Header() {
                                     Products
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink
                                     onClick={showHiddenMenu}
                                     to={"/media"}
@@ -117,7 +125,7 @@ export default function Header() {
                                 >
                                     Media
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink
                                     onClick={showHiddenMenu}
@@ -135,11 +143,10 @@ export default function Header() {
                      className={style.searchInput}
                       value={searchInpValue}
                       onChange={onChangeInput}
-                      onKeyDown={handleKeyDownHeaderInput}
-                      ref={searchInputRef}
+                      onKeyDown={handleKeyDownHeaderInput}   
                       id="homeSearch"
                        /> : ""
-                      }  
+                      }        
                         </div>
                         <div className={style.mobileSocial}>
                             <a className={style.instagram} target="_blank" rel="noreferrer" href="https://www.instagram.com/">
@@ -162,8 +169,13 @@ export default function Header() {
                                     }}
                                      className={style.serachIcon} src={serachIcon} 
                                      alt="burada axtaris iconu var" />
-                               </label>
+                         </label>
                           :""    }
+
+
+
+
+
                         <div className={style.lang}>
                             <Select
                                 value={siteLang}

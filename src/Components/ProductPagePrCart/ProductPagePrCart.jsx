@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 
 
-export default function ProductPagePrCart({data}) {
+export default function ProductPagePrCart({data}) {  
   return (
 	<Link to={`/product/${data.slug}`} className={style.prCartWrapper}>
 	  <img className={style.prImg} src={`${sirrSite.baseUrlImage}${data.image}`} alt={data.title} />

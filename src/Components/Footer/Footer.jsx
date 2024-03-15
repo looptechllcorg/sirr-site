@@ -66,10 +66,10 @@ export default function Footer() {
                 </div>
                 <hr className={style.line} />
                 <a className={style.looptech} target="_blank" rel="noreferrer" href="https://www.looptech.az/">
-	       	<li className={style.title}>Created by</li>	
-		      <li><object className={style.looptechLogo} data={looptechLogo} alt="burada LoopTech logo var" /></li>
+	       	<span className={style.title}>Created by</span>	
+		      <object className={style.looptechLogo} data={looptechLogo} alt="burada LoopTech logo var" />
 	        	</a>
             </div>
         </section>
-    );
+    );s
 }

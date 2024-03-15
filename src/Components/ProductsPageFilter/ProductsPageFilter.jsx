@@ -4,13 +4,14 @@ import style from "./ProductsPageFilter.module.scss";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import ReactSlider from "react-slider";
 import ArrowDown from "../../assets/icons/ArrowDown";
-import { FavoriteItemsCategoryDatas } from "../../MyWriteDatas/myDatas";
 // import useFormik
 import { useFormik } from "formik";
 import { GlobalContext } from "../../Contexts/GlobalContext";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import ArrowUp from "../../assets/icons/ArrowUp";
+import Subtraction from "../../assets/icons/Subtraction";
+import AdditionIcon from "../../assets/icons/AdditionIcon";
 
 export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
     const [openCloseFilter, setOpenCloseFilter] = useState({
@@ -64,8 +65,9 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
             </button>
             <div className={style.CategoryFilter}>
                 <div onClick={() => onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
-                    <h4>All Categories</h4>
-                    <span>{openCloseFilter.CategoryFilter ? "-" : "+"}</span>
+                    <h4 className={style.FilterCategoryName}>All Categories</h4>
+                    <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon}/> : 
+                     <AdditionIcon className={style.OpenCloseIcon}/>}</span>
                 </div>
                 {openCloseFilter.CategoryFilter && (
                     <ul className={style.categoryName}>
@@ -93,8 +95,11 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
 
             <div className={style.sortFilter}>
                 <div onClick={() => onClickOpenCloseFunc("sortFilter")} className={style.titleFilter}>
-                    <h4>Sort by</h4>
-                    <span>{openCloseFilter.sortFilter ? "-" : "+"}</span>
+                    <h4 className={style.FilterCategoryName}>Sort by</h4>
+                    <span>{openCloseFilter.sortFilter ?
+                     <Subtraction className={style.OpenCloseIcon}/> : 
+                     <AdditionIcon className={style.OpenCloseIcon}/>}
+                     </span>
                 </div>
 
                 {openCloseFilter.sortFilter && (
@@ -124,8 +129,9 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
             </div>
             <div className={style.priceFilter}>
                 <div onClick={() => onClickOpenCloseFunc("priceFilter")} className={style.titlePrice}>
-                    <h4>Price</h4>
-                    <span>{openCloseFilter.priceFilter ? "-" : "+"}</span>
+                    <h4 className={style.FilterCategoryName}>Price</h4>
+                    <span>{openCloseFilter.priceFilter ?  <Subtraction className={style.OpenCloseIcon}/> : 
+                     <AdditionIcon className={style.OpenCloseIcon}/>}</span>
                 </div>
                 {openCloseFilter.priceFilter && (
                     <>

@@ -16,7 +16,7 @@ export default function Branches({data,isActive,onClick}) {
 					<LocationIcon className={style.locationIcon}/>
 			    	<h6 className={style.Adress}>{data.address}</h6>
 				</div>
-				
+				     
 				<div className={style.Phones}>
 					<PhoneIcon className={style.PhoneIcon}/>
 					 {data.phones.split("/").map((num,i)=>(

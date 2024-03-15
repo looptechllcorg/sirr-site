@@ -7,12 +7,18 @@ import { useContext } from "react"
 import { SearchContext } from "../../Contexts/SearchContext"
 import serachIcon from "../../assets/icons/searchResultPageIcon.svg";
 import SiteWay from "../../Components/SiteWay/SiteWay"
+import ProductPagePrCart from "../../Components/ProductPagePrCart/ProductPagePrCart"
 
 
 
 export default function SearchResult() {
-	const {searchInpValue, onChangeInput} = useContext(SearchContext)
-    console.log("sss", searchInpValue);
+	const {searchInpValue, onChangeInput, searchResult,
+		     handleKeyDownHeaderInput,
+			 handleSearch,
+	      } = useContext(SearchContext)     
+    
+	console.log("sss", searchResult.data);
+
   return (
 	<section id={style.SearchResultWrapper}>
 		<div style={{paddingTop:0}} className="container">
@@ -20,19 +26,24 @@ export default function SearchResult() {
 			<SiteWay data={["Home Page","Search"]}/>
            <div className={style.resultSearch}>
 				<input 
+				className={style.resultSearchInput} 
+				value={searchInpValue}
 				onChange={onChangeInput}
+				onKeyDown={handleKeyDownHeaderInput}
 				placeholder="Search"
 				id="resultSearch"
-				className={style.resultSearchInput} 
 				/>
-				<label className={style.label} htmlFor="resultSearch">
+				<label onClick={()=>handleSearch(searchInpValue)} className={style.label} htmlFor="resultSearch">
 					<img className={style.searchIcon} src={serachIcon} alt="" />
 					Search
 				</label>
 				</div>
-			<div style={{textAlign:"center", color:"green", fontSize:"30px"}}>
-				{searchInpValue}
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Et animi porro ipsum minima vero. Maiores, ut ullam. Dolorum deserunt quasi, sequi cumque autem ullam. Aspernatur eaque reprehenderit omnis, impedit atque maiores doloribus maxime cum fugit facere voluptates est non exercitationem voluptas ad beatae inventore vero quis dicta iste. Quasi fuga eligendi aliquam vel, amet, eum necessitatibus quidem molestias earum ab voluptatum odit ratione illum pariatur esse magni consequuntur corrupti officiis rem ducimus, ipsum praesentium accusantium ullam. Voluptates ullam accusantium iure dolorem delectus, autem suscipit incidunt doloremque, ut laudantium qui pariatur, facere numquam eligendi earum maiores quaerat consequuntur vero! Porro, ducimus.
+			<div className={style.searchResultWrapper}>
+			   {
+				 searchResult.data?.map(product=>(
+					<ProductPagePrCart key={product.id} data={product}/>
+				 ))
+			   } 
 			</div>
 		</div>
 	  
