@@ -1,62 +1,49 @@
 // import style scss
 import style from "./Header.module.scss";
 
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import  nav logo
 import navLogo from "../../assets/logo/whiteLogoSirr.svg";
-import serachIcon from "../../assets/icons/searchIcon.svg";
 import { Select } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { useContext, useState,} from "react";
+import { useContext, useEffect, useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
 import { SearchContext } from "../../Contexts/SearchContext";
 import { LanguageContext } from "../../Contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
-
+import SearchIcon from "../../assets/icons/SearchIcon";
 
 export default function Header() {
-    const {siteLang, onChangeLang,onClickLang}=useContext(LanguageContext);
-    const {searchInpValue, onChangeInput,handleSearch,
-            	handleKeyDownHeaderInput,
-		    	searchInputShow,
-		    	setSearchInputShow,
-                noIcon } =useContext(SearchContext);
+    const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
+    const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue } = useContext(SearchContext);
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
     const [navColorChange, setNavColorChange] = useState(false);
-    // const [searchInputShow, setSearchInputShow]=useState(false);
-    // const [noIcon, setNoIcon]=useState(true)
-    const navigate=useNavigate()
-    const {t}=useTranslation()
- 
-    // site search 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { t } = useTranslation();
 
-    // const handleKeyDownHeaderInput=(e)=>{
-    //     if(searchInpValue !== "" && e.key === "Enter"){
-    //         handleSearch(e.target.value)
-    //       navigate(`/search?searchInpValue=${searchInpValue}`)
-    //          setSearchInputShow(false)
-    //          setNoIcon(false)
-    //     }
-    //     else{
-    //         return false
-    //     }
-    // }
- 
+    const handleShowSearchInput = () => {
+        if (searchInpValue === "") {
+            setSearchInputShow(!searchInputShow);
+        } else {
+            handleSearch(searchInpValue);
+            navigate(`/search?searchInpValue=${searchInpValue}`);
+            setSearchInputShow(false);
+            // setNoIcon(false);
+            ClearInputValue();
+        }
+    };
 
-    const handleShowSearchInput=()=>{   
-          if(searchInpValue === ""){
-        setSearchInputShow(!searchInputShow)
-             }
-          else{
-            handleSearch(searchInpValue)
-            navigate(`/search?searchInpValue=${searchInpValue}`)
-            setSearchInputShow(false)
-            setNoIcon(false)
-          }
-    }
+    useEffect(() => {
+        if (location.pathname === "/search") {
+            setNoIcon(false);
+        } else {
+            setNoIcon(true);
+        }
+    }, [location.pathname, setNoIcon]);
 
     // scroll nav change color function start
     const FuncNavColorChange = () => {
@@ -83,39 +70,45 @@ export default function Header() {
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
                             <div className={style.mobileLang}>
-                                <span onClick={()=> onClickLang("az")} className={style.langCategory}>AZ</span>
-                                <span onClick={()=>onClickLang("en")} className={style.langCategory}>EN</span>
-                                <span onClick={()=>onClickLang("ru")} className={style.langCategory}>RU</span>
+                                <span onClick={() => onClickLang("az")} className={style.langCategory}>
+                                    AZ
+                                </span>
+                                <span onClick={() => onClickLang("en")} className={style.langCategory}>
+                                    EN
+                                </span>
+                                <span onClick={() => onClickLang("ru")} className={style.langCategory}>
+                                    RU
+                                </span>
                             </div>
-                            <span className={style.mobileSearchIcon}>
-                                <img onClick={handleShowSearchInput} src={serachIcon} alt="" />
+                            <span onClick={handleShowSearchInput} className={style.mobileSearchIcon}>
+                                <SearchIcon />
                             </span>
                         </div>
                         <div className={style.pageAndSearch}>
-                        <ul className={style.navPageList}>
-                            <li>
-                                <NavLink
-                                    onClick={showHiddenMenu}
-                                    to={"/about us"}
-                                    style={({ isActive }) => {
-                                        return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
-                                    }}
-                                >
-                                    {t("about")}
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    onClick={showHiddenMenu}
-                                    to={"/products"}
-                                    style={({ isActive }) => {
-                                        return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
-                                    }}
-                                >
-                                    Products
-                                </NavLink>
-                            </li>
-                            {/* <li>
+                            <ul className={style.navPageList}>
+                                <li>
+                                    <NavLink
+                                        onClick={showHiddenMenu}
+                                        to={"/about us"}
+                                        style={({ isActive }) => {
+                                            return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
+                                        }}
+                                    >
+                                        {t("about")}
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        onClick={showHiddenMenu}
+                                        to={"/products"}
+                                        style={({ isActive }) => {
+                                            return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
+                                        }}
+                                    >
+                                        Products
+                                    </NavLink>
+                                </li>
+                                {/* <li>
                                 <NavLink
                                     onClick={showHiddenMenu}
                                     to={"/media"}
@@ -126,63 +119,49 @@ export default function Header() {
                                     Media
                                 </NavLink>
                             </li> */}
-                            <li>
-                                <NavLink
-                                    onClick={showHiddenMenu}
-                                    to={"/contact"}
-                                    style={({ isActive }) => {
-                                        return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
-                                    }}
-                                >
-                                    Contact
-                                </NavLink>
-                            </li>
-                        </ul>
-                      {
-                        searchInputShow ? <input 
-                     className={style.searchInput}
-                      value={searchInpValue}
-                      onChange={onChangeInput}
-                      onKeyDown={handleKeyDownHeaderInput}   
-                      id="homeSearch"
-                       /> : ""
-                      }        
+                                <li>
+                                    <NavLink
+                                        onClick={showHiddenMenu}
+                                        to={"/contact"}
+                                        style={({ isActive }) => {
+                                            return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
+                                        }}
+                                    >
+                                        Contact
+                                    </NavLink>
+                                </li>
+                            </ul>
+                            {searchInputShow ? <input className={style.searchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInput} id="homeSearch" /> : ""}
                         </div>
                         <div className={style.mobileSocial}>
                             <a className={style.instagram} target="_blank" rel="noreferrer" href="https://www.instagram.com/">
-                                <SocialInstagramIcon/>
+                                <SocialInstagramIcon />
                             </a>
                             <a className={style.facebook} target="_blank" rel="noreferrer" href="https://www.facebook.com/">
-                                <SocialFacebookIcon/>
+                                <SocialFacebookIcon />
                             </a>
-                            <a className={style.whatsapp}  target="_blank" rel="noreferrer" href="https://wa.me/+994554446640">
-                                <SocialWhatsappIcon/>
+                            <a className={style.whatsapp} target="_blank" rel="noreferrer" href="https://wa.me/+994554446640">
+                                <SocialWhatsappIcon />
                             </a>
                         </div>
                     </div>
                     <div className={style.SearchLang}>
-                     
-                     { noIcon ?  
-                     <label htmlFor="homeSearch">
-                         <img  onClick={() => {
+                        {noIcon ? (
+                            <label
+                                className={style.homeLabel}
+                                onClick={() => {
                                     handleShowSearchInput();
-                                    }}
-                                     className={style.serachIcon} src={serachIcon} 
-                                     alt="burada axtaris iconu var" />
-                         </label>
-                          :""    }
-
-
-
-
+                                }}
+                                htmlFor="homeSearch"
+                            >
+                                <SearchIcon />
+                            </label>
+                        ) : (
+                            ""
+                        )}
 
                         <div className={style.lang}>
-                            <Select
-                                value={siteLang}
-                                onChange={onChangeLang}
-                                className={style.selectLang}
-                                focusBorderColor="transparent"
-                            >
+                            <Select value={siteLang} onChange={onChangeLang} className={style.selectLang} focusBorderColor="transparent">
                                 <option value="az">AZ</option>
                                 <option value="en">EN</option>
                                 <option value="ru">RU</option>
@@ -190,8 +169,7 @@ export default function Header() {
                         </div>
                     </div>
 
-
-                    <div className={style.HamburgerMenu}  onClick={() => FuncShowHidenMenu()} >
+                    <div className={style.HamburgerMenu} onClick={() => FuncShowHidenMenu()}>
                         {showHiddenMenu ? <IoMdClose className={style.HamburgerMenuCloseIcon} /> : <RxHamburgerMenu className={style.HamburgerMenuCloseIcon} />}
                     </div>
                 </nav>

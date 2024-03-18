@@ -2,39 +2,30 @@ import { createContext, useEffect, useState } from "react";
 import sirrSite from "../Helpers/Sirr";
 import urls from "../ApiValues/urls";
 
-export const GlobalContext=createContext();
+export const GlobalContext = createContext();
 
+// eslint-disable-next-line react/prop-types
+export const GlobalProvider = ({ children }) => {
+    const [showHiddenVideo, setShowHiddenVideo] = useState(true);
+    const [categoryNameDatas, setCategoryNameDatas] = useState([]);
 
-export const GlobalProvider=({children})=>{
-	const [showHiddenVideo, setShowHiddenVideo]=useState(true)
-	const [categoryNameDatas, setCategoryNameDatas]=useState([]);
+    useEffect(() => {
+        const getCategoryData = async () => {
+            try {
+                const ResCategory = await sirrSite.api().get(urls.categories);
+                setCategoryNameDatas(ResCategory.data.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getCategoryData();
+    }, []);
 
+    // console.log("cat", categoryNameDatas);
 
-	useEffect(()=>{
-      const getCategoryData= async ()=>{
-		    try {
-				const ResCategory= await sirrSite.api().get(urls.categories)
-				      setCategoryNameDatas(ResCategory.data.data)
-			} catch (error) {
-				console.log(error);
-			}
-	  }
-	  getCategoryData()
-	},[])
-       
-	// console.log("cat", categoryNameDatas);
+    const onClickShowHiddenVideo = () => {
+        setShowHiddenVideo(!showHiddenVideo);
+    };
 
-	const onClickShowHiddenVideo=()=>{
-		setShowHiddenVideo(!showHiddenVideo)  
-	            }
-
-
-	 
-
-	return(
-		<GlobalContext.Provider value={{showHiddenVideo, onClickShowHiddenVideo, categoryNameDatas}}>
-			{children}
-		</GlobalContext.Provider>
-	)
-
-}
+    return <GlobalContext.Provider value={{ showHiddenVideo, onClickShowHiddenVideo, categoryNameDatas }}>{children}</GlobalContext.Provider>;
+};

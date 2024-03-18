@@ -14,7 +14,7 @@ export default function Footer() {
             <div style={{padding:0}} className="container">
                 <div className={style.FooterWrapper}>
                     <div className={style.LogoSocial}>
-                        <a className={style.FooterLogo} href="/">
+                        <a  className={style.FooterLogo} href="/">
                             <img src={FooterLogo} alt="burada footer logo var" />
                         </a>
                         <div className={style.footerSocila}>

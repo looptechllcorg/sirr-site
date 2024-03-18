@@ -69,7 +69,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
                     <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon}/> : 
                      <AdditionIcon className={style.OpenCloseIcon}/>}</span>
                 </div>
-                {openCloseFilter.CategoryFilter && (
+                {openCloseFilter.CategoryFilter && (   
                     <ul className={style.categoryName}>
                         {categoryNameDatas.map((categoryName) => (
                             <div className={style.checkBoxWrapper} key={categoryName.id}>

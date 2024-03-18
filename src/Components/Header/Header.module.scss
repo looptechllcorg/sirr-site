@@ -63,11 +63,10 @@
 		   justify-content: flex-end;
 		   align-items: center;
 			flex: .5;
-				.serachIcon{
-					margin-right: 25px;
-					cursor: pointer;
-					height: 25px;
-			         }
+			.homeLabel{
+				margin-right: 33px;
+				cursor: pointer;
+			}
 			.lang{
 				.selectLang{
 					border: 1px solid $headerLangSelectBorderColor;
