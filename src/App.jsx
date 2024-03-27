@@ -8,23 +8,22 @@ import Product from "./Pages/Product/Product";
 import Media from "./Pages/Media/Media";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import PrDetailsPage from "./Pages/PrDetailsPage/PrDetailsPage";
-import { GlobalProvider } from "./Contexts/GlobalContext";
 import SearchResult from "./Pages/SearchResult/SearchResult";
 import { SearchProvider } from "./Contexts/SearchContext";
 import { LanguageProvider } from "./Contexts/LanguageContext";
+import { ApiGlobalProvider } from "./Contexts/ApiGlobalContext";
 
 function App() {
     return (
         <>
             <SearchProvider>
-                <GlobalProvider>
+                <ApiGlobalProvider>
                     <LanguageProvider>
                         <Header />
-
                         <ScrollToTop />
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="/about us" element={<About />} />
+                            <Route path="/about-us" element={<About />} />
                             <Route path="/products" element={<Product />} />
                             <Route path="/media" element={<Media />} />
                             <Route path="/contact" element={<Contact />} />
@@ -34,7 +33,7 @@ function App() {
                         </Routes>
                         <Footer />
                     </LanguageProvider>
-                </GlobalProvider>
+                </ApiGlobalProvider>
             </SearchProvider>
         </>
     );

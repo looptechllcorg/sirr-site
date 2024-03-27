@@ -1,61 +1,55 @@
 // import style scss
-import { useContext, useState } from "react";
 import style from "./ProductsPageFilter.module.scss";
+
+import { useContext, useState } from "react";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import ReactSlider from "react-slider";
 import ArrowDown from "../../assets/icons/ArrowDown";
 // import useFormik
 import { useFormik } from "formik";
-import { GlobalContext } from "../../Contexts/GlobalContext";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import ArrowUp from "../../assets/icons/ArrowUp";
 import Subtraction from "../../assets/icons/Subtraction";
 import AdditionIcon from "../../assets/icons/AdditionIcon";
+import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 
-export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
+export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
+    const { categoryNameDatas } = useContext(ApiGlobalContext);
     const [openCloseFilter, setOpenCloseFilter] = useState({
-            CategoryFilter: true,
-            sortFilter: true,
-            priceFilter: true,
+        CategoryFilter: true,
+        sortFilter: true,
+        priceFilter: true,
     });
-
-    const { categoryNameDatas } = useContext(GlobalContext);
 
     const [value, setValue] = useState([]);
     const onClickOpenCloseFunc = (item) => {
         setOpenCloseFilter((prevState) => ({ ...prevState, [item]: !prevState[item] }));
     };
 
-  
-
-    const { handleChange, handleSubmit, values, resetForm } = useFormik({
+    const { handleChange, handleSubmit } = useFormik({
         initialValues: {
             categories: [],
-            sort: 'az'
+            sort: "az",
         },
         onSubmit: async (values) => {
-            // if(value) values = {...values, price: value}
-             try {
+            try {
                 let searchParams = new URLSearchParams();
-                if(values.categories) {
-                    values.categories.forEach(c => {
-                        searchParams.set('categories[]', c);
-                    })
+                if (values.categories) {
+                    values.categories.forEach((c) => {
+                        searchParams.set("categories[]", c);
+                    });
                 }
-                if(values.sort) searchParams.set('sort', values.sort);
-                if(value.length) {
-                    searchParams.set('price[0]', value[0]);
-                    searchParams.set('price[1]', value[1]);
+                if (values.sort) searchParams.set("sort", values.sort);
+                if (value.length) {
+                    searchParams.set("price[0]", value[0]);
+                    searchParams.set("price[1]", value[1]);
                 }
-            	let res = await sirrSite.api().get(`${urls.allProduct}?${searchParams.toString()}`);
-                setAllProductDatas(res.data.data.data)
-
-             } catch (error) {
-            	console.log(error);
-    
-             }
-            // resetForm()
+                let res = await sirrSite.api().get(`${urls.allProduct}?${searchParams.toString()}`);
+                setAllProductDatas(res.data.data.data);
+            } catch (error) {
+                console.log(error);
+            }
         },
     });
     return (
@@ -66,27 +60,17 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
             <div className={style.CategoryFilter}>
                 <div onClick={() => onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
                     <h4 className={style.FilterCategoryName}>All Categories</h4>
-                    <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon}/> : 
-                     <AdditionIcon className={style.OpenCloseIcon}/>}</span>
+                    <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon className={style.OpenCloseIcon} />}</span>
                 </div>
-                {openCloseFilter.CategoryFilter && (   
+                {openCloseFilter.CategoryFilter && (
                     <ul className={style.categoryName}>
                         {categoryNameDatas.map((categoryName) => (
                             <div className={style.checkBoxWrapper} key={categoryName.id}>
-                                <input className={style.checkBoxInput} 
-                                type="checkbox"
-                                value={categoryName.slug}
-                                name="categories"
-                                onChange={handleChange}
-                                id={categoryName.title}
-                                 />
-                                 <label className={style.categoryTitle} htmlFor={categoryName.title}>
-
-                                 {categoryName.title} ({categoryName.products_count})
-                                 </label>
-                                <span >
-                                    
-                                </span>
+                                <input className={style.checkBoxInput} type="checkbox" value={categoryName.slug} name="categories" onChange={handleChange} id={categoryName.title} />
+                                <label className={style.categoryTitle} htmlFor={categoryName.title}>
+                                    {categoryName.title} ({categoryName.products_count})
+                                </label>
+                                <span></span>
                             </div>
                         ))}
                     </ul>
@@ -96,10 +80,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
             <div className={style.sortFilter}>
                 <div onClick={() => onClickOpenCloseFunc("sortFilter")} className={style.titleFilter}>
                     <h4 className={style.FilterCategoryName}>Sort by</h4>
-                    <span>{openCloseFilter.sortFilter ?
-                     <Subtraction className={style.OpenCloseIcon}/> : 
-                     <AdditionIcon className={style.OpenCloseIcon}/>}
-                     </span>
+                    <span>{openCloseFilter.sortFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon className={style.OpenCloseIcon} />}</span>
                 </div>
 
                 {openCloseFilter.sortFilter && (
@@ -107,7 +88,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
                         <input type="radio" onChange={handleChange} name="sort" id="az" value="az" hidden />
                         <label htmlFor="az" className={style.sortAZ}>
                             <span className={style.icon}>
-                              <ArrowUp />
+                                <ArrowUp />
                             </span>
                             <div className={style.az}>
                                 <span>A</span>
@@ -130,8 +111,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
             <div className={style.priceFilter}>
                 <div onClick={() => onClickOpenCloseFunc("priceFilter")} className={style.titlePrice}>
                     <h4 className={style.FilterCategoryName}>Price</h4>
-                    <span>{openCloseFilter.priceFilter ?  <Subtraction className={style.OpenCloseIcon}/> : 
-                     <AdditionIcon className={style.OpenCloseIcon}/>}</span>
+                    <span>{openCloseFilter.priceFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon className={style.OpenCloseIcon} />}</span>
                 </div>
                 {openCloseFilter.priceFilter && (
                     <>
@@ -144,7 +124,15 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas  }) {
                     </>
                 )}
             </div>
-            <button onClick={(e) => {handleSubmit(e); closeFunc();}}  className={style.filterResultBtn}>Submit</button> 
+            <button
+                onClick={(e) => {
+                    handleSubmit(e);
+                    closeFunc();
+                }}
+                className={style.filterResultBtn}
+            >
+                Submit
+            </button>
         </form>
     );
 }

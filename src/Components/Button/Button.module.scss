@@ -1,6 +1,6 @@
 @import "../../siteColorList/Colors.scss";
 
-.button{
+.button {
 	padding: 10px 30px;
 	background-color: transparent;
 	font-family: 'IBM Plex Serif', serif;
@@ -8,11 +8,14 @@
 	font-size: 14px;
 	font-weight: 500;
 	border: 1px solid $buttonBorderColor;
-    border-radius: 5px;
+	border-radius: 5px;
 	cursor: pointer;
-	&:hover{
-		background-color:rgba(23, 23, 23, 1);
-		color:rgba(255, 255, 255, 1);
+	position: relative;
+	z-index: 999999999;
+
+	&:hover {
+		background-color: rgba(23, 23, 23, 1);
+		color: rgba(255, 255, 255, 1);
 		text-decoration: underline;
 	}
 }

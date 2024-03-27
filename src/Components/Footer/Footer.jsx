@@ -31,7 +31,7 @@ export default function Footer() {
                     </div>
                     <div className={style.FooterPages}>
                         <NavLink
-                            to={"/about us"}
+                            to={"/about-us"}
                             style={({ isActive }) => {
                                 return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                             }}

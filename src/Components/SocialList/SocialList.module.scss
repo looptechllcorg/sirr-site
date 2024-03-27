@@ -1,27 +1,27 @@
 // import all site color list
 @import "../../siteColorList/Colors.scss";
 
-.SocialListWrapper{
+.SocialListWrapper {
 	position: fixed;
 	top: 125px;
 	right: 0;
-	right: calc((100% - 1500px) / 2);     
+	right: calc((100% - 1500px) / 2);
 	z-index: 990;
 	width: 50px;
-	background-color: transparent;
+	// background-color: black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 24px 0;
-	.facebookIcon{
+	padding: 24px 30px;
+
+	.facebookIcon {
 		margin: 14px 0;
 	}
 
 	.instagramIcon,
 	.facebookIcon,
-	.WhatsappIcon
-	{
+	.WhatsappIcon {
 		width: 47px;
 		height: 47px;
 		display: flex;
@@ -32,19 +32,22 @@
 		border-radius: 100%;
 		cursor: pointer;
 	}
-	.instagramIcon:hover{
+
+	.instagramIcon:hover {
 		background-color: #E1306C;
 	}
-	.facebookIcon:hover{
+
+	.facebookIcon:hover {
 		background-color: #4267B2;
 	}
-	.WhatsappIcon:hover{
+
+	.WhatsappIcon:hover {
 		background-color: green;
 	}
 }
 
 @media only screen and (max-width: 1500px) {
 	.SocialListWrapper {
-    	right: 0; 
+		right: 0;
 	}
-  }
+}

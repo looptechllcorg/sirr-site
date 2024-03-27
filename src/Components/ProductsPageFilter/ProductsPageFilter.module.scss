@@ -22,12 +22,12 @@
 		border-radius: 100%;
 		cursor: pointer;
 		// margin: 0 0 12px 210px;
-		margin-left: 94%;
+		margin-left: 80%;
 		display: none;
 	}
 	.CategoryFilter {
 		.titleCategory {
-			margin-bottom: 20px;
+			margin: 10px 20px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -49,7 +49,6 @@
 					display: inline-flex;
 					align-items: center;
 					cursor: pointer;
-					// padding-left: 40px;
 					position: relative;
 					color: rgba(23, 23, 23, 0.6);
 					line-height: 1;
@@ -77,6 +76,7 @@
 				input[type="checkbox"]:checked + label {
 					color: rgba(230, 168, 76, 1);
 				}
+				
 			}
 			&::-webkit-scrollbar-thumb {
 				background-color: rgba(230, 168, 76, 1);

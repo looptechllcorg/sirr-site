@@ -3,64 +3,82 @@ import SocialList from "../../Components/SocialList/SocialList";
 import style from "./About.module.scss";
 import TitleList from "../../Components/TitleList/TitleList";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
-// import image
-import aboutBgImg from "../../assets/images/aboutBgImg.jpg";
-// import my write datas
-import { aboutOurCatalogDatas } from "../../MyWriteDatas/myDatas";
 import TextAndImgSideBySide from "../../Components/TextAndImgSideBySide/TextAndImgSideBySide";
-import AboutVideo from "../../assets/video/video3Miami.mp4";
-import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 import videoStartImage from "../../assets/images/videoStartImg.png";
-import { useContext } from "react";
-import { GlobalContext } from "../../Contexts/GlobalContext";
+import { useEffect, useState } from "react";
 import SiteWay from "../../Components/SiteWay/SiteWay";
+import sirrSite from "../../Helpers/Sirr";
+import urls from "../../ApiValues/urls";
+import Loading from "../../Components/Loading/Loading";
+import Fancybox from "../../Components/HomePageSections/Fancybox";
 
 export default function About() {
-    const { showHiddenVideo, onClickShowHiddenVideo } = useContext(GlobalContext);
+    // const { showHiddenVideo, onClickShowHiddenVideo } = useContext(GlobalContext);
+    const [aboutDatas, setAboutDatas] = useState([]);
+    const [aboutFeatures, setAboutFeatures] = useState([]);
+    const [aboutLoading, setAboutLoading] = useState(true);
 
-    return (
+    const getAboutDatas = async () => {
+        try {
+            const res = await sirrSite.api().get(urls.about);
+            setAboutDatas(res.data.data);
+            setAboutLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const getAboutFeaturesDatas = async () => {
+        try {
+            const res = await sirrSite.api().get(urls.aboutFeatures);
+            setAboutFeatures(res.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getAboutDatas();
+        getAboutFeaturesDatas();
+    }, []);
+
+    // console.log("ff",aboutDatas);
+
+    return aboutLoading ? (
+        <Loading />
+    ) : (
         <section id={style.about}>
             <SocialList />
             <div style={{ paddingTop: 0 }} className="container">
-                <MainBgImage bgImg={aboutBgImg} bgImgOnText={"About us"} />
+                    <MainBgImage bgImg={aboutDatas["about-header"]?.image} bgImgOnText={aboutDatas["about-header"]?.title} />
 
                 <div className={style.HouseHistory}>
                     <SiteWay data={["Home Page", "About us"]} />
-                    <TitleList mainTitle={"Our history"} detailedTitle={"Our cake house history"} />
-                    <p className={style.HouseHistoryDescription}>
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem
-                        Ipsum as their default mode. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the
-                        Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
-                    </p>
+                    <TitleList mainTitle={aboutDatas["about-main"]?.subtitle} detailedTitle={aboutDatas["about-main"]?.title} />
+                    <p className={style.HouseHistoryDescription}>{aboutDatas["about-main"]?.body}</p>
                 </div>
 
-                {showHiddenVideo ? (
-                    <div className={style.videoBgImg}>
-                        <div className={style.videoBgOverlay}></div>
+                <div style={{ backgroundImage: `url(${sirrSite.baseUrlImage}${aboutDatas["about_video"]?.["site.about_video_bg"]})` }} className={style.videoBgImg}>
+                    <div className={style.videoBgOverlay}></div>
 
-                        <button onClick={onClickShowHiddenVideo} className={style.startVideoBtn}>
-                            <img src={videoStartImage} alt="" />
-                        </button>
-                    </div>
-                ) : (
-                    <VideoPlayer data={AboutVideo} />
-                )}
+                    <Fancybox>     
+                        <a className={style.videoWrapper} href={`${aboutDatas["about_video"]?.["site.about_video_url"]}`} data-fancybox="gallery">
+                            <img className={style.playVideoBtn} src={videoStartImage} alt="" />
+                        </a>
+                    </Fancybox>
+                </div>
 
-                <TextAndImgSideBySide data={aboutOurCatalogDatas} />
+                    <TextAndImgSideBySide
+                        branchesInfoDatas={aboutDatas["about-bottom"]}
+                        branchesImagesDatas={aboutDatas["branch_images"]} />
 
                 <div className={style.OurInformation}>
-                    <span className={style.infoWrapper}>
-                        icon <h6 className={style.infoTitle}>17 years activity</h6>
-                    </span>
-                    <span className={style.infoWrapper}>
-                        icon <h6 className={style.infoTitle}>3 stories</h6>
-                    </span>
-                    <span className={style.infoWrapper}>
-                        icon <h6 className={style.infoTitle}>200 product number</h6>
-                    </span>
-                    <span className={style.infoWrapper}>
-                        icon <h6 className={style.infoTitle}>560 employees</h6>
-                    </span>
+                    {aboutFeatures.map((item) => (
+                        <span className={style.infoWrapper} key={item.id}>
+                            <img className={style.infoImg} src={`${sirrSite.baseUrlImage}${item.image}`} alt={item.title} />
+                            <h6 className={style.infoTitle}>{item.title}</h6>
+                        </span>
+                    ))}
                 </div>
             </div>
         </section>

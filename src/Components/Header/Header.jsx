@@ -89,7 +89,7 @@ export default function Header() {
                                 <li>
                                     <NavLink
                                         onClick={showHiddenMenu}
-                                        to={"/about us"}
+                                        to={"/about-us"}
                                         style={({ isActive }) => {
                                             return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                                         }}

@@ -1,10 +1,10 @@
 // import style css
-import PrCart from "../../PrCart/PrCart";
 import style from "./FavoriteItems.module.scss";
+
+import PrCart from "../../PrCart/PrCart";
 import TitleList from "../../TitleList/TitleList";
 import Button from "../../Button/Button";
 import FavoriteCategories from "../../FavoritCategories/FavoritCategories";
-// import my write datas
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import sirrSite from "../../../Helpers/Sirr";
@@ -33,7 +33,7 @@ export default function FavoriteItems() {
                     <TitleList mainTitle={"Categories"} detailedTitle={"Favorite items"} detailedTitleColor="black" textPosition={"center"} />
 
                     <div className={style.categoriesTitleSlider}>
-                        <FavoriteCategories setProducts={setFavoriteItemsDatas} />
+                        <FavoriteCategories setFavoriteItemsDatas={setFavoriteItemsDatas} />
                     </div>
 
                     <div className={style.CategoryProduct}>
