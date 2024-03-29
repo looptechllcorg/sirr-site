@@ -2,31 +2,48 @@
 import style from "./Product.module.scss";
 
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
-import productBgImg from "../../assets/images/productPageBgImg.jpg";
 import SocialList from "../../Components/SocialList/SocialList";
 import ProductPagePrCart from "../../Components/ProductPagePrCart/ProductPagePrCart";
 import SiteWay from "../../Components/SiteWay/SiteWay";
 import ProductsPageFilter from "../../Components/ProductsPageFilter/ProductsPageFilter";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FilterIcon from "../../assets/icons/FilterIcon";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
+import ReactPaginate from "react-paginate";
+import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
+import { useSearchParams } from "react-router-dom";
 
 export default function Product() {
     const [showHiddenFilterComponent, setShowHiddenFilterComponent] = useState(false);
     const [AllProductDatas, setAllProductDatas] = useState([]);
+    const { productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
+
+    const [pageCount, setPageCount] = useState(2);
+    let [searchParams, setSearchParams] = useSearchParams();
+    const initialPage = searchParams.get("page") || 1;
+    const [currentPage, setcurrentPage] = useState(initialPage);
+
+    const handlePageChange = (selectedObject) => {
+        const pageNumber = Number(selectedObject.selected) + 1;
+        setSearchParams({ ...searchParams, page: pageNumber });
+        setcurrentPage(pageNumber);
+    };
 
     useEffect(() => {
+        let currentPage = searchParams.get("page") || 1;
+        setcurrentPage(currentPage);
         const getProductPageDatas = async () => {
             try {
-                const ResPrPageDatas = await sirrSite.api().get(urls.allProduct);
+                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}?page=${currentPage}`);
                 setAllProductDatas(ResPrPageDatas.data.data.data);
+                setPageCount(ResPrPageDatas.data.data.last_page);
             } catch (error) {
                 console.log(error);
             }
         };
         getProductPageDatas();
-    }, []);
+    }, [searchParams]);
 
     const onClickshowHiddenFilterComponent = () => {
         setShowHiddenFilterComponent(!showHiddenFilterComponent);
@@ -36,7 +53,7 @@ export default function Product() {
         <section id={style.Product}>
             <SocialList />
             <div style={{ paddingTop: 0 }} className="container">
-                <MainBgImage bgImg={productBgImg} bgImgOnText={"Products"} />
+                <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
                 <SiteWay data={["Home Page", "Products"]} />
 
                 <div className={style.FilterAndProduct}>
@@ -57,6 +74,25 @@ export default function Product() {
                         ))}
                     </div>
                 </div>
+
+                <ReactPaginate
+                    initialPage={Number(currentPage) - 1}
+                    disableInitialCallback={true}
+                    pageCount={pageCount}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={2}
+                    onPageChange={handlePageChange}
+                    containerClassName={"pagination"}
+                    previousLinkClassName={"page"}
+                    breakClassName={"page"}
+                    nextLinkClassName={"page"}
+                    pageClassName={"page"}
+                    disabledClassName={"disabled"}
+                    activeClassName={"active"}
+                    breakLabel="..."
+                    nextLabel=">"
+                    previousLabel="<"
+                />
             </div>
         </section>
     );

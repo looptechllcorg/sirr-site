@@ -1,20 +1,23 @@
 const urls = {
-    allProduct: "/products",
-    categories: "/categories?product_count=1",
-    FavoriteItems: "/products?item=8",
     // -------------home page datas--------------------------
     mainSlider: "/hero-sliders",
-    featuredCategories: "/featured-categories",
+    desertSlider: "/featured-categories",
+    categoriesName: "/categories",
     homeVideoData: "/index-video",
+    FavoriteItems: "/products?item=8",
     MostlyStoryCakeStore: "pages/index-video",
-    // -------------about page datas--------------------------
+    // -------------about page datas--  ?item=8  ------------------------
     about: "/about",
     aboutFeatures: "/about-features",
-    // global
-    branches: "/branches",
-    social: "/socials",
+    // -------------product page datas--------------------------
+    allProduct: "/products",
     // contact
     postContactMail: "/contact",
     getContactDatas: "/contact",
+    // global
+    branches: "/branches",
+    social: "/socials",
+    productsAndProductsDetailHeaderBgImgUrl: "/pages/products-header",
+    searchResultHeaderBgImgUrl: "/pages/search-header",
 };
 export default urls;

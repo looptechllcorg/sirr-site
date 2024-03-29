@@ -1,74 +1,90 @@
 //   import allSite color list
 @import "../../siteColorList/Colors.scss";
 
-.header{
+.header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 999;
 	width: 100%;
-	nav{
+
+	nav {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 110px;
+		// height: 110px;
+		height: 7rem;
 		padding: 0 20px;
-		.navLogo{
-		   flex: .4;
-	   img{
-		width: 190px;
-	   }
-		}		
-		.navPages{
-		
-            flex: 1;
-			.MobileLangSearch{
+
+		.navLogo {
+			flex: .4;
+
+			img {
+				// width: 190px;
+				height: 4rem;
+			}
+		}
+
+		.navPages {
+
+			flex: 1;
+
+			.MobileLangSearch {
 				display: none;
 			}
-			.pageAndSearch{
+
+			.pageAndSearch {
 				position: relative;
-			.navPageList{
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			a{
-				color:$headerNavLinkColor;
-				padding: 0 15px;
-				font-size: 1rem;
-				font-family: IBM Plex Serif;
-			}
-		      }
-			  .searchInput{
-				position: absolute;
-				top: 99px;
-				left: 14px;
-				background-color: transparent; 
-				width: 135%;
-				border: none;
-				font-size: 30px;
-				font-weight: 700;
-				border-bottom: 2px solid rgba(230, 168, 76, 1);
-				color: red;
-				&:focus {
-					outline: none;
+
+				.navPageList {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					a {
+						color: $headerNavLinkColor;
+						padding: 0 15px;
+						font-size: 1rem;
+						font-family: IBM Plex Serif;
+					}
 				}
-			  }
+
+				.searchInput {
+					position: absolute;
+					top: 99px;
+					left: 14px;
+					background-color: transparent;
+					width: 135%;
+					border: none;
+					font-size: 30px;
+					font-weight: 700;
+					border-bottom: 2px solid rgba(230, 168, 76, 1);
+					color: red;
+
+					&:focus {
+						outline: none;
+					}
+				}
 			}
-			.mobileSocial{
+
+			.mobileSocial {
 				display: none;
 			}
 		}
-		.SearchLang{
+
+		.SearchLang {
 			display: flex;
-		   justify-content: flex-end;
-		   align-items: center;
+			justify-content: flex-end;
+			align-items: center;
 			flex: .5;
-			.homeLabel{
+
+			.homeLabel {
 				margin-right: 33px;
 				cursor: pointer;
 			}
-			.lang{
-				.selectLang{
+
+			.lang {
+				.selectLang {
 					border: 1px solid $headerLangSelectBorderColor;
 					font-size: 15px;
 					background-color: transparent;
@@ -79,44 +95,51 @@
 					border-radius: 5px;
 					padding: 0px 0px 1px 4px !important;
 					font-family: 'IBM Plex Serif', serif;
-					option{
+
+					option {
 						color: $headerLangOptionColor;
 					}
-				   }
+				}
 			}
 		}
-		.HamburgerMenu{
-			border: 1px solid rgb(255, 255, 255,);
+
+		.HamburgerMenu {
+			border: 1px solid rgb(255, 255, 255, );
 			padding: 9px 10px 5px 10px;
 			margin-bottom: 20px;
 			border-radius: 100%;
 			cursor: pointer;
 			display: none;
-			.HamburgerMenuCloseIcon{
+
+			.HamburgerMenuCloseIcon {
 				font-size: 25px;
 				color: white;
 			}
 		}
 	}
 }
-.navBlack{
+
+.navBlack {
 	background-color: black;
 }
 
 
 // header responsive start 
-@media only screen and ( max-width :950px) {
-	.header{
+@media only screen and (max-width :950px) {
+	.header {
 		background-color: black;
 		color: white;
-		nav{
+
+		nav {
 			padding: 0 20px;
-			.navLogo{
-			   img{
-				width: 140px;
-			   }
-			}		
-			.navPages{
+
+			.navLogo {
+				img {
+					// width: 140px;
+				}
+			}
+
+			.navPages {
 				position: fixed;
 				right: -100%;
 				top: 110px;
@@ -124,55 +147,65 @@
 				height: 100vh;
 				width: 100%;
 				transition: .7s ease;
-				.MobileLangSearch{
+
+				.MobileLangSearch {
 					display: flex;
 					justify-content: space-between;
 					align-items: center;
-					 width: 100%;   
-				     padding: 10px 15px 12px;
-					.mobileLang{
+					width: 100%;
+					padding: 10px 15px 12px;
+
+					.mobileLang {
 						color: white;
-						.langCategory{
-                            font-size: 18px;
+
+						.langCategory {
+							font-size: 18px;
 							margin-right: 11px;
 							cursor: pointer;
 						}
 					}
-					.mobileSearchIcon{
-						img{
+
+					.mobileSearchIcon {
+						img {
 							display: inline-block;
 							border: 1px solid white;
-						    padding: 12px;
+							padding: 12px;
 							border-radius: 100%;
 							cursor: pointer;
 						}
 					}
 				}
-				.pageAndSearch{
-				.navPageList{
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: flex-start;
-				a{  
-					display: inline-block;
-					margin: 7px 0;
-					&:hover{
-						color: rgba(230, 168, 76, 1);
+
+				.pageAndSearch {
+					.navPageList {
+						flex-direction: column;
+						justify-content: flex-start;
+						align-items: flex-start;
+
+						a {
+							display: inline-block;
+							margin: 7px 0;
+
+							&:hover {
+								color: rgba(230, 168, 76, 1);
+							}
+						}
 					}
-				}
-			        }
-					.searchInput{
+
+					.searchInput {
 						top: -92px;
 						width: 100%;
 						left: 0;
 						font-size: 17px;
 						color: green;
 						padding-left: 14px;
-					  }
-				    }
-				.mobileSocial{
+					}
+				}
+
+				.mobileSocial {
 					display: flex;
-					a{
+
+					a {
 						width: 47px;
 						height: 47px;
 						border-radius: 50%;
@@ -184,17 +217,20 @@
 					}
 				}
 			}
-			.hiddenMenu{
+
+			.hiddenMenu {
 				right: 0;
 			}
-			.SearchLang{
+
+			.SearchLang {
 				display: none;
 			}
-			.HamburgerMenu{
+
+			.HamburgerMenu {
 				display: block;
 			}
-			
+
 		}
 	}
-	
+
 }

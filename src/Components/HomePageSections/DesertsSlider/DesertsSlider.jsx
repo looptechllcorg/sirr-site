@@ -17,7 +17,7 @@ export default function DesertsSlider() {
 
     const getFeaturedCategoriesDatas = async () => {
         try {
-            const res = await sirrSite.api().get(urls.featuredCategories);
+            const res = await sirrSite.api().get(urls.desertSlider);
             setFeaturedCategoriesDatas(res.data.data);
         } catch (error) {
             console.log(error);

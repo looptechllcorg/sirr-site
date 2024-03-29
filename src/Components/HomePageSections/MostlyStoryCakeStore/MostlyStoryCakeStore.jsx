@@ -1,7 +1,7 @@
 // imprt style css
 import style from "./MostlyStoryCakeStore.module.scss";
 import TitleList from "../../TitleList/TitleList";
-import Button from "../../Button/Button";
+// import Button from "../../Button/Button";
 import videoStartImage from "../../../assets/images/videoStartImg.png";
 import Fancybox from "../Fancybox";
 import { useEffect, useState } from "react";
@@ -47,7 +47,7 @@ export default function MostlyStoryCakeStore() {
                         <div className={style.storeDescription}>
                             <TitleList textPosition={"start"} mainTitle={mostlyStoryCakeStoreData.subtitle} detailedTitle={mostlyStoryCakeStoreData.title} detailedTitleColor={"white"} />
                             <p className={style.description}>{mostlyStoryCakeStoreData.body}</p>
-                            <Button textColor={"white"} borderStyle={"1px solid white"} text={"Read more"} />
+                            {/* <Button textColor={"white"} borderStyle={"1px solid white"} text={"Read more"} /> */}
                         </div>
                     </div>
 

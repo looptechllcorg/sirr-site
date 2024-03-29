@@ -5,8 +5,6 @@ import style from "./PrDetailsPage.module.scss";
 import { FavoriteItemsAndProductPageDatas } from "../../MyWriteDatas/myDatas";
 import SocialList from "../../Components/SocialList/SocialList";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
-// import image
-import prDetailsBgImg from "../../assets/images/prDetailsBgImg.jpg";
 import TitleList from "../../Components/TitleList/TitleList";
 import { useContext, useEffect, useState } from "react";
 import SiteWay from "../../Components/SiteWay/SiteWay";
@@ -14,20 +12,18 @@ import sirrSite from "../../Helpers/Sirr";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 
 export default function PrDetailsPage() {
-    const { socialDatas } = useContext(ApiGlobalContext);
+    const { socialDatas, productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
     const { slug } = useParams();
-    // const findProduct=FavoriteItemsAndProductPageDatas.find(product=> slug === product.slug)
     const [oneProductData, setOneProductData] = useState({});
 
-        const getOneproduct = async () => {
-            try {
-                const ResOneProduct = await sirrSite.api().get(`${sirrSite.baseUrl}/products/${slug}`);
-                setOneProductData(ResOneProduct.data.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-       
+    const getOneproduct = async () => {
+        try {
+            const ResOneProduct = await sirrSite.api().get(`${sirrSite.baseUrl}/products/${slug}`);
+            setOneProductData(ResOneProduct.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         getOneproduct();
@@ -46,7 +42,7 @@ export default function PrDetailsPage() {
         <section id={style.details}>
             <SocialList />
             <div style={{ paddingTop: 0 }} className="container">
-                <MainBgImage bgImg={prDetailsBgImg} bgImgOnText={"Product"} />
+                <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
                 <SiteWay data={["Home Page", "Products", "Product Details"]} />
                 <div className={style.prDetailsWrapper}>
                     <h3 className={style.MobilePrDetailsTitle}>{oneProductData.title}</h3>

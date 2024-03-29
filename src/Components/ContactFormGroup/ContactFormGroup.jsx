@@ -30,6 +30,8 @@ export default function ContactFormGroup() {
             number: "",
             message: "",
         },
+        validateOnChange: false,
+        validateOnBlur: false,
         onSubmit: async (values) => {
             try {
                 await sirrSite.api().post(urls.postContactMail, JSON.stringify(values));
