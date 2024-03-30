@@ -13,12 +13,13 @@ import urls from "../../ApiValues/urls";
 import ReactPaginate from "react-paginate";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import { useSearchParams } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Product() {
     const [showHiddenFilterComponent, setShowHiddenFilterComponent] = useState(false);
     const [AllProductDatas, setAllProductDatas] = useState([]);
     const { productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
-
+    const [productLoading, setProductLoading] = useState(true);
     const [pageCount, setPageCount] = useState(2);
     let [searchParams, setSearchParams] = useSearchParams();
     const initialPage = searchParams.get("page") || 1;
@@ -35,14 +36,18 @@ export default function Product() {
         setcurrentPage(currentPage);
         const getProductPageDatas = async () => {
             try {
-                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}?page=${currentPage}`);
+                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage } });
                 setAllProductDatas(ResPrPageDatas.data.data.data);
                 setPageCount(ResPrPageDatas.data.data.last_page);
+                setProductLoading(false);
             } catch (error) {
                 console.log(error);
+                setProductLoading(false);
             }
         };
         getProductPageDatas();
+        // window.scrollTo(0, 300);
+        window.scrollTo({ top: 300, behavior: "smooth" });
     }, [searchParams]);
 
     const onClickshowHiddenFilterComponent = () => {
@@ -50,7 +55,10 @@ export default function Product() {
     };
 
     return (
-        <section id={style.Product}>
+        <>
+        {
+                productLoading ? <Loading /> :
+                     <section id={style.Product}>
             <SocialList />
             <div style={{ paddingTop: 0 }} className="container">
                 <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
@@ -95,5 +103,8 @@ export default function Product() {
                 />
             </div>
         </section>
+        }
+        </>
+       
     );
 }

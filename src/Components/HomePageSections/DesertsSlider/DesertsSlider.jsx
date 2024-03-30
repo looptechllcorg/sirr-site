@@ -7,33 +7,17 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
 import Button from "../../Button/Button";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import sirrSite from "../../../Helpers/Sirr";
-import urls from "../../../ApiValues/urls";
+// import urls from "../../../ApiValues/urls";
 import { Link } from "react-router-dom";
 
-export default function DesertsSlider() {
-    const [featuredCategoriesDatas, setFeaturedCategoriesDatas] = useState([]);
-
-    const getFeaturedCategoriesDatas = async () => {
-        try {
-            const res = await sirrSite.api().get(urls.desertSlider);
-            setFeaturedCategoriesDatas(res.data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        getFeaturedCategoriesDatas();
-    }, []);
-
-    //   console.log("featuredCategoriesDatas", featuredCategoriesDatas);
+export default function DesertsSlider({ desertSliderDatas }) {
 
     return (
         <section id={style.DesertsSlider}>
             <div style={{ paddingTop: "20px" }} className="container">
-                {featuredCategoriesDatas?.map((item) => (
+                {desertSliderDatas?.map((item) => (
                     <div key={item.id} className={style.DesertsSliderWrapper}>
                         <div className={style.DesertsSliderLeft}>
                             <Swiper

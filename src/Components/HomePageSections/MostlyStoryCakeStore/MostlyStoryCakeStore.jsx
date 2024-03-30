@@ -1,39 +1,11 @@
 // imprt style css
 import style from "./MostlyStoryCakeStore.module.scss";
 import TitleList from "../../TitleList/TitleList";
-// import Button from "../../Button/Button";
 import videoStartImage from "../../../assets/images/videoStartImg.png";
 import Fancybox from "../Fancybox";
-import { useEffect, useState } from "react";
 import sirrSite from "../../../Helpers/Sirr";
-import urls from "../../../ApiValues/urls";
 
-export default function MostlyStoryCakeStore() {
-    const [mostlyStoryCakeStoreVideoData, setMostlyStoryCakeStoreVideoData] = useState();
-    const [mostlyStoryCakeStoreData, setMostlyStoryCakeStoreData] = useState({});
-
-    const getMostlyStoryCakeStoreVideo = async () => {
-        try {
-            const res = await sirrSite.api().get(urls.homeVideoData);
-            setMostlyStoryCakeStoreVideoData(res.data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const getMostlyStoryCakeStoreDatas = async () => {
-        try {
-            const res = await sirrSite.api().get(urls.MostlyStoryCakeStore);
-            setMostlyStoryCakeStoreData(res.data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        getMostlyStoryCakeStoreVideo();
-        getMostlyStoryCakeStoreDatas();
-    }, []);
+export default function MostlyStoryCakeStore({ mostlyStoryCakeStoreVideoData, mostlyStoryCakeStoreData }) {
 
     return (
         <section id={style.MostlyStoryCakeStoreWrapper}>

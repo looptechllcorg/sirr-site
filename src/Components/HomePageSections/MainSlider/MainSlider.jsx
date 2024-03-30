@@ -11,27 +11,9 @@ import Button from "../../Button/Button";
 import { Link } from "react-router-dom";
 import ArrowLeftIcon from "../../../assets/icons/ArrowLeftIcon";
 import ArrowRightIcon from "../../../assets/icons/ArrowRightIcon";
-import { useEffect, useState } from "react";
 import sirrSite from "../../../Helpers/Sirr";
-import urls from "../../../ApiValues/urls";
 
-export default function MainSlider() {
-    const [mainSlidersDatas, setMainSlidersDatas] = useState([]);
-
-    const getMainSliderDatas = async () => {
-        try {
-            const res = await sirrSite.api().get(urls.mainSlider);
-            setMainSlidersDatas(res.data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        getMainSliderDatas();
-    }, []);
-
-//    console.log("mainSliderData", mainSlidersDatas);
+export default function MainSlider({ mainSlidersDatas }) {
 
     return (
         <section id={style.mainSlider}>
@@ -52,23 +34,23 @@ export default function MainSlider() {
                 modules={[EffectFade, Navigation, Autoplay, Pagination]}
                 className="mainSliderWrapper"
             >
-                {mainSlidersDatas?.map(item => (
+                {mainSlidersDatas.map((item) => (
                     <SwiperSlide key={item.id}>
                         <img src={`${sirrSite.baseUrlImage}${item.image}`} alt={item.title} />
                         <div className={style.overlay}></div>
                         <div style={{ padding: 0 }} className="container">
-                        <div className={style.sliderPrInfo}>
-                            <h3 className={style.SliderPrTitle}>{item.title}</h3>
-                            <p className={style.sliderPrDescription}>{item.description}</p>
-                            <Link
-                                to="/about-us"
-                                onClick={() => {
-                                    console.log(1);
-                                }}
-                            >
-                                <Button textColor={"white"} borderStyle={"1px solid white"} text={"More than"} />
-                            </Link>
-                        </div>
+                            <div className={style.sliderPrInfo}>
+                                <h3 className={style.SliderPrTitle}>{item.title}</h3>
+                                <p className={style.sliderPrDescription}>{item.description}</p>
+                                <Link
+                                    to="/about-us"
+                                    onClick={() => {
+                                        console.log(1);
+                                    }}
+                                >
+                                    <Button textColor={"white"} borderStyle={"1px solid white"} text={"More than"} />
+                                </Link>
+                            </div>
                         </div>
                     </SwiperSlide>
                 ))}

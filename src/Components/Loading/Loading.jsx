@@ -1,12 +1,13 @@
 // import style scss
-import style from "./Loading.module.scss";
+import "./Loading.css";
 // import loading gift
-import loadingGift from "../../assets/images/sirrSiteLoading.gif";
+import sirrLogo from "../../assets/logo/whiteLogoSirr.svg";
 
 export default function Loading() {
     return (
-        <div className={style.WrapperLoading}>
-            <img src={loadingGift} alt="" />
+        <div className="loader">
+            <img className="loadingImg" src={sirrLogo} alt="" />
+            <div className="loader__element"> </div>
         </div>
     );
 }

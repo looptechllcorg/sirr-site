@@ -1,27 +1,29 @@
 // import style scss
 import style from "./SearchResult.module.scss";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SearchContext } from "../../Contexts/SearchContext";
 import SiteWay from "../../Components/SiteWay/SiteWay";
 import ProductPagePrCart from "../../Components/ProductPagePrCart/ProductPagePrCart";
 import SearchIcon from "../../assets/icons/SearchIcon";
 import SearchResultPageIcon from "../../assets/icons/SearchResultPageIcon";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
+import ReactPaginate from "react-paginate";
 
 export default function SearchResult() {
-    const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInput, handleSearch, ClearInputValue, emptyResult } = useContext(SearchContext);
+    const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInput, handleSearch, emptyResult, currentPageSearch, pageCount, handlePageChange } = useContext(SearchContext);
     const { searchResultHeaderBgImg } = useContext(ApiGlobalContext);
 
     const onClickResult = () => {
         if (searchInpValue !== "") {
-            ClearInputValue();
+            // ClearInputValue();
             handleSearch(searchInpValue);
         }
     };
 
-    const tt = searchInpValue;
-    console.log(searchInpValue);
+    useEffect(() => {
+        if (searchInpValue) handleSearch(searchInpValue);
+    }, []);
 
     return (
         <section id={style.SearchResultWrapper}>
@@ -36,15 +38,35 @@ export default function SearchResult() {
                     </label>
                 </div>
                 {searchResult.data?.length ? (
-                    <div className={style.searchResultWrapper}>
-                        {searchResult.data?.map((product) => (
-                            <ProductPagePrCart key={product.id} data={product} />
-                        ))}
+                    <div>
+                        <div className={style.searchResultWrapper}>
+                            {searchResult.data?.map((product) => (
+                                <ProductPagePrCart key={product.id} data={product} />
+                            ))}
+                        </div>
+                        <ReactPaginate
+                            initialPage={Number(currentPageSearch) - 1}
+                            disableInitialCallback={true}
+                            pageCount={pageCount}
+                            pageRangeDisplayed={2}
+                            marginPagesDisplayed={2}
+                            onPageChange={handlePageChange}
+                            containerClassName={"pagination"}
+                            previousLinkClassName={"page"}
+                            breakClassName={"page"}
+                            nextLinkClassName={"page"}
+                            pageClassName={"page"}
+                            disabledClassName={"disabled"}
+                            activeClassName={"active"}
+                            breakLabel="..."
+                            nextLabel=">"
+                            previousLabel="<"
+                        />
                     </div>
                 ) : emptyResult ? (
                     <div className={style.noResultFound}>
                         <SearchResultPageIcon />
-                        <h4 className={style.searchValue}>{tt} tapilmadi</h4>
+                        <h4 className={style.searchValue}> Nəticə tapılmadı</h4>
                     </div>
                 ) : searchInpValue.length !== "" ? (
                     ""

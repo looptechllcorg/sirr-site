@@ -1,29 +1,42 @@
-import { createContext, useState } from "react";
+import { createContext,  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sirrSite from "../Helpers/Sirr";
+import { useSearchParams } from "react-router-dom";
 
 export const SearchContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const SearchProvider = ({ children }) => {
-    const [searchInpValue, setSearchInpValue] = useState("");
+    const navigate = useNavigate();
+    let [searchParams] = useSearchParams();
+    const initialSearchInpValue = searchParams.get("search") || "";
+    const [searchInpValue, setSearchInpValue] = useState(initialSearchInpValue);
     const [searchResult, setSearchResult] = useState([]);
     const [searchInputShow, setSearchInputShow] = useState(false);
     const [emptyResult, setEmptyResult] = useState(false);
     const [noIcon, setNoIcon] = useState(true);
     // const [load, setLoad] = useState(true);
 
-    const navigate = useNavigate();
+    const [pageCount, setPageCount] = useState(2);
+    const initialPage = 1;
+    const [currentPageSearch, setcurrentPageSearch] = useState(initialPage);
 
-    const handleSearch = async (s = null) => {
+    const handlePageChange = (selectedObject) => {
+        const pageNumber = Number(selectedObject.selected) + 1;
+        setcurrentPageSearch(pageNumber);
+        handleSearch(searchInpValue, pageNumber);
+        window.scrollTo({ top: 300, behavior: "smooth" });
+    };
+
+    const handleSearch = async (s = null, page = null) => {
         try {
+            if (!page) page = currentPageSearch;
             if (!s) return;
-            const response = await sirrSite.api().get(`/products?search=${s}`);
+            const response = await sirrSite.api().get(`/products?search=${s}`, { params: { page: page } });
             let result = response.data.data;
-            if (!result.length)
-                // setLoad(false);
-                setEmptyResult(true);
-                setSearchResult(result);
+            setPageCount(response.data.data.last_page);
+            if (!result.length) setEmptyResult(true);
+            setSearchResult(result);
         } catch (error) {
             console.error(error);
         }
@@ -32,11 +45,10 @@ export const SearchProvider = ({ children }) => {
     const handleKeyDownHeaderInput = (e) => {
         if (searchInpValue !== "" && e.key === "Enter") {
             handleSearch(e.target.value);
-            navigate(`/search?searchInpValue=${searchInpValue}`);
-            // setLoad(false);
+            navigate(`/search?search=${searchInpValue}`);
             setSearchInputShow(false);
             setNoIcon(false);
-            ClearInputValue();
+            // ClearInputValue();
         } else {
             return false;
         }
@@ -69,6 +81,9 @@ export const SearchProvider = ({ children }) => {
                 setEmptyResult,
                 // load,
                 // setLoad,
+                currentPageSearch,
+                pageCount,
+                handlePageChange,
             }}
         >
             {children}

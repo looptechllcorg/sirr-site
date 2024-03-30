@@ -25,6 +25,7 @@ export default function About() {
             setAboutLoading(false);
         } catch (error) {
             console.log(error);
+            setAboutLoading(false);
         }
     };
 
@@ -50,7 +51,7 @@ export default function About() {
         <section id={style.about}>
             <SocialList />
             <div style={{ paddingTop: 0 }} className="container">
-                    <MainBgImage bgImg={aboutDatas["about-header"]?.image} bgImgOnText={aboutDatas["about-header"]?.title} />
+                <MainBgImage bgImg={aboutDatas["about-header"]?.image} bgImgOnText={aboutDatas["about-header"]?.title} />
 
                 <div className={style.HouseHistory}>
                     <SiteWay data={["Home Page", "About us"]} />
@@ -61,16 +62,14 @@ export default function About() {
                 <div style={{ backgroundImage: `url(${sirrSite.baseUrlImage}${aboutDatas["about_video"]?.["site.about_video_bg"]})` }} className={style.videoBgImg}>
                     <div className={style.videoBgOverlay}></div>
 
-                    <Fancybox>     
+                    <Fancybox>
                         <a className={style.videoWrapper} href={`${aboutDatas["about_video"]?.["site.about_video_url"]}`} data-fancybox="gallery">
                             <img className={style.playVideoBtn} src={videoStartImage} alt="" />
                         </a>
                     </Fancybox>
                 </div>
 
-                    <TextAndImgSideBySide
-                        branchesInfoDatas={aboutDatas["about-bottom"]}
-                        branchesImagesDatas={aboutDatas["branch_images"]} />
+                <TextAndImgSideBySide branchesInfoDatas={aboutDatas["about-bottom"]} branchesImagesDatas={aboutDatas["branch_images"]} />
 
                 <div className={style.OurInformation}>
                     {aboutFeatures.map((item) => (

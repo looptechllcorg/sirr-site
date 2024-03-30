@@ -9,16 +9,20 @@ import SiteWay from "../../Components/SiteWay/SiteWay";
 import { useEffect, useState } from "react";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Contact() {
     const [getContactDatas, setGetContactDatas] = useState({});
+    const [contactLoading, setContactLoading] = useState(true);
 
     const getContactDatasFunc = async () => {
         try {
             const res = await sirrSite.api().get(urls.getContactDatas);
             setGetContactDatas(res.data.data);
+            setContactLoading(false);
         } catch (error) {
             console.log(error);
+            setContactLoading(false);
         }
     };
 
@@ -27,19 +31,23 @@ export default function Contact() {
     }, []);
 
     return (
-        <section id={style.contact}>
-            <SocialList />
-            <div style={{ paddingTop: 0 }} className="container">
-                <MainBgImage bgImg={getContactDatas["contact-header"]?.image} bgImgOnText={getContactDatas["contact-header"]?.title} />
-                <SiteWay data={["Home Page", "Contact us"]} paddingStyle={0} />
-                {getContactDatas["contact-main"] && <TextAndImgSideBySide bgColor={"transparent"}
-                    branchesInfoDatas={getContactDatas["contact-main"]}
-                    branchesImagesDatas={JSON.parse(getContactDatas["contact-main"]["gallery"])} />}
+        <>
+            {contactLoading ? (
+                <Loading />
+            ) : (
+                <section id={style.contact}>
+                    <SocialList />
+                    <div style={{ paddingTop: 0 }} className="container">
+                        <MainBgImage bgImg={getContactDatas["contact-header"]?.image} bgImgOnText={getContactDatas["contact-header"]?.title} />
+                        <SiteWay data={["Home Page", "Contact us"]} paddingStyle={0} />
+                        {getContactDatas["contact-main"] && <TextAndImgSideBySide bgColor={"transparent"} branchesInfoDatas={getContactDatas["contact-main"]} branchesImagesDatas={JSON.parse(getContactDatas["contact-main"]["gallery"])} />}
 
-                <ContactFormGroup />
+                        <ContactFormGroup />
 
-                <BranchesAndMap />
-            </div>
-        </section>
+                        <BranchesAndMap />
+                    </div>
+                </section>
+            )}
+        </>
     );
 }
