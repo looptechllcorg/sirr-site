@@ -1,8 +1,6 @@
 // import style scss
 import { Link, useParams } from "react-router-dom";
 import style from "./PrDetailsPage.module.scss";
-// import my write datas
-import { FavoriteItemsAndProductPageDatas } from "../../MyWriteDatas/myDatas";
 import SocialList from "../../Components/SocialList/SocialList";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
 import TitleList from "../../Components/TitleList/TitleList";
@@ -11,12 +9,15 @@ import SiteWay from "../../Components/SiteWay/SiteWay";
 import sirrSite from "../../Helpers/Sirr";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import Loading from "../../Components/Loading/Loading";
+import urls from "../../ApiValues/urls";
 
 export default function PrDetailsPage() {
     const { socialDatas, productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
     const { slug } = useParams();
     const [oneProductData, setOneProductData] = useState({});
     const [prDetailsLoading, setPrDetailsLoading] = useState(true);
+    const [similarProducts, setSimilarProducts] = useState([]);
+     
 
     const getOneproduct = async () => {
         try {
@@ -29,18 +30,29 @@ export default function PrDetailsPage() {
         }
     };
 
+    const getsimilarProducts = async () => {
+        try {
+            console.log(urls.similarProducts(slug));
+            const res = await sirrSite.api().get(urls.similarProducts(slug));
+            setSimilarProducts(res.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     useEffect(() => {
         getOneproduct();
+        getsimilarProducts();
     }, []);
     //    console.log("one pro-- ",oneProductData);
+    console.log("simi", similarProducts);
 
-    const getRandomItems = (arr, count) => arr.sort(() => Math.random() - 0.5).slice(0, count);
+    // const getRandomItems = (arr, count) => arr.sort(() => Math.random() - 0.5).slice(0, count);
 
-    const [randomItems, setRandomItems] = useState(getRandomItems(FavoriteItemsAndProductPageDatas, 3));
+    // const [randomItems, setRandomItems] = useState(getRandomItems(FavoriteItemsAndProductPageDatas, 3));
 
-    useEffect(() => {
-        setRandomItems(getRandomItems(FavoriteItemsAndProductPageDatas, 4));
-    }, [FavoriteItemsAndProductPageDatas]);
+    // useEffect(() => {
+    //     setRandomItems(getRandomItems(FavoriteItemsAndProductPageDatas, 4));
+    // }, [FavoriteItemsAndProductPageDatas]);
 
     return (
         <>
@@ -79,9 +91,9 @@ export default function PrDetailsPage() {
                         <TitleList textPosition={"center"} mainTitle={"Categories"} detailedTitle={"See also"} />
 
                         <div className={style.seeAlsoPrWrapper}>
-                            {randomItems.map((pr) => (
+                            {similarProducts.map((pr) => (
                                 <Link to={`/product/${pr.slug}`} key={pr.id} className={style.seeAlsoPr}>
-                                    <img className={style.seeAlsoPrImg} src={pr.CoverImage} alt="" />
+                                    <img className={style.seeAlsoPrImg} src={`${sirrSite.baseUrlImage}${pr.image}`} alt="" />
                                     <h5 className={style.seeAlsoPrTitle}>{pr.title}</h5>
                                 </Link>
                             ))}

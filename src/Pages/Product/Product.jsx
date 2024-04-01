@@ -54,6 +54,8 @@ export default function Product() {
         setShowHiddenFilterComponent(!showHiddenFilterComponent);
     };
 
+
+    console.log("al ", AllProductDatas);
     return (
         <>
         {

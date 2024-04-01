@@ -11,6 +11,7 @@ const urls = {
     aboutFeatures: "/about-features",
     // -------------product page datas--------------------------
     allProduct: "/products",
+    similarProducts : (slug) => `/products/${slug}/similar`,
     // contact
     postContactMail: "/contact",
     getContactDatas: "/contact",
