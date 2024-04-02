@@ -11,18 +11,20 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import ReactPaginate from "react-paginate";
 
 export default function SearchResult() {
-    const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInput, handleSearch, emptyResult, currentPageSearch, pageCount, handlePageChange } = useContext(SearchContext);
+    const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInputSearchresult, handleSearch, emptyResult, currentPageSearch, pageCount, handlePageChange, ClearInputValue } = useContext(SearchContext);
     const { searchResultHeaderBgImg } = useContext(ApiGlobalContext);
 
     const onClickResult = () => {
         if (searchInpValue !== "") {
-            // ClearInputValue();
+            ClearInputValue();
             handleSearch(searchInpValue);
         }
     };
 
     useEffect(() => {
-        if (searchInpValue) handleSearch(searchInpValue);
+        if (searchInpValue) {
+            handleSearch(searchInpValue);
+        }
     }, []);
 
     return (
@@ -31,7 +33,7 @@ export default function SearchResult() {
                 <MainBgImage bgImg={searchResultHeaderBgImg.image} bgImgOnText={searchResultHeaderBgImg.title} bgImgHeight={"400px"} />
                 <SiteWay data={["Home Page", "Search"]} />
                 <div className={style.resultSearch}>
-                    <input className={style.resultSearchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInput} placeholder="Search" id="resultSearch" />
+                    <input className={style.resultSearchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInputSearchresult} placeholder="Search" id="resultSearch" />
                     <label className={style.label} onClick={() => onClickResult()} htmlFor="resultSearch">
                         <SearchIcon stroke="rgb(127, 57, 44)" className={style.searchIcon} />
                         Search

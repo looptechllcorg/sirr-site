@@ -55,7 +55,7 @@ export default function Product() {
     };
 
 
-    console.log("al ", AllProductDatas);
+    // console.log("al ", AllProductDatas);
     return (
         <>
         {

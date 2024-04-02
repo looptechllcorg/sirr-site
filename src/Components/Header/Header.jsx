@@ -18,8 +18,8 @@ import SearchIcon from "../../assets/icons/SearchIcon";
 
 export default function Header() {
     const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
-    const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue } = useContext(SearchContext);
-    const [showHiddenMenu, setShowHiddenMenu] = useState(false);
+    const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
+
     const [navColorChange, setNavColorChange] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
@@ -32,8 +32,8 @@ export default function Header() {
             handleSearch(searchInpValue);
             navigate(`/search?searchInpValue=${searchInpValue}`);
             setSearchInputShow(false);
-            // setNoIcon(false);
             ClearInputValue();
+            FuncShowHidenMenu();
         }
     };
 
@@ -55,10 +55,6 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", FuncNavColorChange);
-
-    const FuncShowHidenMenu = () => {
-        setShowHiddenMenu(!showHiddenMenu);
-    };
 
     return (
         <section className={`${style.header} ${navColorChange ? style.navBlack : ""}`}>
@@ -108,17 +104,6 @@ export default function Header() {
                                         Products
                                     </NavLink>
                                 </li>
-                                {/* <li>
-                                <NavLink
-                                    onClick={showHiddenMenu}
-                                    to={"/media"}
-                                    style={({ isActive }) => {
-                                        return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
-                                    }}
-                                >
-                                    Media
-                                </NavLink>
-                            </li> */}
                                 <li>
                                     <NavLink
                                         onClick={showHiddenMenu}

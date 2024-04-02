@@ -42,17 +42,11 @@ export default function PrDetailsPage() {
     useEffect(() => {
         getOneproduct();
         getsimilarProducts();
-    }, []);
+    }, [slug]);
     //    console.log("one pro-- ",oneProductData);
     console.log("simi", similarProducts);
 
-    // const getRandomItems = (arr, count) => arr.sort(() => Math.random() - 0.5).slice(0, count);
-
-    // const [randomItems, setRandomItems] = useState(getRandomItems(FavoriteItemsAndProductPageDatas, 3));
-
-    // useEffect(() => {
-    //     setRandomItems(getRandomItems(FavoriteItemsAndProductPageDatas, 4));
-    // }, [FavoriteItemsAndProductPageDatas]);
+   
 
     return (
         <>

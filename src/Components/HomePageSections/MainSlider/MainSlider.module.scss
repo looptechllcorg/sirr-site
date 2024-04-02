@@ -2,8 +2,6 @@
 @import "../../../siteColorList/Colors.scss";
 
 #mainSlider {
-
-	// margin-top: -100px;
 	img {
 		width: 100%;
 		height: 100%;
@@ -24,7 +22,7 @@
 		width: 800px;
 		position: absolute;
 		top: 30%;
-		color: $mainSliderColor;
+		color: $mainSliderColor;    
 		z-index: 99;
         margin-left: 20px;
 		.SliderPrTitle {

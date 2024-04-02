@@ -12,9 +12,8 @@ a {
 }
 
 body {
-    /* font-family: 'Inter', sans-serif; */
     font-family: "IBM Plex Serif", serif;
-}
+    }
 
 @media only screen and (max-width: 750px) {
     html {
@@ -26,7 +25,6 @@ body {
     max-width: 1500px;
     margin: 0 auto;
     padding: 40px 0;
-    /* position: relative; */
 }
 
 /*site allContainer responsive style */
@@ -57,13 +55,12 @@ body {
     z-index: 9999999;
     cursor: pointer;
     transition: 0.7s ease;
-    svg {
-        fill: white;
-    }
-    &:hover svg {
-        fill: green;
-    }
 }
+.mainSlider-swiper-button-prev:hover,
+.mainSlider-swiper-button-next:hover {
+    background-color: rgba(230, 168, 76, 1);
+}
+
 .mainSlider-swiper-button-next {
     position: absolute;
     bottom: 50px;
@@ -79,12 +76,6 @@ body {
     z-index: 9999999;
     cursor: pointer;
     transition: 0.4s ease;
-    /* svg{
-  fill: white;
-} */
-    /* &:hover svg{
- fill: green;
-} */
 }
 .mainSliderWrapper {
     height: 96vh;
@@ -188,8 +179,6 @@ body {
     opacity: 0.3;
 }
 .fancybox__content {
-    /* width: 200px !important;
-  height: 200px !important; */
     aspect-ratio: 1/0.5 !important;
     margin-top: 30px;
 }
@@ -212,7 +201,6 @@ body {
 
 /* filter page price filter react slider style */
 .example-track {
-    /* top: 20px; */
     height: 3px;
     background: rgba(23, 23, 23, 0.3);
 }
@@ -225,7 +213,6 @@ body {
 }
 
 .example-thumb {
-    /* background-color: black; */
     cursor: pointer;
     border-radius: 100%;
     box-sizing: border-box;
@@ -233,14 +220,11 @@ body {
     border: 1px solid rgba(230, 168, 76, 1);
     width: 21px;
     height: 21px;
-    /* top: 11px; */
-    /* top: 5px; */
 }
 
 .example-thumb:active {
     width: 1.75rem;
     height: 1.75rem;
-    /* top: 8px; */
 }
 
 /* pagination kitabxana style */

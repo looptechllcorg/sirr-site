@@ -8,9 +8,7 @@
 		 align-items: center;
 		 padding: 10px 100px;
 		 column-gap: 8rem;
-		 position: sticky;
-		 top: 101px;
-		 left: 0;
+	
 		.resultSearchInput{
 			flex: 4;
 			padding: 10px;
@@ -42,8 +40,7 @@
 	    gap: 1rem;
 	}
 		.noResultFound{
-			// position: fixed;
-			// top: 200px;  
+			 
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -55,40 +52,17 @@
 @media only screen and (max-width: 950px) {
 	#SearchResultWrapper{
 		.resultSearch{
-			//  display: flex;
-			//  justify-content: space-between;
-			//  align-items: center;
+			
 			 padding: 10px;
-			//  column-gap: 8rem;
-			//  position: sticky;
-			//  top: 110px;
-			//  left: 0;
 			flex-direction: column;
 			row-gap: 1rem;
 			.resultSearchInput{
 				flex: 1;
 				width: 100%;
-				// padding: 10px;
-				// border-radius: 5px;
-				// font-size: 20px;
-				// &:focus{
-				// 	outline: none;
-				// }
 			}
 			.label{
 				width: 100%;
-				// display: flex;
-				// justify-content: center;
-				// align-items: center;
-				// column-gap: .5rem;
-				// padding: 7px 0;
-				// font-size: 22px;
-				// border-radius: 5px;
-				// flex: 1;
-				// border: 1px solid $resultPageInputSearchLabelBorderColor;
-				// cursor: pointer;
-				// background-color: $resultPageInputSearchLabelBgColor;
-				//   color: $resultPageInputSearchLabelColor;		
+					
 			}
 		}
 						.searchResultWrapper {

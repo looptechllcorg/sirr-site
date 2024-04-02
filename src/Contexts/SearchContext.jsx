@@ -1,4 +1,4 @@
-import { createContext,  useState } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sirrSite from "../Helpers/Sirr";
 import { useSearchParams } from "react-router-dom";
@@ -15,11 +15,17 @@ export const SearchProvider = ({ children }) => {
     const [searchInputShow, setSearchInputShow] = useState(false);
     const [emptyResult, setEmptyResult] = useState(false);
     const [noIcon, setNoIcon] = useState(true);
+    const [showHiddenMenu, setShowHiddenMenu] = useState(false);
     // const [load, setLoad] = useState(true);
 
     const [pageCount, setPageCount] = useState(2);
     const initialPage = 1;
     const [currentPageSearch, setcurrentPageSearch] = useState(initialPage);
+
+    const FuncShowHidenMenu = () => {
+        setShowHiddenMenu(!showHiddenMenu);
+        // ClearInputValue();
+    };
 
     const handlePageChange = (selectedObject) => {
         const pageNumber = Number(selectedObject.selected) + 1;
@@ -48,12 +54,28 @@ export const SearchProvider = ({ children }) => {
             navigate(`/search?search=${searchInpValue}`);
             setSearchInputShow(false);
             setNoIcon(false);
-            // ClearInputValue();
+            ClearInputValue();
+            FuncShowHidenMenu();
         } else {
             return false;
         }
     };
+         
 
+       const handleKeyDownHeaderInputSearchresult = (e) => {
+           if (searchInpValue !== "" && e.key === "Enter") {
+               handleSearch(e.target.value);
+               navigate(`/search?search=${searchInpValue}`);
+               setSearchInputShow(false);
+               setNoIcon(false);
+               ClearInputValue();
+              
+           } else {
+               return false;
+           }
+       };
+
+     
     const onChangeInput = (e) => {
         setSearchInpValue(e.target.value);
         // setLoad(false);
@@ -79,11 +101,12 @@ export const SearchProvider = ({ children }) => {
                 setNoIcon,
                 emptyResult,
                 setEmptyResult,
-                // load,
-                // setLoad,
                 currentPageSearch,
                 pageCount,
                 handlePageChange,
+                showHiddenMenu,
+                FuncShowHidenMenu,
+                handleKeyDownHeaderInputSearchresult,
             }}
         >
             {children}

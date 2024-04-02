@@ -19,7 +19,6 @@ export default function MostlyStoryCakeStore({ mostlyStoryCakeStoreVideoData, mo
                         <div className={style.storeDescription}>
                             <TitleList textPosition={"start"} mainTitle={mostlyStoryCakeStoreData.subtitle} detailedTitle={mostlyStoryCakeStoreData.title} detailedTitleColor={"white"} />
                             <p className={style.description}>{mostlyStoryCakeStoreData.body}</p>
-                            {/* <Button textColor={"white"} borderStyle={"1px solid white"} text={"Read more"} /> */}
                         </div>
                     </div>
 

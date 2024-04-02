@@ -2,6 +2,7 @@
 @import  "../../siteColorList/Colors.scss";
 
 #FooterSection{
+		margin-top: 30px;
 	.FooterWrapper{
 		padding: 10px 100px;
 		display: flex;
@@ -45,16 +46,15 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		// background-color: black;
 			.title{ 
 				color: black;
 			     margin-right: 14px; 
-				 font-size: 20px;
+				 font-size: 15px;
 				 line-height: 1;
 			       }
 			.looptechLogo{
-				width: 120px;
-				height: 20px;
+				width: 95px;
+				height: 12px;
 				pointer-events:none;
 				color: black;
 			}

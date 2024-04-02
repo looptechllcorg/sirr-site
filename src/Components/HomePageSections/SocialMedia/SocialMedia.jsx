@@ -16,7 +16,7 @@ export default function SocialMedia() {
     return (
         <section id={style.SocialMedia}>
             <div style={{ paddingBottom: 0 }} className="container">
-                <TitleList mainTitle={"Social media"} detailedTitle={"Instagram"} />
+                <TitleList mainTitle={"Social media"} detailedTitle={"Instagram"} textPosition={"center"} />
                 <div className={style.SocialMediaSliderWrapper}>
                     <Swiper
                         slidesPerView={1.5}

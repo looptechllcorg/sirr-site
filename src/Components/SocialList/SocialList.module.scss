@@ -8,7 +8,7 @@
 	right: calc((100% - 1500px) / 2);
 	z-index: 990;
 	width: 50px;
-	// background-color: black;
+	// background-color: #E6A84C;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -34,7 +34,7 @@
 	}
 
 	.instagramIcon:hover {
-		background-color: #E1306C;
+	background: linear-gradient(#fccc63, #fbad50, #cd486b, #4c68d7);
 	}
 
 	.facebookIcon:hover {

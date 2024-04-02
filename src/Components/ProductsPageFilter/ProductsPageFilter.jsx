@@ -115,7 +115,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
                 </div>
                 {openCloseFilter.priceFilter && (
                     <>
-                        <ReactSlider className="horizontal-slider" thumbClassName="example-thumb" trackClassName="example-track" defaultValue={[0, 150]} min={0} max={150} onChange={(value, index) => setValue(value)} renderThumb={(props, state) => <div {...props}></div>} />
+                        <ReactSlider className="horizontal-slider" thumbClassName="example-thumb" trackClassName="example-track" defaultValue={[0, 550]} min={0} max={550} onChange={(value, index) => setValue(value)} renderThumb={(props, state) => <div {...props}></div>} />
                         <div className={style.filterResult}>
                             <span className={style.minValue}>{value[0]} AZN</span>
                             <span className={style.seperator}> - </span>
