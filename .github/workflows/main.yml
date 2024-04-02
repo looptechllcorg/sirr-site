@@ -31,4 +31,4 @@ jobs:
                     echo "$entry"
                   done
             - name: Deploy with rsync
-              run: rsync --modify-window=1 --update --progress -avz -e "ssh -p 65002" ./build/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.UPLOAD_PATH }}
+              run: rsync --modify-window=1 --update --progress -avz -e "ssh -p 65002" ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.UPLOAD_PATH }}
