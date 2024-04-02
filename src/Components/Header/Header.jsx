@@ -5,7 +5,6 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import  nav logo
 import navLogo from "../../assets/logo/whiteLogoSirr.svg";
 import { Select } from "@chakra-ui/react";
-import { IoMdClose } from "react-icons/io";
 import { useContext, useEffect, useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
@@ -154,7 +153,7 @@ export default function Header() {
                     </div>
 
                     <div className={style.HamburgerMenu} onClick={() => FuncShowHidenMenu()}>
-                        {showHiddenMenu ? <IoMdClose className={style.HamburgerMenuCloseIcon} /> : <span className={style.HamburgerMenuCloseIcon}>H</span>}
+                        {showHiddenMenu ? <span className={style.HamburgerMenuCloseIcon}>X</span> : <span className={style.HamburgerMenuCloseIcon}>H</span>}
                     </div>
                 </nav>
             </div>
