@@ -55,12 +55,12 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
     return (
         <form className={style.filterWrapper} onSubmit={handleSubmit}>
             <button className={style.closeBtn} onClick={closeFunc}>
-                <CloseIcon />
+                <CloseIcon  color="black"/>
             </button>
             <div className={style.CategoryFilter}>
                 <div onClick={() => onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
                     <h4 className={style.FilterCategoryName}>All Categories</h4>
-                    <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon className={style.OpenCloseIcon} />}</span>
+                    <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon  className={style.OpenCloseIcon} />}</span>
                 </div>
                 {openCloseFilter.CategoryFilter && (
                     <ul className={style.categoryName}>

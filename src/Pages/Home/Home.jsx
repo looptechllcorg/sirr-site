@@ -38,6 +38,8 @@ export default function Home() {
         getHomePageDatas();
     }, []);
 
+
+   
     return (
         <>
             {loading ? (

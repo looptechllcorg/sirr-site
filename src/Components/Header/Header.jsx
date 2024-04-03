@@ -13,6 +13,8 @@ import { SearchContext } from "../../Contexts/SearchContext";
 import { LanguageContext } from "../../Contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
 import SearchIcon from "../../assets/icons/SearchIcon";
+import CloseIcon from "../../assets/icons/CloseIcon";
+import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";
 
 export default function Header() {
     const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
@@ -153,7 +155,11 @@ export default function Header() {
                     </div>
 
                     <div className={style.HamburgerMenu} onClick={() => FuncShowHidenMenu()}>
-                        {showHiddenMenu ? <span className={style.HamburgerMenuCloseIcon}>X</span> : <span className={style.HamburgerMenuCloseIcon}>H</span>}
+                        {showHiddenMenu ? (
+                            <CloseIcon className={style.HamburgerMenuCloseIcon} />
+                        ) : (
+                                <HamburgerMenuIcon className={style.HamburgerMenuCloseIcon} />
+                        )}
                     </div>
                 </nav>
             </div>
