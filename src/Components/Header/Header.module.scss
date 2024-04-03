@@ -41,7 +41,7 @@
 						color: $headerNavLinkColor;
 						padding: 0 15px;
 						margin: 0 20px;
-						font-size: 1rem;
+						font-size: 24px;
 						font-family: IBM Plex Serif;
 					}
 				}
@@ -196,7 +196,7 @@
 
 				.mobileSocial {
 					display: flex;
-
+	                padding-top: 40px;
 					a {
 						width: 47px;
 						height: 47px;

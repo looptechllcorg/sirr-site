@@ -31,7 +31,7 @@ export default function HomeContact() {
                                 <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_facebook"]} className={style.facebook}>
                                     <SocialFacebookIcon /> sirr shirniyyat evi
                                 </a>
-                            </div>
+                            </div>    
                         </div>
                     </div>
                 </div>

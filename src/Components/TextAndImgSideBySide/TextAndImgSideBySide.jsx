@@ -14,7 +14,7 @@ export default function TextAndImgSideBySide({ branchesInfoDatas, branchesImages
             <div style={{ backgroundColor: bgColor }} className={style.TextWrapper}>
                 <TitleList textPosition={"start"} detailedTitle={branchesInfoDatas.title} />
                 <p className={style.descrioption}>{branchesInfoDatas.body}</p>
-                <Button text={"View Catalogue"} />
+                {/* <Button text={"View Catalogue"} /> */}
             </div>
             <div className={style.sliderWrapper}>
                 <Swiper

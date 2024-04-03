@@ -37,6 +37,7 @@ export default function BranchesAndMap() {
     return (
         <div className={style.BranchesAndMapWrapper}>
             <div className={style.contactBranchesWarapper}>
+                <h2 className={style.headContactUs}>Contact US</h2>
                 <div className={style.ContactBranches}>
                     {branchesDatas.map((branch, index) => (
                         <Branches key={branch.id} data={branch} onClick={() => onClickBranch(branch, index)} isActive={index === activeBranchIndex} />
