@@ -37,8 +37,8 @@ export default function ContactFormGroup() {
                 await sirrSite.api().post(urls.postContactMail, JSON.stringify(values));
                 const MySwal = withReactContent(Swal);
                 MySwal.fire({
-                    title: <strong>gonderdim haa </strong>,
-                    html: <i>gonderildi</i>,
+                    title: <strong>Məlumatlar</strong>,
+                    html: <i>göndərildi</i>,
                     icon: "success",
                 });
             } catch (error) {
@@ -69,7 +69,7 @@ export default function ContactFormGroup() {
                 <textarea value={values.message} name="message" onChange={handleChange} id="" rows="4" placeholder="Message"></textarea>
                 <div className={style.errorMessage}>{errors.message ? errors.message : null}</div>
 
-                <Button btnType={"submit"} text={"Submit"} />
+                <Button btnType={"submit"} text={"Submit"} />  
             </form>
         </div>
     );

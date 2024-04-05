@@ -1,72 +1,88 @@
 // import site all color list
 @import "../../siteColorList/Colors.scss";
 
-.BranchesAndMapWrapper{
+.BranchesAndMapWrapper {
 	display: flex;
-	.contactBranchesWarapper{
+
+	.contactBranchesWarapper {
 		width: 50%;
 		background-color: black;
 		color: white;
-		.ContactBranches{
-         width: 490px;
-		 height: 392px;
-		 padding: 40px 7px 25px;
-		 margin: 0 auto;
-		 overflow-y: scroll;
-		 &:hover {
+
+		.ContactBranches {
+			width: 490px;
+			height: 392px;
+			padding: 40px 7px 25px;
+			margin: 0 auto;
+			overflow-y: scroll;
+
+			&:hover {
+				&::-webkit-scrollbar-thumb {
+					background-color: rgba(230, 168, 76, 1);
+					padding-top: 20px;
+				}
+			}
+
+			&::-webkit-scrollbar {
+				width: 1px;
+			}
+
 			&::-webkit-scrollbar-thumb {
-				background-color: rgba(230, 168, 76, 1);
-				padding-top: 20px;
+				background-color: transparent;
 			}
 		}
-		&::-webkit-scrollbar{
-			width: 1px;
-		}
-		&::-webkit-scrollbar-thumb{
-			background-color: transparent;
-		}
-		}
-	
+
 	}
-		.headContactUs{
-			text-align: center;
-			margin-top: 30px;
-		}
-	.contactMapWrapper{
+
+	.headContactUs {
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.contactMapWrapper {
 		width: 50%;
-		height: 400px;
+		// height: 400px;
+		
+
+	
 	}
 }
 
 
 //BranchesAndMapWrapper responsive
 @media only screen and (max-width: 950px) {
-	.BranchesAndMapWrapper{
+	.BranchesAndMapWrapper {
 		flex-wrap: wrap;
-		.contactBranchesWarapper{
+
+		.contactBranchesWarapper {
 			width: 100%;
-			.ContactBranches{
-			 width: 100%;
-			 padding: 20px 20px 25px;
-			 margin: 0 auto;
-			 overflow-y: scroll;
-			 height: 392px;
-			 &:hover {
+
+			.ContactBranches {
+				width: 100%;
+				padding: 20px 20px 25px;
+				margin: 0 auto;
+				overflow-y: scroll;
+				height: 392px;
+
+				&:hover {
+					&::-webkit-scrollbar-thumb {
+						background-color: rgba(230, 168, 76, 1);
+						padding-top: 20px;
+					}
+				}
+
+				&::-webkit-scrollbar {
+					width: 1px;
+				}
+
 				&::-webkit-scrollbar-thumb {
-					background-color: rgba(230, 168, 76, 1);
-					padding-top: 20px;
+					background-color: transparent;
 				}
 			}
-			&::-webkit-scrollbar{
-				width: 1px;
-			}
-			&::-webkit-scrollbar-thumb{
-				background-color: transparent;
-			}
-			}
-		
+
 		}
-		.contactMapWrapper{
+
+		.contactMapWrapper {
 			width: 95%;
 			height: 320px;
 			margin: 0 auto;

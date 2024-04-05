@@ -4,7 +4,8 @@ import style from "./Header.module.scss";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import  nav logo
 import navLogo from "../../assets/logo/whiteLogoSirr.svg";
-import { Select } from "@chakra-ui/react";
+// bagladim deyende acilsidir 
+// import { Select } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
@@ -17,7 +18,10 @@ import CloseIcon from "../../assets/icons/CloseIcon";
 import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";
 
 export default function Header() {
-    const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
+    const {
+        //  bagladim deyende acilsidir 
+        // siteLang, onChangeLang,
+        onClickLang } = useContext(LanguageContext);
     const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
 
     const [navColorChange, setNavColorChange] = useState(false);
@@ -144,14 +148,14 @@ export default function Header() {
                         ) : (
                             ""
                         )}
-
-                        <div className={style.lang}>
+                          {/* bagladim deyende acilsidir  */}
+                        {/* <div className={style.lang}>
                             <Select value={siteLang} onChange={onChangeLang} className={style.selectLang} focusBorderColor="transparent">
                                 <option value="az">AZ</option>
                                 <option value="en">EN</option>
                                 <option value="ru">RU</option>
                             </Select>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className={style.HamburgerMenu} onClick={() => FuncShowHidenMenu()}>

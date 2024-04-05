@@ -47,7 +47,6 @@ export default function Product() {
             }
         };
         getProductPageDatas();
-        // window.scrollTo(0, 300);
         window.scrollTo({ top: 300, behavior: "smooth" });
     }, [searchParams]);
 
@@ -104,7 +103,7 @@ export default function Product() {
                     nextLabel=">"
                     previousLabel="<"
                 />
-            </div>
+            </div>   
         </section>
         }
         </>

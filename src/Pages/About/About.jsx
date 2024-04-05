@@ -4,16 +4,20 @@ import style from "./About.module.scss";
 import TitleList from "../../Components/TitleList/TitleList";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
 import TextAndImgSideBySide from "../../Components/TextAndImgSideBySide/TextAndImgSideBySide";
-import videoStartImage from "../../assets/images/videoStartImg.png";
+
 import { useEffect, useState } from "react";
 import SiteWay from "../../Components/SiteWay/SiteWay";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import Loading from "../../Components/Loading/Loading";
-import Fancybox from "../../Components/HomePageSections/Fancybox";
+// bagladim deyende acilsidir 
+// import Fancybox from "../../Components/HomePageSections/Fancybox";
+// import videoStartImage from "../../assets/images/videoStartImg.png";
+
+
+
 
 export default function About() {
-    // const { showHiddenVideo, onClickShowHiddenVideo } = useContext(GlobalContext);
     const [aboutDatas, setAboutDatas] = useState([]);
     const [aboutFeatures, setAboutFeatures] = useState([]);
     const [aboutLoading, setAboutLoading] = useState(true);
@@ -43,7 +47,6 @@ export default function About() {
         getAboutFeaturesDatas();
     }, []);
 
-    // console.log("ff",aboutDatas);
 
     return aboutLoading ? (
         <Loading />
@@ -61,12 +64,12 @@ export default function About() {
 
                 <div style={{ backgroundImage: `url(${sirrSite.baseUrlImage}${aboutDatas["about_video"]?.["site.about_video_bg"]})` }} className={style.videoBgImg}>
                     <div className={style.videoBgOverlay}></div>
-
-                    <Fancybox>
+                     {/* bagladim deyende acilsidir  */}
+                    {/* <Fancybox>
                         <a className={style.videoWrapper} href={`${aboutDatas["about_video"]?.["site.about_video_url"]}`} data-fancybox="gallery">
                             <img className={style.playVideoBtn} src={videoStartImage} alt="" />
                         </a>
-                    </Fancybox>
+                    </Fancybox> */}
                 </div>
 
                 <TextAndImgSideBySide branchesInfoDatas={aboutDatas["about-bottom"]} branchesImagesDatas={aboutDatas["branch_images"]} />
