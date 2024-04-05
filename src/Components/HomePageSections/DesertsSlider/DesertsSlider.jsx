@@ -44,7 +44,7 @@ export default function DesertsSlider({ desertSliderDatas }) {
                         <div className={style.DesertsSliderCenter}>
                             <h2 className={style.desertTitle}>{item.title}</h2>
                             <p className={style.desertDescription}>{item.description}</p>
-                            <Link to={item["category"].slug}>
+                            <Link to={`products?categories[]=${item["category"].slug}`}>
                                 <Button text={"More than"} />
                             </Link>
                         </div>

@@ -43,7 +43,7 @@ export default function MainSlider({ mainSlidersDatas }) {
                                 <h3 className={style.SliderPrTitle}>{item.title}</h3>
                                 <p className={style.sliderPrDescription}>{item.description}</p>
                                 <Link
-                                    to="/about-us"
+                                    to={item.url}
                                     onClick={() => {
                                         console.log(1);
                                     }}
