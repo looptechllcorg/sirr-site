@@ -13,7 +13,9 @@ import ArrowUp from "../../assets/icons/ArrowUp";
 import Subtraction from "../../assets/icons/Subtraction";
 import AdditionIcon from "../../assets/icons/AdditionIcon";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
+import { useSearchParams } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
     const { categoryNameDatas } = useContext(ApiGlobalContext);
     const [openCloseFilter, setOpenCloseFilter] = useState({
@@ -25,7 +27,10 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
     const [value, setValue] = useState([]);
     const onClickOpenCloseFunc = (item) => {
         setOpenCloseFilter((prevState) => ({ ...prevState, [item]: !prevState[item] }));
-    };
+	};
+	
+	const [searchParams, setSearchParams] = useSearchParams();
+
 
     const { handleChange, handleSubmit } = useFormik({
         initialValues: {
@@ -37,7 +42,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
                 let searchParams = new URLSearchParams();
                 if (values.categories) {
                     values.categories.forEach((c) => {
-                        searchParams.set("categories[]", c);
+                        searchParams.append("categories[]", c);
                     });
                 }
                 if (values.sort) searchParams.set("sort", values.sort);
@@ -45,8 +50,11 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
                     searchParams.set("price[0]", value[0]);
                     searchParams.set("price[1]", value[1]);
                 }
-                let res = await sirrSite.api().get(`${urls.allProduct}?${searchParams.toString()}`);
-                setAllProductDatas(res.data.data.data);
+                // let res = await sirrSite.api().get(`${urls.allProduct}?${searchParams.toString()}`);
+				// console.log("salam");
+                // setAllProductDatas(res.data.data.data);
+				setSearchParams(searchParams.toString());
+				// console.log(searchParams.toString());
             } catch (error) {
                 console.log(error);
             }

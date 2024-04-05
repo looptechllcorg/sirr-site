@@ -26,8 +26,9 @@ export default function Product() {
     const [currentPage, setcurrentPage] = useState(initialPage);
 
     const handlePageChange = (selectedObject) => {
-        const pageNumber = Number(selectedObject.selected) + 1;
-        setSearchParams({ ...searchParams, page: pageNumber });
+		const pageNumber = Number(selectedObject.selected) + 1;
+        searchParams.set("page", pageNumber);
+		setSearchParams(searchParams);
         setcurrentPage(pageNumber);
     };
 
@@ -36,7 +37,7 @@ export default function Product() {
         setcurrentPage(currentPage);
         const getProductPageDatas = async () => {
             try {
-                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage } });
+                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage, categories: searchParams.getAll("categories[]"), sort: searchParams.get("sort"), "price[0]": searchParams.get("price[0]"), "price[1]": searchParams.get("price[1]") } });
                 setAllProductDatas(ResPrPageDatas.data.data.data);
                 setPageCount(ResPrPageDatas.data.data.last_page);
                 setProductLoading(false);
