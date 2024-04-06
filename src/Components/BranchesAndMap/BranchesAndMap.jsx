@@ -31,7 +31,7 @@ export default function BranchesAndMap() {
         setMapCenter([branch.coordinates[0], branch.coordinates[1]]);
         map.setView([branch.coordinates[0], branch.coordinates[1]], map.getZoom(), {
             animate: true,
-        });
+        });   
     };
 
     return (

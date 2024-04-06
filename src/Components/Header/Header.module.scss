@@ -24,7 +24,6 @@
 		}
 
 		.navPages {
-			// flex: 1;
 			.MobileLangSearch {
 				display: none;
 			}
@@ -141,14 +140,14 @@
 
 				.MobileLangSearch {
 					display: flex;
-					justify-content: space-between;
+					// justify-content: space-between;
+					justify-content: flex-end;
 					align-items: center;
 					width: 100%;
 					padding: 30px 15px 12px;
 
 					.mobileLang {
 						color: white;
-
 						.langCategory {
 							font-size: 18px;
 							margin-right: 11px;
@@ -163,6 +162,7 @@
 							padding: 12px;
 							border-radius: 100%;
 							cursor: pointer;
+						
 						}
 					}
 				}

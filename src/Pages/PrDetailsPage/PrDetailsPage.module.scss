@@ -6,37 +6,44 @@
 		width: 100%;
 		padding: 0 100px;
 		display: flex;
+
 		.MobilePrDetailsTitle {
 			display: none;
 		}
+
 		.MobilePrDetailsPrice {
 			display: none;
 		}
+
 		.prDetailsImg {
-			width: 470px;
-			height: 400px;
-			// aspect-ratio: 3/3;
+			aspect-ratio: 3/4;
+
 			img {
 				width: 100%;
 				height: 100%;
-				object-fit: cover;
+				object-fit: cover;  
 			}
 		}
+
 		.prDetailsInfo {
 			width: 50%;
 			margin: 20px 0 0 40px;
+
 			.prDetailsTitle {
 				font-size: 32px;
 				font-weight: 500;
 				line-height: 38px;
 			}
+
 			.prDetailsPrice {
 				font-size: 32px;
 				font-weight: 500;
 				color: $prDetailsPriceUnitQuantityColor;
 				margin: 10px 0;
 			}
-			.CallMe {
+
+			.WebCallMe,
+			.MobileCallMe {   
 				width: 60%;
 				display: flex;
 				align-items: center;
@@ -44,37 +51,50 @@
 				border: 1px solid $prDetailsCallMeBtnBorderColor;
 				background-color: $prDetailsCallMeBtnBgColor;
 				color: inherit;
-				padding: .5rem 2rem;
+				padding: .5rem 0;
 				border-radius: 5px;
 				margin: 20px 0;
 				cursor: pointer;
+
+				.prDetailsWharsapp {
+					margin-right: 15px;
+				}
 			}
-			// .prDetailsLine{
-			// 	border: 1px solid #171717;
-			// }
+           .MobileCallMe{
+			display: none;
+		   }
+			.PrIngredients {
+				margin: 20px 0 5px;
+				font-size: 1.5rem;
+			}
+
 			.prDetailsDescription {
 				width: 80%;
-				margin: 30px 0;
 				font-size: 16px;
 				line-height: 22px;
 				opacity: 0.7;
 				font-family: "Inter", sans-serif;
 			}
+
 			.PrDetailsSize {
-				margin: 10px 0 0 0;
+				margin: 10px 0 10px 0;
 				font-size: 24px;
 				font-weight: 500;
+
 				.unitQuantity {
 					color: $prDetailsPriceUnitQuantityColor;
+					margin-left: 7px;
 				}
 			}
 		}
 	}
+
 	.line {
-		margin: 3rem 0;
+		margin: 1.5rem 0;
 		border-top-color: rgba(23, 23, 23, .2);
 		border-bottom: 0;
 	}
+
 	.seeAlsoPrWrapper {
 		width: 100%;
 		padding: 30px 100px;
@@ -82,12 +102,14 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 		gap: 2rem;
+
 		img {
 			width: 100%;
 			aspect-ratio: 1/1.1;
 			object-fit: cover;
 			border-radius: 5px;
 		}
+
 		.seeAlsoPrTitle {
 			color: black;
 			font-weight: 700;
@@ -101,18 +123,21 @@
 @media only screen and (max-width: 950px) {
 	#details {
 		.prDetailsWrapper {
-			padding: 40px 10px;
+			padding: 40px 21px 0;
+
 			.prDetailsInfo {
 				width: 50%;
+
 				.prDetailsDescription {
 					width: 100%;
 				}
 			}
 		}
-						.seeAlsoPrWrapper {
-							padding: 30px 10px;
-							gap: 2rem;
-						}
+
+		.seeAlsoPrWrapper {
+			padding: 30px 10px;
+			gap: 2rem;
+		}
 	}
 }
 
@@ -126,6 +151,7 @@
 				font-weight: 500;
 				line-height: 38px;
 			}
+
 			.MobilePrDetailsPrice {
 				display: block;
 				font-size: 35px;
@@ -133,22 +159,37 @@
 				color: $prDetailsPriceUnitQuantityColor;
 				margin: 10px 0;
 			}
+
 			.prDetailsImg {
 				width: auto;
 			}
+
 			.prDetailsInfo {
 				width: 100%;
 				margin: 20px 0;
+
 				.prDetailsTitle {
 					display: none;
 				}
+
 				.prDetailsPrice {
 					display: none;
 				}
-				.CallMe {
+
+				.MobileCallMe {
 					width: 100%;
+					display: flex;
+					margin: 0;
 				}
+			.WebCallMe {
+								 	display: none;
+								 }
 			}
+
 		}
+						.line {
+							margin: 0 0 10px 0;
+			
+						}
 	}
 }

@@ -4,24 +4,26 @@ import style from "./Header.module.scss";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import  nav logo
 import navLogo from "../../assets/logo/whiteLogoSirr.svg";
-// bagladim deyende acilsidir 
+// bagladim deyende acilsidir
 // import { Select } from "@chakra-ui/react";
+// import { LanguageContext } from "../../Contexts/LanguageContext";
 import { useContext, useEffect, useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
 import { SearchContext } from "../../Contexts/SearchContext";
-import { LanguageContext } from "../../Contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
 import SearchIcon from "../../assets/icons/SearchIcon";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";
 
+
+
 export default function Header() {
-    const {
-        //  bagladim deyende acilsidir 
-        // siteLang, onChangeLang,
-        onClickLang } = useContext(LanguageContext);
+    //   bagladim deyende acilsidir 
+    // const {
+    //     siteLang, onChangeLang,
+    //     onClickLang } = useContext(LanguageContext);
     const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
 
     const [navColorChange, setNavColorChange] = useState(false);
@@ -69,7 +71,7 @@ export default function Header() {
                     </a>
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
-                            <div className={style.mobileLang}>
+                            {/* <div className={style.mobileLang}>
                                 <span onClick={() => onClickLang("az")} className={style.langCategory}>
                                     AZ
                                 </span>
@@ -79,7 +81,7 @@ export default function Header() {
                                 <span onClick={() => onClickLang("ru")} className={style.langCategory}>
                                     RU
                                 </span>
-                            </div>
+                            </div> */}
                             <span onClick={handleShowSearchInput} className={style.mobileSearchIcon}>
                                 <SearchIcon />
                             </span>

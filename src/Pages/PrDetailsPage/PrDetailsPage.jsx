@@ -10,6 +10,7 @@ import sirrSite from "../../Helpers/Sirr";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import Loading from "../../Components/Loading/Loading";
 import urls from "../../ApiValues/urls";
+import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
 
 export default function PrDetailsPage() {
     const { socialDatas, productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
@@ -44,7 +45,7 @@ export default function PrDetailsPage() {
         getsimilarProducts();
     }, [slug]);
     //    console.log("one pro-- ",oneProductData);
-    console.log("simi", similarProducts);
+    // console.log("simi", similarProducts);  
 
    
 
@@ -67,17 +68,21 @@ export default function PrDetailsPage() {
                             <div className={style.prDetailsInfo}>
                                 <h3 className={style.prDetailsTitle}>{oneProductData.title}</h3>
                                 <span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
-                                <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.CallMe}>
-                                    Get to whatsapp
+                                <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.WebCallMe}>
+                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />    Get to whatsapp
                                 </a>
-                                <hr className={style.prDetailsLine} />
+                                    <hr className={style.prDetailsLine} />
+                                    <h5 className={style.PrIngredients}>Ingredients:</h5>
                                 <p className={style.prDetailsDescription}>{oneProductData.description}</p>
                                 <div className={style.PrDetailsSize}>
-                                    Size:{" "}
+                                    Size:
                                     <span className={style.unitQuantity}>
                                         {oneProductData.quantity} {oneProductData.unit}
                                     </span>
-                                </div>
+                                    </div>
+                                      <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.MobileCallMe}>
+                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />    Get to whatsapp
+                                </a>
                             </div>
                         </div>
 
