@@ -9,8 +9,9 @@
 	font-family: 'IBM Plex Serif', serif;
 	border-bottom: 1px solid black;
 	width: 90%;
+	border-radius: 0;
 	padding-bottom: .5rem;
-}
+}     
 .InpError{
     color:$InputAndTextareaErrorMsgColor;
     text-align: start;
