@@ -9,8 +9,7 @@ import { Link } from "react-router-dom";
 
 
 export default function FavoriteItems({ favoriteItemsDatas, setFavoriteItemsDatas }) {
-  
-    return (
+    return (    
         <section id={style.FavoriteItems}>
             <div className="container">
                 <div className={style.FavoriteItemsWrapper}>
@@ -21,7 +20,7 @@ export default function FavoriteItems({ favoriteItemsDatas, setFavoriteItemsData
                     </div>
 
                     <div className={style.CategoryProduct}>
-                        {favoriteItemsDatas?.map((item) => (
+                        {favoriteItemsDatas?.map((item) => (  
                             <PrCart key={item.id} data={item} />
                         ))}
                     </div>

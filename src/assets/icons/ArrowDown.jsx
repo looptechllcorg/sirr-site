@@ -5,7 +5,7 @@ export default function ArrowDown(props) {
 	<svg
 	xmlns="http://www.w3.org/2000/svg"
 	width="16"
-	height="38"
+	height="25"
 	fill="#171717"
 	viewBox="0 0 8 26"
 	{...props}

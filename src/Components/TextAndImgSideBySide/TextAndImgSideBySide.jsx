@@ -1,5 +1,4 @@
 // import style scss
-import Button from "../Button/Button";
 import sirrSite from "../../Helpers/Sirr";
 import TitleList from "../TitleList/TitleList";
 import style from "./TextAndImgSideBySide.module.scss";
@@ -13,8 +12,7 @@ export default function TextAndImgSideBySide({ branchesInfoDatas, branchesImages
         <div className={style.TextAndImg}>
             <div style={{ backgroundColor: bgColor }} className={style.TextWrapper}>
                 <TitleList textPosition={"start"} detailedTitle={branchesInfoDatas.title} />
-                <p className={style.descrioption}>{branchesInfoDatas.body}</p>
-                {/* <Button text={"View Catalogue"} /> */}
+                <p className={style.descrioption} dangerouslySetInnerHTML={{ __html: branchesInfoDatas.body }}></p>
             </div>
             <div className={style.sliderWrapper}>
                 <Swiper

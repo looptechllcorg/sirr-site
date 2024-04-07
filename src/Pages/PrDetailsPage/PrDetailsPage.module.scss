@@ -1,4 +1,3 @@
-// import all site color
 @import "../../siteColorList/Colors.scss";
 
 #details {
@@ -21,7 +20,7 @@
 			img {
 				width: 100%;
 				height: 100%;
-				object-fit: cover;  
+				object-fit: cover;
 			}
 		}
 
@@ -43,7 +42,7 @@
 			}
 
 			.WebCallMe,
-			.MobileCallMe {   
+			.MobileCallMe {
 				width: 60%;
 				display: flex;
 				align-items: center;
@@ -60,9 +59,11 @@
 					margin-right: 15px;
 				}
 			}
-           .MobileCallMe{
-			display: none;
-		   }
+
+			.MobileCallMe {
+				display: none;
+			}
+
 			.PrIngredients {
 				margin: 20px 0 5px;
 				font-size: 1.5rem;
@@ -145,6 +146,7 @@
 	#details {
 		.prDetailsWrapper {
 			flex-direction: column;
+
 			.MobilePrDetailsTitle {
 				display: block;
 				font-size: 32px;
@@ -181,15 +183,17 @@
 					display: flex;
 					margin: 0;
 				}
-			.WebCallMe {
-								 	display: none;
-								 }
+
+				.WebCallMe {
+					display: none;
+				}
 			}
 
 		}
-						.line {
-							margin: 0 0 10px 0;
-			
-						}
+
+		.line {
+			margin: 0 0 10px 0;
+
+		}
 	}
 }

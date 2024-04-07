@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import sirrSite from "../Helpers/Sirr";
 import urls from "../ApiValues/urls";
 
-export const ApiGlobalContext = createContext();
+export const ApiGlobalContext = createContext();   
 
 // eslint-disable-next-line react/prop-types
 export const ApiGlobalProvider = ({ children }) => {

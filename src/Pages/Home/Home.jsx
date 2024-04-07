@@ -38,7 +38,7 @@ export default function Home() {
         getHomePageDatas();
     }, []);
 
-
+// console.log("hom", favoriteItemsDatas);
    
     return (
         <>

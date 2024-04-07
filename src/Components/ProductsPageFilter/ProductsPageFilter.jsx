@@ -7,8 +7,8 @@ import ReactSlider from "react-slider";
 import ArrowDown from "../../assets/icons/ArrowDown";
 // import useFormik
 import { useFormik } from "formik";
-import sirrSite from "../../Helpers/Sirr";
-import urls from "../../ApiValues/urls";
+// import sirrSite from "../../Helpers/Sirr";
+// import urls from "../../ApiValues/urls";
 import ArrowUp from "../../assets/icons/ArrowUp";
 import Subtraction from "../../assets/icons/Subtraction";
 import AdditionIcon from "../../assets/icons/AdditionIcon";

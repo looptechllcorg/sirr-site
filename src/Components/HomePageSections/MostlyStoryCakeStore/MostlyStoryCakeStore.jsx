@@ -19,7 +19,8 @@ export default function MostlyStoryCakeStore({ mostlyStoryCakeStoreVideoData, mo
                     <div className={style.storeDescriptionWrapper}>
                         <div className={style.storeDescription}>
                             <TitleList textPosition={"start"} mainTitle={mostlyStoryCakeStoreData.subtitle} detailedTitle={mostlyStoryCakeStoreData.title} detailedTitleColor={"white"} />
-                            <p className={style.description}>{mostlyStoryCakeStoreData.body}</p>
+                            <p className={style.description} dangerouslySetInnerHTML={{ __html: mostlyStoryCakeStoreData.body }}></p>
+
                         </div>
                     </div>
                       {/* bagladim deyende acilsidir  */}

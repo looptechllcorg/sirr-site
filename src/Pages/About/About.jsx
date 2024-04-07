@@ -59,7 +59,8 @@ export default function About() {
                 <div className={style.HouseHistory}>
                     <SiteWay data={["Home Page", "About us"]} />
                     <TitleList mainTitle={aboutDatas["about-main"]?.subtitle} detailedTitle={aboutDatas["about-main"]?.title} />
-                    <p className={style.HouseHistoryDescription}>{aboutDatas["about-main"]?.body}</p>
+                        <p className={style.HouseHistoryDescription} dangerouslySetInnerHTML={{ __html: aboutDatas["about-main"]?.body }}></p>
+                        
                 </div>
 
                 <div style={{ backgroundImage: `url(${sirrSite.baseUrlImage}${aboutDatas["about_video"]?.["site.about_video_bg"]})` }} className={style.videoBgImg}>

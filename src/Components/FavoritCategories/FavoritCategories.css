@@ -1,69 +1,68 @@
 .index-favorite-categories {
-	align-self: normal;
-	width: 50%;
-	margin: 0 auto 1rem auto;
+    align-self: normal;
+    width: 50%;
+    margin: 0 auto 1rem auto;
 }
 
 .index-favorite-categories {
-	mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
 }
 
 .index-favorite-categories-item {
-	width: auto !important;
-	display: inline-flex;
-	align-items: center;   
-	justify-content: center;
-	padding: .5rem 2rem;
-	background: none;
-	border: 1px solid #e6a84c;   
-	border-radius: 0.3125rem;
-	font-weight: 600;
-	transition: 250ms ease;
-	cursor: pointer;
+    width: auto !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+    background: none;
+    border: 1px solid #e6a84c;
+    border-radius: 0.3125rem;
+    font-weight: 600;
+    transition: 250ms ease;
+    cursor: pointer;
 }
 
-.index-favorite-categories-item.swiper-slide-active {
-	background-color:  #e6a84c;
-	color: #FFFFFF;
+.index-favorite-categories-item[data-active="true"] {
+    background-color: #e6a84c;
+    color: #ffffff;
 }
 
 .index-favorite-categories-item:hover {
-	background-color:  #e6a84c;
-	color: #FFFFFF;
+    background-color: #e6a84c;
+    color: #ffffff;
 }
 
 .index-favorite-categories-slider-pagination {
-	display: flex;
-	justify-content: center;
-	margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 .index-favorite-categories-slider-pagination > .swiper-pagination-bullet {
-	width: 1.875rem;
-	transition: 250ms ease;
-	border-radius: .75rem;
-	background-color:rgba(23, 23, 23, .3);
-	margin-right: .5rem;
-	cursor: pointer;
+    width: 1.875rem;
+    transition: 250ms ease;
+    border-radius: 0.75rem;
+    background-color: rgba(23, 23, 23, 0.3);
+    margin-right: 0.5rem;
+    cursor: pointer;
 }
 
 .index-favorite-categories-slider-pagination > .swiper-pagination-bullet.swiper-pagination-bullet-active {
-	background-color: rgba(230, 168, 76, 1) !important;
+    background-color: rgba(230, 168, 76, 1) !important;
 }
 
 .fs-slider-pagination {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: absolute;
-	bottom: 2rem;
-	right: 2rem;
-	z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1;
 }
 
-
-@media screen and (max-width: 850px){
-.index-favorite-categories {
-	width: 96%;
-}
+@media screen and (max-width: 850px) {
+    .index-favorite-categories {
+        width: 96%;
+    }
 }

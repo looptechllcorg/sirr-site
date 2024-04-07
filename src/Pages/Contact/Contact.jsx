@@ -29,7 +29,7 @@ export default function Contact() {
     useEffect(() => {
         getContactDatasFunc();
     }, []);
-
+console.log("cont", getContactDatas);
     return (
         <>
             {contactLoading ? (
@@ -44,7 +44,7 @@ export default function Contact() {
 
                         <ContactFormGroup />
 
-                        <BranchesAndMap />
+                        <BranchesAndMap />  
                     </div>
                 </section>
             )}
