@@ -11,6 +11,7 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import Loading from "../../Components/Loading/Loading";
 import urls from "../../ApiValues/urls";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
+import { useTranslation } from "react-i18next";
 
 export default function PrDetailsPage() {
     const { socialDatas, productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
@@ -18,6 +19,7 @@ export default function PrDetailsPage() {
     const [oneProductData, setOneProductData] = useState({});
     const [prDetailsLoading, setPrDetailsLoading] = useState(true);
     const [similarProducts, setSimilarProducts] = useState([]);
+    const {t} = useTranslation()
      
 
     const getOneproduct = async () => {
@@ -58,8 +60,8 @@ export default function PrDetailsPage() {
                     <SocialList />
                     <div style={{ paddingTop: 0 }} className="container">
                         <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
-                        <SiteWay data={["Home Page", "Products", "Product Details"]} />
-                        <div className={style.prDetailsWrapper}>
+                        <SiteWay data={[`${t("home-page")}`, `${t("product-details")}`]} />
+                        <div className={style.prDetailsWrapper}> 
                             <h3 className={style.MobilePrDetailsTitle}>{oneProductData.title}</h3>
                             <span className={style.MobilePrDetailsPrice}>{oneProductData.price} ₼</span>
                             <div className={style.prDetailsImg}>
@@ -69,25 +71,25 @@ export default function PrDetailsPage() {
                                 <h3 className={style.prDetailsTitle}>{oneProductData.title}</h3>
                                 <span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
                                 <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.WebCallMe}>
-                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />    Get to whatsapp
+                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } /> {t("go-to-whatsapp")}
                                 </a>
                                     <hr className={style.prDetailsLine} />
-                                    <h5 className={style.PrIngredients}>Ingredients:</h5>
+                                    <h5 className={style.PrIngredients}>{t("ingredients")}:</h5>
                                 <p className={style.prDetailsDescription}>{oneProductData.description}</p>
                                 <div className={style.PrDetailsSize}>
-                                    Size:
+                                    {t("size")}:
                                     <span className={style.unitQuantity}>
                                         {oneProductData.quantity} {oneProductData.unit}
                                     </span>
                                     </div>
                                       <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.MobileCallMe}>
-                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />    Get to whatsapp
+                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />   {t("go-to-whatsapp")}
                                 </a>
                             </div>
                         </div>
 
                         <hr className={style.line} />
-                        <TitleList textPosition={"center"} mainTitle={"Categories"} detailedTitle={"See also"} />
+                        <TitleList textPosition={"center"} mainTitle={t("categories")} detailedTitle={t("similar-products")} />
 
                         <div className={style.seeAlsoPrWrapper}>
                             {similarProducts.map((pr) => (

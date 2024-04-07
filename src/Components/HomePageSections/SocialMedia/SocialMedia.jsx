@@ -9,14 +9,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
+import { useTranslation } from "react-i18next";
 
 
 
 export default function SocialMedia() {
+    const {t} = useTranslation()
     return (
         <section id={style.SocialMedia}>
             <div style={{ paddingBottom: 0 }} className="container">
-                <TitleList mainTitle={"Social media"} detailedTitle={"Instagram"} textPosition={"center"} />
+                <TitleList mainTitle={t("social-media")} detailedTitle={"Instagram"} textPosition={"center"} />
                 <div className={style.SocialMediaSliderWrapper}>
                     <Swiper
                         slidesPerView={1.5}

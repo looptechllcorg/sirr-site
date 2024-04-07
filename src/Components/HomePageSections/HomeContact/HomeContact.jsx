@@ -5,9 +5,11 @@ import SocialInstagramIcon from "../../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../../assets/icons/SocialFacebookIcon";
 import { useContext } from "react";   
 import { ApiGlobalContext } from "../../../Contexts/ApiGlobalContext";
+import { useTranslation } from "react-i18next";
 
 export default function HomeContact() {
     const { branchesDatas, socialDatas } = useContext(ApiGlobalContext);
+    const {t} = useTranslation()
     // console.log("home page contacts data", branchesDatas);
     // console.log("home page contacts data", socialDatas);
 
@@ -16,7 +18,7 @@ export default function HomeContact() {
             <div className="container">
                 <div className={style.HomeContact}>
                     <div className={style.contactUsWrapper}>
-                        <h3 className={style.NameContactUs}>Contact us</h3>
+                        <h3 className={style.NameContactUs}>{ t("contact-us")}</h3>
                         <div className={style.contactUs}>
                             <div className={style.Branches}>
                                 {branchesDatas.map((branch) => (

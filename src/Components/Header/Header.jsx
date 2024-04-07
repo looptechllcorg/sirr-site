@@ -5,8 +5,8 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import  nav logo
 import navLogo from "../../assets/logo/whiteLogoSirr.svg";
 // bagladim deyende acilsidir
-// import { Select } from "@chakra-ui/react";
-// import { LanguageContext } from "../../Contexts/LanguageContext";
+import { Select } from "@chakra-ui/react";
+import { LanguageContext } from "../../Contexts/LanguageContext";
 import { useContext, useEffect, useState } from "react";
 import SocialInstagramIcon from "../../assets/icons/SocialInstagramIcon";
 import SocialFacebookIcon from "../../assets/icons/SocialFacebookIcon";
@@ -21,9 +21,8 @@ import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";
 
 export default function Header() {
     //   bagladim deyende acilsidir 
-    // const {
-    //     siteLang, onChangeLang,
-    //     onClickLang } = useContext(LanguageContext);
+    const {  siteLang, onChangeLang,  onClickLang } = useContext(LanguageContext);
+       
     const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
 
     const [navColorChange, setNavColorChange] = useState(false);
@@ -71,7 +70,7 @@ export default function Header() {
                     </a>
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
-                            {/* <div className={style.mobileLang}>
+                            <div className={style.mobileLang}>
                                 <span onClick={() => onClickLang("az")} className={style.langCategory}>
                                     AZ
                                 </span>
@@ -81,7 +80,7 @@ export default function Header() {
                                 <span onClick={() => onClickLang("ru")} className={style.langCategory}>
                                     RU
                                 </span>
-                            </div> */}
+                            </div>
                             <span onClick={handleShowSearchInput} className={style.mobileSearchIcon}>
                                 <SearchIcon />
                             </span>
@@ -107,7 +106,7 @@ export default function Header() {
                                             return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                                         }}
                                     >
-                                        Products
+                                        {t("products")}
                                     </NavLink>
                                 </li>
                                 <li>
@@ -118,7 +117,7 @@ export default function Header() {
                                             return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                                         }}
                                     >
-                                        Contact
+                                      {t("contact")}
                                     </NavLink>
                                 </li>
                             </ul>
@@ -151,13 +150,13 @@ export default function Header() {
                             ""
                         )}
                           {/* bagladim deyende acilsidir  */}
-                        {/* <div className={style.lang}>
+                        <div className={style.lang}>
                             <Select value={siteLang} onChange={onChangeLang} className={style.selectLang} focusBorderColor="transparent">
                                 <option value="az">AZ</option>
                                 <option value="en">EN</option>
                                 <option value="ru">RU</option>
                             </Select>
-                        </div> */}
+                        </div>
                     </div>
 
                     <div className={style.HamburgerMenu} onClick={() => FuncShowHidenMenu()}>

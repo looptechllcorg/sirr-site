@@ -7,12 +7,12 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
 import Button from "../../Button/Button";
-// import { useEffect, useState } from "react";
 import sirrSite from "../../../Helpers/Sirr";
-// import urls from "../../../ApiValues/urls";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function DesertsSlider({ desertSliderDatas }) {
+    const {t} = useTranslation()
 
     return (
         <section id={style.DesertsSlider}>
@@ -45,7 +45,7 @@ export default function DesertsSlider({ desertSliderDatas }) {
                             <h2 className={style.desertTitle}>{item.title}</h2>
                             <p className={style.desertDescription}>{item.description}</p>
                             <Link to={`products?categories[]=${item["category"].slug}`}>
-                                <Button text={"More than"} />
+                                <Button text={t("more-than")} />
                             </Link>
                         </div>
                         <div className={style.DesertsSliderRight}>

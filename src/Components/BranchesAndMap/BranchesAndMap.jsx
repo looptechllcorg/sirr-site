@@ -11,6 +11,7 @@ import L from "leaflet";
 import mapLocation from "../../assets/icons/mapLocationIcon.png";
 import { useContext, useState } from "react";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
+import { useTranslation } from "react-i18next";
 
 const icon = L.icon({
     iconUrl: mapLocation,
@@ -20,6 +21,7 @@ const icon = L.icon({
 const defaultPosition = [40.398766, 49.875762];
 
 export default function BranchesAndMap() {
+    const {t} = useTranslation()
     const {  branchesDatas  } = useContext(ApiGlobalContext);
     const [activeBranchIndex, setActiveBranchIndex] = useState(0);
 
@@ -37,7 +39,7 @@ export default function BranchesAndMap() {
     return (
         <div className={style.BranchesAndMapWrapper}>
             <div className={style.contactBranchesWarapper}>
-                <h2 className={style.headContactUs}>Contact US</h2>
+                <h2 className={style.headContactUs}>{ t("contact-us")}</h2>
                 <div className={style.ContactBranches}>
                     {branchesDatas.map((branch, index) => (
                         <Branches key={branch.id} data={branch} onClick={() => onClickBranch(branch, index)} isActive={index === activeBranchIndex} />

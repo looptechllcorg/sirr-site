@@ -7,8 +7,10 @@ import FooterInstagramIcon from "../../assets/icons/FooterInstagramIcon";
 import FooterFacebookIcon from "../../assets/icons/FooterFacebookIcon";
 import FooterWhatsappIcon from "../../assets/icons/FooterWhatsappIcon";
 import looptechLogo from "../../assets/logo/looptech-logo-animated.svg";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+    const {t} = useTranslation()
     return (
         <section id={style.FooterSection}>
             <div style={{ padding: 0 }} className="container">
@@ -36,7 +38,7 @@ export default function Footer() {
                                 return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                             }}
                         >
-                            About us
+                          {t("about")}
                         </NavLink>
                         <NavLink
                             to={"/products"}
@@ -44,7 +46,7 @@ export default function Footer() {
                                 return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                             }}
                         >
-                            Product
+                            {t("products")}
                         </NavLink>
 
                         <NavLink
@@ -53,13 +55,13 @@ export default function Footer() {
                                 return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
                             }}
                         >
-                            Contact
+                           {t("contact")}
                         </NavLink>
                     </div>
                 </div>
                 <hr className={style.line} />
                 <a className={style.looptech} target="_blank" rel="noreferrer" href="https://www.looptech.az/">
-                    <span className={style.title}>Created by</span>
+                    <span className={style.title}>{t("created-by") }</span>
                     <object className={style.looptechLogo} data={looptechLogo} alt="burada LoopTech logo var" />
                 </a>
             </div>

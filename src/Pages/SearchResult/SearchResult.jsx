@@ -9,10 +9,13 @@ import SearchIcon from "../../assets/icons/SearchIcon";
 import SearchResultPageIcon from "../../assets/icons/SearchResultPageIcon";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import ReactPaginate from "react-paginate";
+import { useTranslation } from "react-i18next";
 
 export default function SearchResult() {
     const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInputSearchresult, handleSearch, emptyResult, currentPageSearch, pageCount, handlePageChange, ClearInputValue } = useContext(SearchContext);
     const { searchResultHeaderBgImg } = useContext(ApiGlobalContext);
+
+    const {t} = useTranslation()
 
     const onClickResult = () => {
         if (searchInpValue !== "") {
@@ -33,10 +36,10 @@ export default function SearchResult() {
                 <MainBgImage bgImg={searchResultHeaderBgImg.image} bgImgOnText={searchResultHeaderBgImg.title} bgImgHeight={"400px"} />
                 <SiteWay data={["Home Page", "Search"]} />
                 <div className={style.resultSearch}>
-                    <input className={style.resultSearchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInputSearchresult} placeholder="Search" id="resultSearch" />
+                    <input className={style.resultSearchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInputSearchresult} placeholder={t("search")} id="resultSearch" />
                     <label className={style.label} onClick={() => onClickResult()} htmlFor="resultSearch">
                         <SearchIcon stroke="rgb(127, 57, 44)" className={style.searchIcon} />
-                        Search
+                        {t("search")}
                     </label>
                 </div>
                 {searchResult.data?.length ? (
@@ -68,7 +71,7 @@ export default function SearchResult() {
                 ) : emptyResult ? (
                     <div className={style.noResultFound}>
                         <SearchResultPageIcon />
-                        <h4 className={style.searchValue}> Nəticə tapılmadı</h4>
+                            <h4 className={style.searchValue}>{t("empty-result") }</h4>
                     </div>
                 ) : searchInpValue.length !== "" ? (
                     ""

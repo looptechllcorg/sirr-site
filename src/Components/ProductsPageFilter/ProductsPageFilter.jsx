@@ -14,9 +14,12 @@ import Subtraction from "../../assets/icons/Subtraction";
 import AdditionIcon from "../../assets/icons/AdditionIcon";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
 export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
+    
+     const {t} = useTranslation() 
     const { categoryNameDatas } = useContext(ApiGlobalContext);
     const [openCloseFilter, setOpenCloseFilter] = useState({
         CategoryFilter: true,
@@ -42,7 +45,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
                 let searchParams = new URLSearchParams();
                 if (values.categories) {
                     values.categories.forEach((c) => {
-                        searchParams.append("categories[]", c);
+                        searchParams.append("categories[]", c);  
                     });
                 }
                 if (values.sort) searchParams.set("sort", values.sort);
@@ -67,7 +70,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
             </button>
             <div className={style.CategoryFilter}>
                 <div onClick={() => onClickOpenCloseFunc("CategoryFilter")} className={style.titleCategory}>
-                    <h4 className={style.FilterCategoryName}>All Categories</h4>
+                    <h4 className={style.FilterCategoryName}>{t("all-categories")}</h4>
                     <span>{openCloseFilter.CategoryFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon  className={style.OpenCloseIcon} />}</span>
                 </div>
                 {openCloseFilter.CategoryFilter && (
@@ -87,7 +90,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
 
             <div className={style.sortFilter}>
                 <div onClick={() => onClickOpenCloseFunc("sortFilter")} className={style.titleFilter}>
-                    <h4 className={style.FilterCategoryName}>Sort by</h4>
+                    <h4 className={style.FilterCategoryName}>{t("sort-by")}</h4>
                     <span>{openCloseFilter.sortFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon className={style.OpenCloseIcon} />}</span>
                 </div>
 
@@ -118,7 +121,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
             </div>
             <div className={style.priceFilter}>
                 <div onClick={() => onClickOpenCloseFunc("priceFilter")} className={style.titlePrice}>
-                    <h4 className={style.FilterCategoryName}>Price</h4>
+                    <h4 className={style.FilterCategoryName}>{t("price")}</h4>
                     <span>{openCloseFilter.priceFilter ? <Subtraction className={style.OpenCloseIcon} /> : <AdditionIcon className={style.OpenCloseIcon} />}</span>
                 </div>
                 {openCloseFilter.priceFilter && (
@@ -139,7 +142,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
                 }}
                 className={style.filterResultBtn}
             >
-                Submit
+                {t("search")}
             </button>
         </form>
     );

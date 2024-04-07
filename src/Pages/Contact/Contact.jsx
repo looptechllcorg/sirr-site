@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import Loading from "../../Components/Loading/Loading";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
     const [getContactDatas, setGetContactDatas] = useState({});
     const [contactLoading, setContactLoading] = useState(true);
-
+    const {t} = useTranslation()
+     
     const getContactDatasFunc = async () => {
         try {
             const res = await sirrSite.api().get(urls.getContactDatas);
@@ -39,7 +41,7 @@ console.log("cont", getContactDatas);
                     <SocialList />
                     <div style={{ paddingTop: 0 }} className="container">
                         <MainBgImage bgImg={getContactDatas["contact-header"]?.image} bgImgOnText={getContactDatas["contact-header"]?.title} />
-                        <SiteWay data={["Home Page", "Contact us"]} paddingStyle={0} />
+                        <SiteWay data={[`${t("home-page")}`, `${t("contact-us")}`]} paddingStyle={0} />
                         {getContactDatas["contact-main"] && <TextAndImgSideBySide bgColor={"transparent"} branchesInfoDatas={getContactDatas["contact-main"]} branchesImagesDatas={JSON.parse(getContactDatas["contact-main"]["gallery"])} />}
 
                         <ContactFormGroup />

@@ -6,9 +6,11 @@ import { useContext, useRef } from "react";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
+import { useTranslation } from "react-i18next";
 
 export default function FavoriteCategories({ setFavoriteItemsDatas }) {
     const { categoryNameDatas } = useContext(ApiGlobalContext);
+    const {t} = useTranslation()
 
     const handleSlideChange = async (e) => {
         e.slideTo(e.clickedIndex);
@@ -54,7 +56,7 @@ export default function FavoriteCategories({ setFavoriteItemsDatas }) {
                     },
                 }}
             >
-                <SwiperSlide className={`index-favorite-categories-item`} key="all" data-active={categoryNameDatas.isFirstActive || categoryNameDatas.isFirstActive === undefined} >All</SwiperSlide>
+                <SwiperSlide className={`index-favorite-categories-item`} key="all" data-active={categoryNameDatas.isFirstActive || categoryNameDatas.isFirstActive === undefined} >{t("all")}</SwiperSlide>
                 {categoryNameDatas.map((category) => (
                     <SwiperSlide className={`index-favorite-categories-item`} data-slug={category.slug} data-active={category.active} key={category.id}>
                         {category.title}

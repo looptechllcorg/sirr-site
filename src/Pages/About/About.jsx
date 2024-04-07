@@ -10,6 +10,7 @@ import SiteWay from "../../Components/SiteWay/SiteWay";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import Loading from "../../Components/Loading/Loading";
+import { useTranslation } from "react-i18next";
 // bagladim deyende acilsidir 
 // import Fancybox from "../../Components/HomePageSections/Fancybox";
 // import videoStartImage from "../../assets/images/videoStartImg.png";
@@ -21,7 +22,8 @@ export default function About() {
     const [aboutDatas, setAboutDatas] = useState([]);
     const [aboutFeatures, setAboutFeatures] = useState([]);
     const [aboutLoading, setAboutLoading] = useState(true);
-
+    const {t} = useTranslation()
+     
     const getAboutDatas = async () => {
         try {
             const res = await sirrSite.api().get(urls.about);
@@ -47,7 +49,6 @@ export default function About() {
         getAboutFeaturesDatas();
     }, []);
 
-
     return aboutLoading ? (
         <Loading />
     ) : (
@@ -57,7 +58,7 @@ export default function About() {
                 <MainBgImage bgImg={aboutDatas["about-header"]?.image} bgImgOnText={aboutDatas["about-header"]?.title} />
 
                 <div className={style.HouseHistory}>
-                    <SiteWay data={["Home Page", "About us"]} />
+                    <SiteWay data={[`${t("home-page")}`, `${t("about")}`]} />
                     <TitleList mainTitle={aboutDatas["about-main"]?.subtitle} detailedTitle={aboutDatas["about-main"]?.title} />
                         <p className={style.HouseHistoryDescription} dangerouslySetInnerHTML={{ __html: aboutDatas["about-main"]?.body }}></p>
                         

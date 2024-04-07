@@ -14,6 +14,7 @@ import ReactPaginate from "react-paginate";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import { useSearchParams } from "react-router-dom";
 import Loading from "../../Components/Loading/Loading";
+import { useTranslation } from "react-i18next";
 
 export default function Product() {
     const [showHiddenFilterComponent, setShowHiddenFilterComponent] = useState(false);
@@ -24,6 +25,7 @@ export default function Product() {
     let [searchParams, setSearchParams] = useSearchParams();
     const initialPage = searchParams.get("page") || 1;
     const [currentPage, setcurrentPage] = useState(initialPage);
+    const {t} = useTranslation()
 
     const handlePageChange = (selectedObject) => {
 		const pageNumber = Number(selectedObject.selected) + 1;
@@ -34,7 +36,7 @@ export default function Product() {
 
     useEffect(() => {
         let currentPage = searchParams.get("page") || 1;
-        setcurrentPage(currentPage);
+        setcurrentPage(currentPage);  
         const getProductPageDatas = async () => {
             try {
                 const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage, categories: searchParams.getAll("categories[]"), sort: searchParams.get("sort"), "price[0]": searchParams.get("price[0]"), "price[1]": searchParams.get("price[1]") } });
@@ -64,7 +66,7 @@ export default function Product() {
             <SocialList />
             <div style={{ paddingTop: 0 }} className="container">
                 <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
-                <SiteWay data={["Home Page", "Products"]} />
+                <SiteWay data={[`${t("home-page")}`, `${t("products")}`]} />
 
                 <div className={style.FilterAndProduct}>
                     <div className={style.mobileFilter}>
