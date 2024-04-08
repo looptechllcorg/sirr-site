@@ -78,7 +78,7 @@ export default function PrDetailsPage() {
                                 <p className={style.prDetailsDescription}>{oneProductData.description}</p>
                                 <div className={style.PrDetailsSize}>
                                     {t("size")}:
-                                    <span className={style.unitQuantity}>
+                                    <span className={style.unitQuantity}> 
                                         {oneProductData.quantity} {oneProductData.unit}
                                     </span>
                                     </div>
