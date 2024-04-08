@@ -71,7 +71,7 @@ export default function Header() {
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
                             <div className={style.mobileLang}>
-                                <span onClick={() => onClickLang("az")} className={style.langCategory}>
+                                {/* <span onClick={() => onClickLang("az")} className={style.langCategory}>
                                     AZ
                                 </span>
                                 <span onClick={() => onClickLang("en")} className={style.langCategory}>
@@ -79,7 +79,7 @@ export default function Header() {
                                 </span>
                                 <span onClick={() => onClickLang("ru")} className={style.langCategory}>
                                     RU
-                                </span>
+                                </span> */}
                             </div>
                             <span onClick={handleShowSearchInput} className={style.mobileSearchIcon}>
                                 <SearchIcon />
@@ -153,8 +153,8 @@ export default function Header() {
                         <div className={style.lang}>
                             <Select value={siteLang} onChange={onChangeLang} className={style.selectLang} focusBorderColor="transparent">
                                 <option value="az">AZ</option>
-                                <option value="en">EN</option>
-                                <option value="ru">RU</option>
+                                {/* <option value="en">EN</option>
+                                <option value="ru">RU</option> */}
                             </Select>
                         </div>
                     </div>

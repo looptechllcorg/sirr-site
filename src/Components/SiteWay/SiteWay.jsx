@@ -21,7 +21,7 @@ export default function SiteWay({data,paddingStyle}) {
 	    {
 			data.slice(0,(data.length - 1)).map((page, i)=>(
 				<a href={`/${page}`} key={i} onClick={(e) => handleLinkClick(page, e)}>
-					{t("home-page") }
+					{page}
 				<hr className={style.line} />
 			  </a> 
 			))

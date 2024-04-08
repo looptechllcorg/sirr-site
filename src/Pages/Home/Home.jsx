@@ -28,7 +28,7 @@ export default function Home() {
                 setFavoriteItemsDatas(favoriteItemsDatas.data.data.data);
                 setMostlyStoryCakeStoreVideoData(mostlyStoryCakeStoreVideoData.data.data);
                 setMostlyStoryCakeStoreData(mostlyStoryCakeStoreData.data.data);
-                // await new Promise((resolve) => setTimeout(resolve, 1830));
+                await new Promise((resolve) => setTimeout(resolve, 1830));
                 setLoading(false);
             } catch (error) {
                 console.log(error);
@@ -39,7 +39,7 @@ export default function Home() {
     }, []);
 
 // console.log("hom", favoriteItemsDatas);
-   
+      
     return (
         <>
             {loading ? (

@@ -11,8 +11,10 @@ import SearchResult from "./Pages/SearchResult/SearchResult";
 import { SearchProvider } from "./Contexts/SearchContext";
 import { LanguageProvider } from "./Contexts/LanguageContext";
 import { ApiGlobalProvider } from "./Contexts/ApiGlobalContext";
+import { useTranslation } from "react-i18next";
 
 function App() {
+    const {t}= useTranslation()
     return (
         <>
             <SearchProvider>
@@ -23,7 +25,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about-us" element={<About />} />
-                            <Route path="/products" element={<Product />} />
+                           <Route path="/products" element={<Product />} />
                             <Route path="/contact" element={<Contact />} />  
                             <Route path="/search" element={<SearchResult />} />
 

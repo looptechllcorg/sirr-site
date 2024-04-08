@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 
 const icon = L.icon({
     iconUrl: mapLocation,
-    iconSize: [35, 45],
+    iconSize: [35, 45],     
 });
 
 const defaultPosition = [40.398766, 49.875762];
@@ -36,17 +36,21 @@ export default function BranchesAndMap() {
         });   
     };
 
+    console.log("br-", branchesDatas);
+   
     return (
         <div className={style.BranchesAndMapWrapper}>
             <div className={style.contactBranchesWarapper}>
                 <h2 className={style.headContactUs}>{ t("contact-us")}</h2>
                 <div className={style.ContactBranches}>
                     {branchesDatas.map((branch, index) => (
-                        <Branches key={branch.id} data={branch} onClick={() => onClickBranch(branch, index)} isActive={index === activeBranchIndex} />
+                        <Branches  key={branch.id} data={branch}
+                             onClick={() => {   onClickBranch(branch, index);    }} 
+                    isActive={index === activeBranchIndex} />
                     ))}
                 </div>
             </div>
-            <div className={style.contactMapWrapper}>
+            <div id={style.map} className={style.contactMapWrapper}>
                 <MapContainer style={{ width: "100%", height: "100%", objectFit: "cover" }} center={mapCenter} zoom={16} ref={setMap} scrollWheelZoom={true}>
                     <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
                     <Marker position={mapCenter} icon={icon}></Marker>

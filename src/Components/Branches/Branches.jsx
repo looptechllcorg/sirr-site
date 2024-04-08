@@ -5,15 +5,23 @@ import LocationIcon from "../../assets/icons/LocationIcon";
 
 export default function Branches({ data, isActive, onClick }) {
     return (
-        <div onClick={onClick} className={`${style.BranchesWrapper} ${isActive ? style.active : ""}`}>
+        <div onClick={onClick}  className={`${style.BranchesWrapper} ${isActive ? style.active : ""}`}>
             <hr className={style.branchesLine} />
             <div className={style.Branch}>
+                <div className={style.titleAdressWrapperWeb} >
+                   <h5 className={style.branchesTitle}>{data.title}</h5>    
+                <div className={style.branchesLocationAdress}>
+                    <LocationIcon className={style.locationIcon} />
+                    <h6 className={style.Adress}>{data.address}</h6>
+                </div>
+             </div>
+              <a className={style.titleAdressWrapperMobile}  target="_blank" rel="noreferrer" href={data.url}>
                 <h5 className={style.branchesTitle}>{data.title}</h5>    
                 <div className={style.branchesLocationAdress}>
                     <LocationIcon className={style.locationIcon} />
                     <h6 className={style.Adress}>{data.address}</h6>
                 </div>
-
+             </a>
                 <div className={style.Phones}>
                     <PhoneIcon className={style.PhoneIcon} />
                     {data.phones.split("/").map((num, i) => (

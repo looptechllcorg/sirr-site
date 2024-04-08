@@ -42,6 +42,7 @@ export default function Product() {
                 const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage, categories: searchParams.getAll("categories[]"), sort: searchParams.get("sort"), "price[0]": searchParams.get("price[0]"), "price[1]": searchParams.get("price[1]") } });
                 setAllProductDatas(ResPrPageDatas.data.data.data);
                 setPageCount(ResPrPageDatas.data.data.last_page);
+                 await new Promise((resolve) => setTimeout(resolve, 1830));
                 setProductLoading(false);
             } catch (error) {
                 console.log(error);

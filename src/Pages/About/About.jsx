@@ -28,7 +28,9 @@ export default function About() {
         try {
             const res = await sirrSite.api().get(urls.about);
             setAboutDatas(res.data.data);
+            await new Promise((resolve) => setTimeout(resolve, 1830));
             setAboutLoading(false);
+
         } catch (error) {
             console.log(error);
             setAboutLoading(false);
@@ -47,6 +49,7 @@ export default function About() {
     useEffect(() => {
         getAboutDatas();
         getAboutFeaturesDatas();
+
     }, []);
 
     return aboutLoading ? (
@@ -72,7 +75,7 @@ export default function About() {
                             <img className={style.playVideoBtn} src={videoStartImage} alt="" />
                         </a>
                     </Fancybox> */}
-                </div>
+                </div>     
 
                 <TextAndImgSideBySide branchesInfoDatas={aboutDatas["about-bottom"]} branchesImagesDatas={aboutDatas["branch_images"]} />
 

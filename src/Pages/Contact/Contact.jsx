@@ -21,6 +21,7 @@ export default function Contact() {
         try {
             const res = await sirrSite.api().get(urls.getContactDatas);
             setGetContactDatas(res.data.data);
+             await new Promise((resolve) => setTimeout(resolve, 1830));
             setContactLoading(false);
         } catch (error) {
             console.log(error);
@@ -31,11 +32,11 @@ export default function Contact() {
     useEffect(() => {
         getContactDatasFunc();
     }, []);
-console.log("cont", getContactDatas);
+// console.log("cont", getContactDatas);
     return (
         <>
             {contactLoading ? (
-                <Loading />
+                <Loading />   
             ) : (
                 <section id={style.contact}>
                     <SocialList />
