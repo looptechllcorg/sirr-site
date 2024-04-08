@@ -2,8 +2,8 @@ import axios from "axios";
 
 class sirr {
     constructor() {
-        (this.lng = "az"), (this.baseUrl = "https://sirr.looptech.az/api");
-        this.baseUrlImage = "https://sirr.looptech.az/storage/";
+        (this.lng = "az"), (this.baseUrl = "https://admin.sirr.az/api");
+        this.baseUrlImage = "https://admin.sirr.az/storage/";
         this.headers = {
             Accept: "application/json",
             "Content-Type": "application/json",
