@@ -1,6 +1,6 @@
 :root {
 	/* --main-color: #1B3667; */
-	--main-color: black;
+	--main-color: rgba(127, 57, 44, 1);
 	--loader-color: #fff;
 	--back-color: #555555;
 	--time: 2s;
