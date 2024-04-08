@@ -20,9 +20,9 @@ export default function TextAndImgSideBySide({ branchesInfoDatas, branchesImages
                     pagination={{
                         clickable: true,
                     }}
-                    // autoplay={{
-                    //     delay: 1500,
-                    // }}
+                    autoplay={{
+                        delay: 1500,
+                    }}
                     loop={true}
                     modules={[Autoplay]}
                     className={style.branchesImageSlider}
