@@ -10,7 +10,7 @@ export default function PrCart({ data }) {
                 <img src={`${sirrSite.baseUrlImage}${data.image}`} alt={data.title} />
 
                 <div className={style.overlayImgTitle}>
-                    <h6 className={style.OverlayPrTitle}>{data.title}</h6>
+                    <h6 className={style.OverlayPrTitle}>{data.title}</h6>    
                 </div>
 
                 <div className={style.overlayPriceUnit}>

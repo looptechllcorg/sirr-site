@@ -48,7 +48,7 @@ export default function PrDetailsPage() {
     }, [slug]);
     //    console.log("one pro-- ",oneProductData);
     // console.log("simi", similarProducts);  
-
+    
    
 
     return (

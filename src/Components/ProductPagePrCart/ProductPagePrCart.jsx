@@ -13,7 +13,7 @@ export default function ProductPagePrCart({ data }) {
                     {data.quantity} {data.unit}
                 </span>
                 <hr className={style.line} />
-                <span className={style.price}>{data.price} ₼</span>
+                <span className={style.price}>{data.price} ₼</span> 
             </div>
         </Link>
     );
