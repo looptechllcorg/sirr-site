@@ -50,7 +50,7 @@ export default function SocialMedia() {
                     >
                         {SocialMediaSliderDatas.map((img, index) => (
                             <SwiperSlide key={index}>
-                                <img src={img} alt="burada socialdan gelen sekiller var" />
+                                <img src={img} />
                             </SwiperSlide>
                         ))}
                         {/* <div className="socialMedia-swiper-button-prev"><FaArrowRight /></div> */}

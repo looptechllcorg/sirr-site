@@ -17,7 +17,7 @@ export default function Footer() {
                 <div className={style.FooterWrapper}>
                     <div className={style.LogoSocial}>
                         <a className={style.FooterLogo} href="/">
-                            <img src={FooterLogo} alt="burada footer logo var" />
+                            <img src={FooterLogo} />
                         </a>
                         <div className={style.footerSocila}>
                             <a target="_blank" rel="noreferrer" href="https://www.instagram.com/">
@@ -62,7 +62,7 @@ export default function Footer() {
                 <hr className={style.line} />
                 <a className={style.looptech} target="_blank" rel="noreferrer" href="https://www.looptech.az/">
                     <span className={style.title}>{t("created-by") }</span>
-                    <object className={style.looptechLogo} data={looptechLogo} alt="burada LoopTech logo var" />
+                    <object className={style.looptechLogo} data={looptechLogo} />
                 </a>
             </div>
         </section>

@@ -66,7 +66,7 @@ export default function Header() {
             <div style={{ padding: 0 }} className="container">
                 <nav>
                     <a href="/" className={style.navLogo}>
-                        <img src={navLogo} alt="burada nav logo var" />
+                        <img src={navLogo} />
                     </a>
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
