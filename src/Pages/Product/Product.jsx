@@ -34,6 +34,31 @@ export default function Product() {
         setcurrentPage(pageNumber);
     };
 
+      const loadImages = async (data) => {
+		const imagePromises = [];
+        data.forEach(key => {
+            let imageSrc = key.image;
+            let imageUrl = (`${sirrSite.baseUrlImage}${imageSrc}`)  
+			const image = new Image();
+			const promise = new Promise((resolve, reject) => {
+				image.onload = () => resolve(imageUrl);
+				image.onerror = () => reject(imageUrl);
+			});
+			image.src = imageUrl;
+			imagePromises.push(promise);
+		});
+	
+		await Promise.all(imagePromises)
+			.then(() => {
+				console.log('loaded');
+			})
+			.catch((err) => {
+				console.log('Error -- ', err);
+			});
+    }
+
+    // console.log("hedimg", productsAndProductsDetailHeaderBgImg?.image);
+
     useEffect(() => {
         let currentPage = searchParams.get("page") || 1;
         setcurrentPage(currentPage);  
@@ -42,7 +67,8 @@ export default function Product() {
                 const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage, categories: searchParams.getAll("categories[]"), sort: searchParams.get("sort"), "price[0]": searchParams.get("price[0]"), "price[1]": searchParams.get("price[1]") } });
                 setAllProductDatas(ResPrPageDatas.data.data.data);
                 setPageCount(ResPrPageDatas.data.data.last_page);
-                 await new Promise((resolve) => setTimeout(resolve, 1830));
+                await loadImages(ResPrPageDatas.data.data.data)
+                //  await new Promise((resolve) => setTimeout(resolve, 1830));
                 setProductLoading(false);
             } catch (error) {
                 console.log(error);

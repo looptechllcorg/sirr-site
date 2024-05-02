@@ -17,7 +17,7 @@ export default function PrDetailsPage() {
     const { socialDatas, productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
     const { slug } = useParams();
     const [oneProductData, setOneProductData] = useState({});
-    const [prDetailsLoading, setPrDetailsLoading] = useState(true);
+    const [prDetailsLoading, setPrDetailsLoading] = useState(true);   
     const [similarProducts, setSimilarProducts] = useState([]);
     const {t} = useTranslation()
      

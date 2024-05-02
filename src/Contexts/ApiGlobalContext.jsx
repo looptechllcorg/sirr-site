@@ -12,6 +12,31 @@ export const ApiGlobalProvider = ({ children }) => {
     const [searchResultHeaderBgImg, setSearchResultHeaderBgImg] = useState({});
     const [productsAndProductsDetailHeaderBgImg, setProductsAndProductsDetailHeaderBgImg] = useState({});
 
+    const loadImages = async (prDetailHeader) => {
+        const data = [prDetailHeader];
+		const imagePromises = [];
+        data.forEach(key => {
+            let imageSrc = key.image;
+            let imageUrl = (`${sirrSite.baseUrlImage}${imageSrc}`)  
+			const image = new Image();
+			const promise = new Promise((resolve, reject) => {
+				image.onload = () => resolve(imageUrl);
+				image.onerror = () => reject(imageUrl);
+			});
+			image.src = imageUrl;
+			imagePromises.push(promise);
+		});
+	
+		await Promise.all(imagePromises)
+			.then(() => {
+				console.log('loaded');
+			})
+			.catch((err) => {
+				console.log('Error -- ', err);
+			});
+    }  
+    
+
     const getCategoryData = async () => {
         try {
             const ResCategory = await sirrSite.api().get(`${urls.categoriesName}`, { params: { product_count: 1 } });
@@ -43,6 +68,7 @@ export const ApiGlobalProvider = ({ children }) => {
         try {
             const res = await sirrSite.api().get(urls.productsAndProductsDetailHeaderBgImgUrl);
             setProductsAndProductsDetailHeaderBgImg(res.data.data);
+            await loadImages(res.data.data);
         } catch (error) {
             console.log(error);
         }

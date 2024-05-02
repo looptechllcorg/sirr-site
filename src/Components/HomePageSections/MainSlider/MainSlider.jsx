@@ -15,7 +15,7 @@ import sirrSite from "../../../Helpers/Sirr";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
-export default function MainSlider({ mainSlidersDatas }) {
+export default function MainSlider({ mainSlidersDatas }) {   
     const {t} = useTranslation()
 
     return (
@@ -34,7 +34,7 @@ export default function MainSlider({ mainSlidersDatas }) {
                     prevEl: ".mainSlider-swiper-button-prev",
                     nextEl: ".mainSlider-swiper-button-next",
                 }}
-                modules={[EffectFade, Navigation, Autoplay, Pagination]}
+                modules={[EffectFade, Navigation, Autoplay, Pagination]}  
                 className="mainSliderWrapper"
             >
                 {mainSlidersDatas.map((item) => (

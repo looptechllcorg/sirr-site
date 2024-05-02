@@ -22,13 +22,41 @@ export default function About() {
     const [aboutDatas, setAboutDatas] = useState([]);
     const [aboutFeatures, setAboutFeatures] = useState([]);
     const [aboutLoading, setAboutLoading] = useState(true);
-    const {t} = useTranslation()
+    const { t } = useTranslation()
+
+    const loadImages = async (aboutDatas, aboutFeatures) => {
+       const data = [...aboutFeatures, aboutDatas["about-header"].image, ...aboutDatas["branch_images"]]
+        const imagePromises = [];
+        data.forEach(key => {
+            let imageSrc = key.image || key;
+            let imageUrl = (`${sirrSite.baseUrlImage}${imageSrc}`)  
+			const image = new Image();
+			const promise = new Promise((resolve, reject) => {
+				image.onload = () => resolve(imageUrl);
+				image.onerror = () => reject(imageUrl);
+			});
+			image.src = imageUrl;
+			imagePromises.push(promise);
+		});
+	
+		await Promise.all(imagePromises)
+			.then((data) => {
+                console.log('loaded');
+                // console.log("image promises loaded-- ", data);
+			})
+			.catch((err) => {
+				console.log('Error -- ', err);
+			});
+    }
      
-    const getAboutDatas = async () => {
+    const getAboutAllDatas = async () => {
         try {
-            const res = await sirrSite.api().get(urls.about);
-            setAboutDatas(res.data.data);
-            await new Promise((resolve) => setTimeout(resolve, 1830));
+            const resAboutDatas = await sirrSite.api().get(urls.about);
+            const resAboutFeatures = await sirrSite.api().get(urls.aboutFeatures);
+            setAboutFeatures(resAboutFeatures.data.data);
+            setAboutDatas(resAboutDatas.data.data);
+
+            await loadImages(resAboutDatas.data.data, resAboutFeatures.data.data);
             setAboutLoading(false);
 
         } catch (error) {
@@ -37,20 +65,15 @@ export default function About() {
         }
     };
 
-    const getAboutFeaturesDatas = async () => {
-        try {
-            const res = await sirrSite.api().get(urls.aboutFeatures);
-            setAboutFeatures(res.data.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     useEffect(() => {
-        getAboutDatas();
-        getAboutFeaturesDatas();
-
+        getAboutAllDatas();
     }, []);
+
+
+
+    // console.log("ab- ", aboutDatas);
+    // console.log("abf-", aboutFeatures);
 
     return aboutLoading ? (
         <Loading />

@@ -9,7 +9,7 @@ export const LanguageProvider=({children})=>{
       const [siteLang, setSiteLang]=useState(sirrSite.lng)
 
 	  useEffect(()=>{
-        const  defaultLang=localStorage.getItem("lang") || sirrSite.lng;
+        const  defaultLang=localStorage.getItem("lang") || sirrSite.lng;   
 		       sirrSite.lng=defaultLang;
 			   i18n.changeLanguage(defaultLang)
 			   setSiteLang(defaultLang)

@@ -25,4 +25,4 @@ i18n.use(initReactI18next).init({
     defaultNS,
 });
 
-  export default i18n
+  export default i18n     

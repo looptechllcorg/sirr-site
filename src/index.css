@@ -41,7 +41,7 @@ body {
 
 /* mainSwiperSlider buttons style */
 .mainSlider-swiper-button-prev {
-    position: absolute;
+    position: absolute;   
     bottom: 50px;
     right: 95px;
     border-radius: 100%;
