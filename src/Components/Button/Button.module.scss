@@ -8,13 +8,13 @@
 	font-size: 14px;
 	font-weight: 500;
 	border: 1px solid $buttonBorderColor;   
-	border-radius: 5px;
+	border-radius: 5px;  
 	cursor: pointer;
 	position: relative;
 	// z-index: 999999999;
 
 	&:hover {
-		background-color: rgba(23, 23, 23, 1);
+		background-color: rgba(127, 57, 44, 1);
 		color: rgba(255, 255, 255, 1);
 		text-decoration: underline;
 	}
