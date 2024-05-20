@@ -27,7 +27,7 @@ function App() {
                             <Route path="/about-us" element={<About />} />
                            <Route path="/products" element={<Product />} />
                             <Route path="/contact" element={<Contact />} />  
-                            <Route path="/search" element={<SearchResult />} />
+                            <Route path="/search" element={<SearchResult />} /> 
 
                             <Route path="/product/:slug" element={<PrDetailsPage />} />
                         </Routes>

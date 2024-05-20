@@ -10,7 +10,7 @@ export default function AdditionIcon(props) {
       viewBox="0 0 14 14"
 	  {...props}
     >
-      <path fill="#E6A84C" d="M14 7.998H8v6H6v-6H0v-2h6v-6h2v6h6v2z"></path>
+      <path fill="rgba(127, 57, 44, 1)" d="M14 7.998H8v6H6v-6H0v-2h6v-6h2v6h6v2z"></path>
     </svg>
   )
 }

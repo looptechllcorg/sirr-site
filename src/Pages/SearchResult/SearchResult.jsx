@@ -17,7 +17,7 @@ export default function SearchResult() {
 
     const {t} = useTranslation()
 
-    const onClickResult = () => {
+    const onClickResult = () => {    
         if (searchInpValue !== "") {
             ClearInputValue();
             handleSearch(searchInpValue);

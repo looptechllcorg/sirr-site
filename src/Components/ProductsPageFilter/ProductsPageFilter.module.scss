@@ -10,7 +10,7 @@
 		height: 27px;
 		padding: 5px;
 		display: inline-block;
-		border: 1px solid rgba(230, 168, 76, 1);
+		border: 1px solid rgba(127, 57, 44, 1); 
 		border-radius: 100%;
 	}
 	.FilterCategoryName{
@@ -75,12 +75,12 @@
 				}
 
 				input[type="checkbox"]:checked + label {
-					color: rgba(230, 168, 76, 1);
+					color: rgba(127, 57, 44, 1);
 				}
 				
 			}
 			&::-webkit-scrollbar-thumb {
-				background-color: rgba(230, 168, 76, 1);
+				background-color: rgba(127, 57, 44, 1);
 				padding-top: 20px;
 				height: 30px;
 				border-radius: 1rem;
@@ -104,9 +104,9 @@
 		.sortWrapper {
 			display: flex;
 			input:checked + label {
-				color: rgba(230, 168, 76, 1);
+				color: rgba(127, 57, 44, 1);
 				svg {
-					fill: rgba(230, 168, 76, 1);
+					fill: rgba(127, 57, 44, 1);
 				}
 			}
 			.sortAZ,
@@ -171,7 +171,7 @@
 		border-radius: 5px;
 		width: 100%;
 		border: none;
-		background-color: rgba(230, 168, 76, 1);
+		background-color: rgba(127, 57, 44, 1);
 		color: white;
 		font-size: 20px;
 		cursor: pointer;

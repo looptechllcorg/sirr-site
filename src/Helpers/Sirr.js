@@ -11,7 +11,7 @@ class sirr {
         };
     }
     api() {
-        return axios.create({
+        return axios.create({  
             baseURL: this.baseUrl,
             headers: this.headers,
         });

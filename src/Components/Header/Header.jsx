@@ -15,7 +15,7 @@ import { SearchContext } from "../../Contexts/SearchContext";
 import { useTranslation } from "react-i18next";
 import SearchIcon from "../../assets/icons/SearchIcon";
 import CloseIcon from "../../assets/icons/CloseIcon";
-import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";
+import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";   
 
 
 

@@ -209,7 +209,7 @@ body {
     background: rgba(23, 23, 23, 0.3);
 }
 .example-track-1 {
-    background: rgba(230, 168, 76, 1);
+    background: rgba(127, 57, 44, 1);
 }
 
 .example-thumb {
@@ -217,7 +217,7 @@ body {
     border-radius: 100%;
     box-sizing: border-box;
     background-color: #ffffff;
-    border: 1px solid rgba(230, 168, 76, 1);
+    border: 1px solid rgba(127, 57, 44, 1);
     width: 21px;
     height: 21px;
 }

@@ -14,7 +14,7 @@ const urls = {
     similarProducts : (slug) => `/products/${slug}/similar`,
     // contact
     postContactMail: "/contact",
-    getContactDatas: "/contact",
+    getContactDatas: "/contact",   
     // global
     branches: "/branches",
     social: "/socials",
