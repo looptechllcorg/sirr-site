@@ -58,7 +58,7 @@ body {
 }
 .mainSlider-swiper-button-prev:hover,
 .mainSlider-swiper-button-next:hover {
-    background-color: rgba(230, 168, 76, 1);
+    background-color: rgba(127, 57, 44, 1);
 }
 
 .mainSlider-swiper-button-next {
@@ -166,7 +166,7 @@ body {
     justify-content: center;
 }
 .SocialMediaSlider .swiper-pagination-bullet-active {
-    background: rgba(230, 168, 76, 1) !important;
+    background:rgba(127, 57, 44, 1) !important;
     opacity: 1 !important;
 }
 .SocialMediaSlider .swiper-pagination-bullet {
@@ -249,7 +249,7 @@ body {
 }
 
 .pagination > li.active > a {
-    background-color: rgba(230, 168, 76, 1);
+    background-color: rgba(127, 57, 44, 1);
     color: white;
     width: 30px;
     height: 29px;
@@ -257,8 +257,8 @@ body {
 }
 .pagination .previous,
 .next {
-    background-color: rgba(250, 238, 219, 1);
-    color: rgba(230, 168, 76, 1);
+    background-color: rgba(127, 57, 44, .3);
+    color: rgba(127, 57, 44, 1);
     width: 30px;
     height: 29px;
     border-radius: 2px;
