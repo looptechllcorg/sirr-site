@@ -31,7 +31,7 @@ export default function MainSlider({ mainSlidersDatas }) {
                     delay: 2500,
                 }}
                 navigation={{
-                    prevEl: ".mainSlider-swiper-button-prev",
+                    prevEl: ".mainSlider-swiper-button-prev",  
                     nextEl: ".mainSlider-swiper-button-next",
                 }}
                 modules={[EffectFade, Navigation, Autoplay, Pagination]}  

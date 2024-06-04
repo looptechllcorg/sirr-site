@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 
 export default function SocialList() {
-    const { socialDatas } = useContext(ApiGlobalContext);  
+    const { socialDatas } = useContext(ApiGlobalContext);    
 
     return (
         <div className={style.SocialListWrapper}>

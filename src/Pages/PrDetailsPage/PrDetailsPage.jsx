@@ -38,7 +38,7 @@ export default function PrDetailsPage() {
             console.log(urls.similarProducts(slug));
             const res = await sirrSite.api().get(urls.similarProducts(slug));
             setSimilarProducts(res.data.data);
-        } catch (error) {
+        } catch (error) {   
             console.log(error);
         }
     };

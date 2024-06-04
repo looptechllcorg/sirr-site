@@ -16,13 +16,15 @@ import { useTranslation } from "react-i18next";
 import SearchIcon from "../../assets/icons/SearchIcon";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import HamburgerMenuIcon from "../../assets/icons/HamburgerMenuIcon";   
+import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 
 
 
 export default function Header() {
     //   bagladim deyende acilsidir 
-    const {  siteLang, onChangeLang,  onClickLang } = useContext(LanguageContext);
-       
+    const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
+     const {socialDatas} = useContext(ApiGlobalContext) 
+    //    console.log("soc - ", socialDatas);
     const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
 
     const [navColorChange, setNavColorChange] = useState(false);
@@ -57,7 +59,7 @@ export default function Header() {
         } else {
             setNavColorChange(false);
         }
-    };
+    };   
 
     window.addEventListener("scroll", FuncNavColorChange);
 
@@ -124,13 +126,13 @@ export default function Header() {
                             {searchInputShow ? <input className={style.searchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInput} id="homeSearch" /> : ""}
                         </div>
                         <div className={style.mobileSocial}>
-                            <a className={style.instagram} target="_blank" rel="noreferrer" href="https://www.instagram.com/">
+                            <a className={style.instagram} target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_instagram"]}>
                                 <SocialInstagramIcon />
                             </a>
-                            <a className={style.facebook} target="_blank" rel="noreferrer" href="https://www.facebook.com/">
+                            <a className={style.facebook} target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_facebook"]}>
                                 <SocialFacebookIcon />
                             </a>
-                            <a className={style.whatsapp} target="_blank" rel="noreferrer" href="https://wa.me/+994554446640">
+                            <a className={style.whatsapp} target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]}>
                                 <SocialWhatsappIcon />
                             </a>
                         </div>

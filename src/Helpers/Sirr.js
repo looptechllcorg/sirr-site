@@ -18,5 +18,5 @@ class sirr {
     }
 }
 
-const sirrSite = new sirr();
+const sirrSite = new sirr(); 
 export default sirrSite;  

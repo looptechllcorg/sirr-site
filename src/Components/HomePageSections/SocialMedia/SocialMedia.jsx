@@ -45,7 +45,7 @@ export default function SocialMedia() {
                                 slidesPerView: 5.7,
                             },
                         }}
-                        modules={[Pagination, Navigation]}
+                        modules={[Pagination, Navigation]}   
                         className="SocialMediaSlider"
                     >
                         {SocialMediaSliderDatas.map((img, index) => (

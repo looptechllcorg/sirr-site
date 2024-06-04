@@ -56,7 +56,7 @@ export default function About() {
             setAboutFeatures(resAboutFeatures.data.data);
             setAboutDatas(resAboutDatas.data.data);
 
-            await loadImages(resAboutDatas.data.data, resAboutFeatures.data.data);
+            await loadImages(resAboutDatas.data.data, resAboutFeatures.data.data);  
             setAboutLoading(false);
 
         } catch (error) {
@@ -73,7 +73,7 @@ export default function About() {
 
 
     // console.log("ab- ", aboutDatas);
-    // console.log("abf-", aboutFeatures);
+    // console.log("abf-", aboutFeatures);   
 
     return aboutLoading ? (
         <Loading />

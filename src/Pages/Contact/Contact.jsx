@@ -17,7 +17,7 @@ export default function Contact() {
     const [contactLoading, setContactLoading] = useState(true);
     const {t} = useTranslation()
      
-    const getContactDatasFunc = async () => {
+    const getContactDatasFunc = async () => { 
         try {
             const res = await sirrSite.api().get(urls.getContactDatas);
             setGetContactDatas(res.data.data);
@@ -25,7 +25,7 @@ export default function Contact() {
             setContactLoading(false);
         } catch (error) {
             console.log(error);
-            setContactLoading(false);
+            setContactLoading(false);  
         }
     };
 

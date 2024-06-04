@@ -19,7 +19,7 @@ const urls = {
     branches: "/branches",
     social: "/socials",
     productsAndProductsDetailHeaderBgImgUrl: "/pages/products-header",
-    searchResultHeaderBgImgUrl: "/pages/search-header",
+    searchResultHeaderBgImgUrl: "/pages/search-header",   
 
     // settings: (lng) => `/settings?lang=${lng}`,
     // contacts: (lng) => `/branches?lang=${lng}`,
