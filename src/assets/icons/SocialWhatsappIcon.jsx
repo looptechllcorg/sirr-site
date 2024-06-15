@@ -16,4 +16,4 @@ export default function SocialWhatsappIcon({color ,...props }) {
       ></path>
     </svg>
   )
-}
+} 

@@ -29,7 +29,7 @@ export default function PrDetailsPage() {
             setPrDetailsLoading(false);
         } catch (error) {
             console.log(error);
-            setPrDetailsLoading(false);
+            setPrDetailsLoading(false);   
         }
     };
 
@@ -84,7 +84,7 @@ export default function PrDetailsPage() {
                                     </div>
                                       <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.MobileCallMe}>
                                         <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />   {t("go-to-whatsapp")}
-                                </a>
+                                </a>  
                             </div>
                         </div>
 

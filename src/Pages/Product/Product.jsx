@@ -91,9 +91,9 @@ export default function Product() {
                 productLoading ? <Loading /> :
                      <section id={style.Product}>
             <SocialList />
-            <div style={{ paddingTop: 0 }} className="container">
                 <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
-                <SiteWay data={[`${t("home-page")}`, `${t("products")}`]} />
+                        <div style={{ paddingTop: 0 }} className="container">
+                            <SiteWay data={[`${t("home-page")}`, `${t("products")}`]} />
 
                 <div className={style.FilterAndProduct}>
                     <div className={style.mobileFilter}>

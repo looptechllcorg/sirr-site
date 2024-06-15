@@ -29,7 +29,7 @@ export default function Contact() {
         }
     };
 
-    useEffect(() => {
+    useEffect(() => {   
         getContactDatasFunc();
     }, []);
 // console.log("cont", getContactDatas);
@@ -40,9 +40,9 @@ export default function Contact() {
             ) : (
                 <section id={style.contact}>
                     <SocialList />
-                    <div style={{ paddingTop: 0 }} className="container">
                         <MainBgImage bgImg={getContactDatas["contact-header"]?.image} bgImgOnText={getContactDatas["contact-header"]?.title} />
-                        <SiteWay data={[`${t("home-page")}`, `${t("contact-us")}`]} paddingStyle={0} />
+                           <div style={{ paddingTop: 0 }} className="container">
+                            <SiteWay data={[`${t("home-page")}`, `${t("contact-us")}`]} paddingStyle={0} />
                         {getContactDatas["contact-main"] && <TextAndImgSideBySide bgColor={"transparent"} branchesInfoDatas={getContactDatas["contact-main"]} branchesImagesDatas={JSON.parse(getContactDatas["contact-main"]["gallery"])} />}
 
                         <ContactFormGroup />

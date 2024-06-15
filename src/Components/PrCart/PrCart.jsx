@@ -22,7 +22,7 @@ export default function PrCart({ data }) {
                 </div>
             </div>
 
-            <h6 className={style.prTitle}>{data.title}</h6>
+            <h6 className={style.prTitle}>{data.title}</h6>   
         </Link>
     );
 }

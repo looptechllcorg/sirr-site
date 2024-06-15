@@ -80,9 +80,9 @@ export default function About() {
     ) : (
         <section id={style.about}>
             <SocialList />
-            <div style={{ paddingTop: 0 }} className="container">
+        
                 <MainBgImage bgImg={aboutDatas["about-header"]?.image} bgImgOnText={aboutDatas["about-header"]?.title} />
-
+             <div style={{ paddingTop: 0 }} className="container">
                 <div className={style.HouseHistory}>
                     <SiteWay data={[`${t("home-page")}`, `${t("about")}`]} />
                     <TitleList mainTitle={aboutDatas["about-main"]?.subtitle} detailedTitle={aboutDatas["about-main"]?.title} />

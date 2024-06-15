@@ -10,4 +10,4 @@ export default function MainBgImage({ bgImg, bgImgOnText, bgImgHeight }) {
             </div>
         </div>
     );
-}
+}  
