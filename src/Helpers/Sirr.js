@@ -7,7 +7,7 @@ class sirr {
         this.baseUrlImage = "https://admin.sirr.az/storage/";
         this.headers = {
             Accept: "application/json",
-            "Content-Type": "application/json",
+            "Content-Type": "application/json",  
         };
     }
     api() {

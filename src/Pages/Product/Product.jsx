@@ -89,7 +89,7 @@ export default function Product() {
         <>
         {
                 productLoading ? <Loading /> :
-                     <section id={style.Product}>
+                     <section id={style.Product}>    
             <SocialList />
                 <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
                         <div style={{ paddingTop: 0 }} className="container">
@@ -102,7 +102,7 @@ export default function Product() {
                             Filter <FilterIcon />
                         </button>
                     </div>
-
+   
                     <div className={style.webFilter}>
                         <ProductsPageFilter setAllProductDatas={setAllProductDatas} />
                     </div>

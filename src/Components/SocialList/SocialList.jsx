@@ -21,6 +21,6 @@ export default function SocialList() {
             <a className={style.WhatsappIcon} target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]}>
                 <SocialWhatsappIcon />
             </a>
-        </div>
+        </div>   
     );
 }

@@ -83,7 +83,7 @@ export default function ProductsPageFilter({ closeFunc, setAllProductDatas }) {
                                 </label>
                                 <span></span>
                             </div>
-                        ))}
+                        ))}   
                     </ul>
                 )}
             </div>

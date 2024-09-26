@@ -58,10 +58,10 @@ export default function PrDetailsPage() {
             ) : (
                 <section id={style.details}>
                     <SocialList />
+                    <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
                     <div style={{ paddingTop: 0 }} className="container">
-                        <MainBgImage bgImg={productsAndProductsDetailHeaderBgImg.image} bgImgOnText={productsAndProductsDetailHeaderBgImg.title} />
                         <SiteWay data={[`${t("home-page")}`, `${t("product-details")}`]} />
-                        <div className={style.prDetailsWrapper}> 
+                        <div className={style.prDetailsWrapper}>
                             <h3 className={style.MobilePrDetailsTitle}>{oneProductData.title}</h3>
                             <span className={style.MobilePrDetailsPrice}>{oneProductData.price} ₼</span>
                             <div className={style.prDetailsImg}>
@@ -71,20 +71,20 @@ export default function PrDetailsPage() {
                                 <h3 className={style.prDetailsTitle}>{oneProductData.title}</h3>
                                 <span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
                                 <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.WebCallMe}>
-                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } /> {t("go-to-whatsapp")}
+                                    <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp} /> {t("go-to-whatsapp")}
                                 </a>
-                                    <hr className={style.prDetailsLine} />
-                                    <h5 className={style.PrIngredients}>{t("ingredients")}:</h5>
+                                <hr className={style.prDetailsLine} />
+                                <h5 className={style.PrIngredients}>{t("ingredients")}:</h5>
                                 <p className={style.prDetailsDescription}>{oneProductData.description}</p>
                                 <div className={style.PrDetailsSize}>
                                     {t("size")}:
-                                    <span className={style.unitQuantity}> 
+                                    <span className={style.unitQuantity}>
                                         {oneProductData.quantity} {oneProductData.unit}
                                     </span>
-                                    </div>
-                                      <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.MobileCallMe}>
-                                        <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp } />   {t("go-to-whatsapp")}
-                                </a>  
+                                </div>
+                                <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.MobileCallMe}>
+                                    <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp} /> {t("go-to-whatsapp")}
+                                </a>
                             </div>
                         </div>
 

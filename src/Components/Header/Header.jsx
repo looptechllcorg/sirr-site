@@ -48,7 +48,7 @@ export default function Header() {
         if (location.pathname === "/search") {
             setNoIcon(false);
         } else {
-            setNoIcon(true);
+            setNoIcon(true); 
         }
     }, [location.pathname, setNoIcon]);
 
@@ -155,8 +155,8 @@ export default function Header() {
                         <div className={style.lang}>
                             <Select value={siteLang} onChange={onChangeLang} className={style.selectLang} focusBorderColor="transparent">
                                 <option value="az">AZ</option>
-                                {/* <option value="en">EN</option>
-                                <option value="ru">RU</option> */}
+                                <option value="en">EN</option>
+                                <option value="ru">RU</option>
                             </Select>
                         </div>
                     </div>

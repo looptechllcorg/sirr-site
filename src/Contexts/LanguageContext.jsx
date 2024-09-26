@@ -5,13 +5,13 @@ import i18n from "../i18n"
 export const LanguageContext=createContext();
 
 
-export const LanguageProvider=({children})=>{
+export const LanguageProvider=({children})=>{   
       const [siteLang, setSiteLang]=useState(sirrSite.lng)
 
 	  useEffect(()=>{
         const  defaultLang=localStorage.getItem("lang") || sirrSite.lng;   
 		       sirrSite.lng=defaultLang;
-			   i18n.changeLanguage(defaultLang)
+			   i18n.changeLanguage(defaultLang) 
 			   setSiteLang(defaultLang)
 	  },[])
 

@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 // import yup
 import * as Yup from "yup";
 // import sweetalert2
-import Swal from "sweetalert2";
+import Swal from "sweetalert2";  
 import withReactContent from "sweetalert2-react-content";
 
 import sirrSite from "../../Helpers/Sirr";
@@ -32,6 +32,7 @@ export default function ContactFormGroup() {
             number: "",
             message: "",
         },
+        
         validateOnChange: false,
         validateOnBlur: false,
         onSubmit: async (values) => {
