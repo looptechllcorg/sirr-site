@@ -23,4 +23,4 @@ function Fancybox(props) {
     return <div ref={containerRef}>{props.children}</div>;   
 }
 
-export default Fancybox;
+export default Fancybox;  

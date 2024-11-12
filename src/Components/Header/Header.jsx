@@ -21,10 +21,9 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 
 
 export default function Header() {
-    //   bagladim deyende acilsidir 
+    //   bagladim deyende acilasidir 
     const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
      const {socialDatas} = useContext(ApiGlobalContext) 
-    //    console.log("soc - ", socialDatas);
     const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
 
     const [navColorChange, setNavColorChange] = useState(false);
@@ -34,7 +33,7 @@ export default function Header() {
 
     const handleShowSearchInput = () => {
         if (searchInpValue === "") {
-            setSearchInputShow(!searchInputShow);
+            setSearchInputShow(!searchInputShow);  
         } else {
             handleSearch(searchInpValue);
             navigate(`/search?searchInpValue=${searchInpValue}`);
@@ -62,7 +61,7 @@ export default function Header() {
     };   
 
     window.addEventListener("scroll", FuncNavColorChange);
-
+   
     return (
         <section className={`${style.header} ${navColorChange ? style.navBlack : ""}`}>
             <div style={{ padding: 0 }} className="container">
@@ -123,7 +122,9 @@ export default function Header() {
                                     </NavLink>
                                 </li>
                             </ul>
-                            {searchInputShow ? <input className={style.searchInput} value={searchInpValue} onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInput} id="homeSearch" /> : ""}
+                            {searchInputShow ? 
+                            <input className={style.searchInput} value={searchInpValue}
+                             onChange={onChangeInput} onKeyDown={handleKeyDownHeaderInput} id="homeSearch" /> : ""}
                         </div>
                         <div className={style.mobileSocial}>
                             <a className={style.instagram} target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_instagram"]}>

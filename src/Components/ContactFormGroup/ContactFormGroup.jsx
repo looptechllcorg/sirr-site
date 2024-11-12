@@ -28,7 +28,7 @@ export default function ContactFormGroup() {
         initialValues: {
             firstname: "",
             lastname: "",
-            email: "",
+            email: "",  
             number: "",
             message: "",
         },

@@ -31,7 +31,7 @@ export default function MostlyStoryCakeStore({ mostlyStoryCakeStoreVideoData, mo
                             </a>
                         ))}
                     </Fancybox> */}
-                </div>
+                </div>  
             </div>
         </section>
     );

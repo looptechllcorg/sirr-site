@@ -20,7 +20,7 @@ export default function FavoriteItems({ favoriteItemsDatas, setFavoriteItemsData
                     <div className={style.categoriesTitleSlider}>
                         <FavoriteCategories setFavoriteItemsDatas={setFavoriteItemsDatas} />
                     </div>
-
+     
                 
                     {
                         favoriteItemsDatas.length == 0 ? <div className={style.emptyCategory}>{ t("empty-product") }</div>

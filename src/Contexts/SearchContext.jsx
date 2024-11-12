@@ -4,7 +4,7 @@ import sirrSite from "../Helpers/Sirr";
 import { useSearchParams } from "react-router-dom";
 
 export const SearchContext = createContext();
-
+    
 // eslint-disable-next-line react/prop-types
 export const SearchProvider = ({ children }) => {    
     const navigate = useNavigate();

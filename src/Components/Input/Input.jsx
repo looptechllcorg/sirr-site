@@ -9,3 +9,4 @@ export default function Input({type,placeholder,InpValue,inpName,InpOnChange,inp
     </>
       )   
 }
+    

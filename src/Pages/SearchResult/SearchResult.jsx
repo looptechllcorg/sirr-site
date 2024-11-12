@@ -1,7 +1,7 @@
 // import style scss
 import style from "./SearchResult.module.scss";
 import MainBgImage from "../../Components/MainBgImage/MainBgImage";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../../Contexts/SearchContext";
 import SiteWay from "../../Components/SiteWay/SiteWay";
 import ProductPagePrCart from "../../Components/ProductPagePrCart/ProductPagePrCart";
@@ -10,6 +10,7 @@ import SearchResultPageIcon from "../../assets/icons/SearchResultPageIcon";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import ReactPaginate from "react-paginate";
 import { useTranslation } from "react-i18next";
+import Loading from "../../Components/Loading/Loading";
 
 export default function SearchResult() {
     const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInputSearchresult, handleSearch, emptyResult, currentPageSearch, pageCount, handlePageChange, ClearInputValue } = useContext(SearchContext);
@@ -28,7 +29,11 @@ export default function SearchResult() {
         if (searchInpValue) {
             handleSearch(searchInpValue);
         }
+        
     }, []);
+
+
+    if(!searchResult.data) return <Loading />
 
     return (
         <section id={style.SearchResultWrapper}>

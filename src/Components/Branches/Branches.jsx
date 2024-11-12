@@ -1,7 +1,7 @@
 // import style scss
 import style from "./Branches.module.scss";
 import PhoneIcon from "../../assets/icons/PhoneIcon";
-import LocationIcon from "../../assets/icons/LocationIcon";
+import LocationIcon from "../../assets/icons/LocationIcon";   
 
 export default function Branches({ data, isActive, onClick }) {
     return (
