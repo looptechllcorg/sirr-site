@@ -24,7 +24,10 @@ export default function Header() {
     //   bagladim deyende acilasidir 
     const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
      const {socialDatas} = useContext(ApiGlobalContext) 
-    const { searchInpValue, onChangeInput, handleSearch, handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, setNoIcon, noIcon, ClearInputValue, showHiddenMenu, FuncShowHidenMenu } = useContext(SearchContext);
+    const { searchInpValue, onChangeInput, handleSearch,
+         handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, 
+         setNoIcon, noIcon, ClearInputValue, showHiddenMenu,
+          FuncShowHidenMenu } = useContext(SearchContext);
 
     const [navColorChange, setNavColorChange] = useState(false);
     const navigate = useNavigate();

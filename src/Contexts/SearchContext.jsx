@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 export const SearchContext = createContext();
     
 // eslint-disable-next-line react/prop-types
-export const SearchProvider = ({ children }) => {    
+export const SearchProvider = ({ children }) => {       
     const navigate = useNavigate();
     let [searchParams] = useSearchParams();
     const initialSearchInpValue = searchParams.get("search") || "";

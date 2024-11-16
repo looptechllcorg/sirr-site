@@ -40,7 +40,7 @@ export default function ContactFormGroup() {
                 await sirrSite.api().post(urls.postContactMail, JSON.stringify(values));
                 const MySwal = withReactContent(Swal);
                 MySwal.fire({
-                    title: <strong>{t("swalAlertTitle") }</strong>,
+                    title: <strong>{t("swalAlertTitle")}</strong>,
                     html: <i>{t("swalAlertHTML") }</i>,
                     icon: "success",
                 });
@@ -61,8 +61,8 @@ export default function ContactFormGroup() {
             <form className={style.formGroup} onSubmit={handleSubmit}>
                 <div className={style.inputList}>
                     <div>
-                        <Input inputError={errors.firstname} inpName={"firstname"} InpValue={values.firstname} InpOnChange={handleChange} type={"text"} placeholder={t("firstName")} />
-                        <Input inputError={errors.email} inpName={"email"} InpValue={values.email} InpOnChange={handleChange} type={"email"} placeholder={t("email")} />
+  <Input inputError={errors.firstname} inpName={"firstname"} InpValue={values.firstname} InpOnChange={handleChange} type={"text"} placeholder={t("firstName")} />
+<Input inputError={errors.email} inpName={"email"} InpValue={values.email} InpOnChange={handleChange} type={"email"} placeholder={t("email")} />
                     </div>
                     <div>
                         <Input inputError={errors.lastname} inpName={"lastname"} InpValue={values.lastname} InpOnChange={handleChange} type={"text"} placeholder={t("lastName")} />

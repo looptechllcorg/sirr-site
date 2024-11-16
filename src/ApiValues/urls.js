@@ -8,7 +8,7 @@ const urls = {
     mostlyStoryCakeStore: "pages/index-video",
     // -------------about page datas--  ?item=8  ------------------------
     about: "/about",
-    aboutFeatures: "/about-features",
+    aboutFeatures: "/about-features",    
     // -------------product page datas--------------------------
     allProduct: "/products",
     similarProducts : (slug) => `/products/${slug}/similar`,
