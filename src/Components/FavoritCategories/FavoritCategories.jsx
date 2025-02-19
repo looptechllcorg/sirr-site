@@ -7,11 +7,13 @@ import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../Contexts/LanguageContext";
 
 export default function FavoriteCategories({ setFavoriteItemsDatas }) {
-    const { categoryNameDatas } = useContext(ApiGlobalContext);
-    const {t} = useTranslation()
-
+    const { categoryNameDatas } = useContext(ApiGlobalContext);  
+    const {t} = useTranslation();
+    const {siteLang} = useContext(LanguageContext);
+    
     const handleSlideChange = async (e) => {
         e.slideTo(e.clickedIndex);
         let searchParams = new URLSearchParams();
@@ -23,7 +25,7 @@ export default function FavoriteCategories({ setFavoriteItemsDatas }) {
         if (activeSlug) searchParams.set("categories[]", activeSlug);
         // searchParams.set("lang", langfromcontext);
         try {
-            let res = await sirrSite.api().get(`${urls.allProduct}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`);
+            let res = await sirrSite.api().get(`${urls.allProduct(siteLang)}${searchParams.toString() ? `&${searchParams.toString()}` : ""}`);
             setFavoriteItemsDatas(res.data.data.data);
         } catch (error) {
             console.log(error);
@@ -36,18 +38,14 @@ export default function FavoriteCategories({ setFavoriteItemsDatas }) {
             <Swiper
                 className="index-favorite-categories-slider"
                 spaceBetween={"16px"}
-                // slideToClickedSlide={true}
-                // loop={true}
                 slidesPerView={"auto"}
                 slidesPerGroup={1}
                 slidesPerGroupAuto={true}
                 setWrapperSize={true}
                 modules={[Pagination]}
                 onClick={handleSlideChange}
-                // onRealIndexChange={handleSlideChange}
                 preventInteractionOnTransition={true}
                 slidesOffsetBefore={24}
-                // centeredSlides={true}
                 pagination={{
                     clickable: true,
                     el: ".index-favorite-categories-slider-pagination",

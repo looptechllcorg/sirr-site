@@ -13,7 +13,7 @@ import ArrowLeftIcon from "../../../assets/icons/ArrowLeftIcon";
 import ArrowRightIcon from "../../../assets/icons/ArrowRightIcon";
 import sirrSite from "../../../Helpers/Sirr";
 import { t } from "i18next";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";  
 
 export default function MainSlider({ mainSlidersDatas }) {   
     const {t} = useTranslation()

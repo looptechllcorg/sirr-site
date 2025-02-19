@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 
 export default function DesertsSlider({ desertSliderDatas }) {
     const {t} = useTranslation()
-
+  
     return (
         <section id={style.DesertsSlider}>
             <div style={{ paddingTop: "20px" }} className="container">

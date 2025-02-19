@@ -1,18 +1,20 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import sirrSite from "../Helpers/Sirr";
 import urls from "../ApiValues/urls";
+import { LanguageContext } from "./LanguageContext";
 
 export const ApiGlobalContext = createContext();   
 
 // eslint-disable-next-line react/prop-types
 export const ApiGlobalProvider = ({ children }) => {
+    const {siteLang} = useContext(LanguageContext);
     const [branchesDatas, setBranchesDatas] = useState([]);
     const [categoryNameDatas, setCategoryNameDatas] = useState([]);
     const [socialDatas, setSocialDatas] = useState({});
     const [searchResultHeaderBgImg, setSearchResultHeaderBgImg] = useState({});
     const [productsAndProductsDetailHeaderBgImg, setProductsAndProductsDetailHeaderBgImg] = useState({});
 
-    const loadImages = async (prDetailHeader) => {
+    const loadImages = async (prDetailHeader) => { 
         const data = [prDetailHeader];
 		const imagePromises = [];
         data.forEach(key => {
@@ -34,12 +36,11 @@ export const ApiGlobalProvider = ({ children }) => {
 			.catch((err) => {
 				console.log('Error -- ', err);
 			});
-    }  
-    
+    };
 
     const getCategoryData = async () => {
         try {
-            const ResCategory = await sirrSite.api().get(`${urls.categoriesName}`, { params: { product_count: 1 } });
+            const ResCategory = await sirrSite.api().get(`${urls.categoriesName(siteLang)}`, { params: { product_count: 1 } });
             setCategoryNameDatas(ResCategory.data.data);
         } catch (error) {
             console.log(error);
@@ -48,7 +49,7 @@ export const ApiGlobalProvider = ({ children }) => {
 
     const getBranchesDatas = async () => {
         try {
-            const res = await sirrSite.api().get(urls.branches);
+            const res = await sirrSite.api().get(urls.branches(siteLang));
             setBranchesDatas(res.data.data);
         } catch (error) {
             console.log(error);
@@ -73,7 +74,7 @@ export const ApiGlobalProvider = ({ children }) => {
             console.log(error);
         }
     };
-
+  
     const getSearchResultHeaderBgImg = async () => {
         try {
             const res = await sirrSite.api().get(urls.searchResultHeaderBgImgUrl);
@@ -89,7 +90,7 @@ export const ApiGlobalProvider = ({ children }) => {
         getSocialDatas();
         getSearchResultHeaderBgImg();
         getProductsAndProductsDetailHeaderBgImg();
-    }, []);
+    }, [siteLang]);
 
     // console.log("branches data", branchesDatas);
     // console.log("categoryNameDatas", categoryNameDatas);

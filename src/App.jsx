@@ -14,12 +14,12 @@ import { ApiGlobalProvider } from "./Contexts/ApiGlobalContext";
 import { useTranslation } from "react-i18next";
 
 function App() {
-    const {t}= useTranslation()
+    const {t}= useTranslation();
     return (
         <>
+        <LanguageProvider>
             <SearchProvider>
                 <ApiGlobalProvider>
-                    <LanguageProvider>
                         <Header />
                         <ScrollToTop />
                         <Routes>
@@ -32,9 +32,9 @@ function App() {
                             <Route path="/product/:slug" element={<PrDetailsPage />} />
                         </Routes>
                         <Footer />
-                    </LanguageProvider>
                 </ApiGlobalProvider>
             </SearchProvider>
+            </LanguageProvider>
         </>
     );
 }

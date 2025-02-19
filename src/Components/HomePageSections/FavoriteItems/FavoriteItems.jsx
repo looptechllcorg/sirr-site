@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 
 export default function FavoriteItems({ favoriteItemsDatas, setFavoriteItemsDatas }) {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     return (    
         <section id={style.FavoriteItems}>
             <div className="container">
@@ -20,7 +20,6 @@ export default function FavoriteItems({ favoriteItemsDatas, setFavoriteItemsData
                     <div className={style.categoriesTitleSlider}>
                         <FavoriteCategories setFavoriteItemsDatas={setFavoriteItemsDatas} />
                     </div>
-     
                 
                     {
                         favoriteItemsDatas.length == 0 ? <div className={style.emptyCategory}>{ t("empty-product") }</div>
@@ -30,16 +29,13 @@ export default function FavoriteItems({ favoriteItemsDatas, setFavoriteItemsData
                                     <PrCart key={item.id} data={item} />
                                 ))}
                                  </div>
-                    
                         }
-               
-
                     {
                         favoriteItemsDatas.length == 0 ? "" : 
                               <Link to="/products">
                         <Button text={t("more-than")} />
                     </Link>
-                   } 
+                   }  
                 </div>
             </div>
         </section>

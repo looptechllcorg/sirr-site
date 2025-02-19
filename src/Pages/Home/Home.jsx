@@ -6,10 +6,11 @@ import FavoriteItems from "../../Components/HomePageSections/FavoriteItems/Favor
 import MostlyStoryCakeStore from "../../Components/HomePageSections/MostlyStoryCakeStore/MostlyStoryCakeStore";
 import HomeContact from "../../Components/HomePageSections/HomeContact/HomeContact";
 import SocialMedia from "../../Components/HomePageSections/SocialMedia/SocialMedia";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import Loading from "../../Components/Loading/Loading";
+import { LanguageContext } from "../../Contexts/LanguageContext";
 
 export default function Home() {
     const [mainSlidersDatas, setMainSlidersDatas] = useState([]);
@@ -18,6 +19,7 @@ export default function Home() {
     const [mostlyStoryCakeStoreVideoData, setMostlyStoryCakeStoreVideoData] = useState();
     const [mostlyStoryCakeStoreData, setMostlyStoryCakeStoreData] = useState({});
     const [loading, setLoading] = useState(true);
+    const {siteLang} = useContext(LanguageContext);
 
 
 
@@ -43,16 +45,16 @@ export default function Home() {
 			.catch((err) => {
 				console.log('Error -- ', err);
 			});
-    }
-
+    };
+  
     useEffect(() => {
         const getHomePageDatas = async () => {
             try {
                 const [mainSlidersDatas, desertSliderDatas, favoriteItemsDatas,
                     mostlyStoryCakeStoreVideoData, mostlyStoryCakeStoreData] =
-                    await Promise.all([sirrSite.api().get(urls.mainSlider),
-                    sirrSite.api().get(urls.desertSlider), sirrSite.api().get(urls.favoriteItems),
-                    sirrSite.api().get(urls.homeVideoData), sirrSite.api().get(urls.mostlyStoryCakeStore)]);
+                    await Promise.all([sirrSite.api().get(urls.mainSlider(siteLang)),
+                    sirrSite.api().get(urls.desertSlider(siteLang)), sirrSite.api().get(urls.favoriteItems(siteLang)),
+                    sirrSite.api().get(urls.homeVideoData), sirrSite.api().get(urls.mostlyStoryCakeStore(siteLang))]);
                 setMainSlidersDatas(mainSlidersDatas.data.data);
                 setDesertSliderDatas(desertSliderDatas.data.data);
                 setFavoriteItemsDatas(favoriteItemsDatas.data.data.data);
@@ -70,7 +72,7 @@ export default function Home() {
             }
         };
         getHomePageDatas();
-    }, []);
+    }, [siteLang]);
 
     //   console.log("main", mainSlidersDatas);
     //   console.log("dese", desertSliderDatas);

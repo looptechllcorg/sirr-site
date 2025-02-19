@@ -15,6 +15,7 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import { useSearchParams } from "react-router-dom";
 import Loading from "../../Components/Loading/Loading";
 import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../Contexts/LanguageContext";
 
 export default function Product() {
     const [showHiddenFilterComponent, setShowHiddenFilterComponent] = useState(false);
@@ -25,8 +26,9 @@ export default function Product() {
     let [searchParams, setSearchParams] = useSearchParams();
     const initialPage = searchParams.get("page") || 1;
     const [currentPage, setcurrentPage] = useState(initialPage);
-    const {t} = useTranslation()
-
+    const {t} = useTranslation();
+    const {siteLang} = useContext(LanguageContext)
+ 
     const handlePageChange = (selectedObject) => {
 		const pageNumber = Number(selectedObject.selected) + 1;
         searchParams.set("page", pageNumber);
@@ -64,7 +66,7 @@ export default function Product() {
         setcurrentPage(currentPage);  
         const getProductPageDatas = async () => {
             try {
-                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct}`, { params: { page: currentPage, categories: searchParams.getAll("categories[]"), sort: searchParams.get("sort"), "price[0]": searchParams.get("price[0]"), "price[1]": searchParams.get("price[1]") } });
+                const ResPrPageDatas = await sirrSite.api().get(`${urls.allProduct(siteLang)}`, { params: { page: currentPage, categories: searchParams.getAll("categories[]"), sort: searchParams.get("sort"), "price[0]": searchParams.get("price[0]"), "price[1]": searchParams.get("price[1]") } });
                 setAllProductDatas(ResPrPageDatas.data.data.data);
                 setPageCount(ResPrPageDatas.data.data.last_page);
                 await loadImages(ResPrPageDatas.data.data.data)
@@ -77,7 +79,7 @@ export default function Product() {
         };
         getProductPageDatas();
         window.scrollTo({ top: 300, behavior: "smooth" });
-    }, [searchParams]);
+    }, [searchParams,siteLang]);
 
     const onClickshowHiddenFilterComponent = () => {
         setShowHiddenFilterComponent(!showHiddenFilterComponent);

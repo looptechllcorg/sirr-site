@@ -23,7 +23,7 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 export default function Header() {
     //   bagladim deyende acilasidir 
     const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
-     const {socialDatas} = useContext(ApiGlobalContext) 
+     const {socialDatas} = useContext(ApiGlobalContext) ;
     const { searchInpValue, onChangeInput, handleSearch,
          handleKeyDownHeaderInput, searchInputShow, setSearchInputShow, 
          setNoIcon, noIcon, ClearInputValue, showHiddenMenu,
@@ -75,7 +75,7 @@ export default function Header() {
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
                             <div className={style.mobileLang}>
-                                {/* <span onClick={() => onClickLang("az")} className={style.langCategory}>
+                                <span onClick={() => onClickLang("az")} className={style.langCategory}>
                                     AZ
                                 </span>
                                 <span onClick={() => onClickLang("en")} className={style.langCategory}>
@@ -83,12 +83,12 @@ export default function Header() {
                                 </span>
                                 <span onClick={() => onClickLang("ru")} className={style.langCategory}>
                                     RU
-                                </span> */}
+                                </span>
                             </div>
                             <span onClick={handleShowSearchInput} className={style.mobileSearchIcon}>
                                 <SearchIcon />
                             </span>
-                        </div>
+                        </div> 
                         <div className={style.pageAndSearch}>
                             <ul className={style.navPageList}>
                                 <li>

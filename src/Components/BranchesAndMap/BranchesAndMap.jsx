@@ -34,7 +34,7 @@ export default function BranchesAndMap() {
         });   
     };
 
-    console.log("br-", branchesDatas);  
+    // console.log("br-", branchesDatas);  
     return (
         <div className={style.BranchesAndMapWrapper}>
             <div className={style.contactBranchesWarapper}>

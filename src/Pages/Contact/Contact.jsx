@@ -6,20 +6,22 @@ import TextAndImgSideBySide from "../../Components/TextAndImgSideBySide/TextAndI
 import ContactFormGroup from "../../Components/ContactFormGroup/ContactFormGroup";
 import BranchesAndMap from "../../Components/BranchesAndMap/BranchesAndMap";
 import SiteWay from "../../Components/SiteWay/SiteWay";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import sirrSite from "../../Helpers/Sirr";
 import urls from "../../ApiValues/urls";
 import Loading from "../../Components/Loading/Loading";
 import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../Contexts/LanguageContext";
 
 export default function Contact() {
     const [getContactDatas, setGetContactDatas] = useState({});
     const [contactLoading, setContactLoading] = useState(true);
-    const {t} = useTranslation()
+    const {t} = useTranslation();
+    const {siteLang} = useContext(LanguageContext)
      
     const getContactDatasFunc = async () => { 
         try {
-            const res = await sirrSite.api().get(urls.getContactDatas);
+            const res = await sirrSite.api().get(urls.getContactDatas(siteLang));
             setGetContactDatas(res.data.data);
              await new Promise((resolve) => setTimeout(resolve, 1830));
             setContactLoading(false);
@@ -31,7 +33,7 @@ export default function Contact() {
 
     useEffect(() => {   
         getContactDatasFunc();
-    }, []);
+    }, [siteLang]);
 // console.log("cont", getContactDatas);
     return (
         <>

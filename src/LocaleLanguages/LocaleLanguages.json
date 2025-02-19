@@ -15,7 +15,6 @@
 		"product-details":"Məhsul detalları",
 		"all-categories":"Bütün kateqoriyalar",
 		"sort-by":"Sırala",
-		"price":"Qiymət",
 		"form-text":"Məlumatı daxil edin və biz sizinlə əlaqə saxlayacağıq",
 		"empty-cell":"Boş xana saxlamayın",
 		 "firstName":"Ad",
@@ -36,7 +35,10 @@
 		 "size":"Ölçü",
 		"similar-products":"Oxşar Məhsullar",
 		"search":"Axtarış",
-		"empty-result":"Nəticə tapılmadı"
+		"empty-result":"Nəticə tapılmadı",
+		"price":"Ədəd",
+		"kilogram":"Kiloqram",
+		"gram":"Qram"
 	     },
     "en":{
 		"about":"About",
@@ -54,7 +56,6 @@
 		"product-details":"Product Details",
 		"all-categories":"All Categories",
 		"sort-by":"Sort by",
-		"price":"Price",
 		"form-text":"Enter the information and we will contact you",
 		"empty-cell":"Don't keep an empty cell",
 		"firstName":"First Name",
@@ -75,8 +76,10 @@
 		"size":"Size",
 		"similar-products":"Similar Products",
 		"search":"Search",
-		"empty-result":"No result found"
-
+		"empty-result":"No result found",
+		"price":"Piece",
+		"kilogram":"Kilogram",
+		"gram":"Gram"
          },
 	"ru":{
 		"about": "O нас",
@@ -94,7 +97,6 @@
 		"product-details":"Подробная информация о продукте",
 		"all-categories":"Все категории",
 		"sort-by":"Сортировать по",
-		"price":"Цена",
 		"form-text":"Введите информацию, и мы свяжемся с вами",
 		"empty-cell":"Не храните пустую ячейку",
 		"firstName":"Имя",
@@ -115,7 +117,10 @@
 		"search":"Поиск",
 		"empty-result":"Результатов не найдено",
 		"swalAlertTitle":"Введённые данные были отправлены",
-		"swalAlertHTML":"Благодарим вас"
+		"swalAlertHTML":"Благодарим вас",
+		"price":"Кусок",
+		"kilogram":"Килограмм",
+		"gram":"Грамм"
 	}	 
 
 }

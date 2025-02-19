@@ -1,30 +1,24 @@
 const urls = {
     // -------------home page datas--------------------------
-    mainSlider: "/hero-sliders",
-    desertSlider: "/featured-categories",
-    categoriesName: "/categories",
-    favoriteItems: "/products?item=8",
+    mainSlider: (lng)=> `/hero-sliders?lang=${lng}`,
+    desertSlider: (lng)=>`/featured-categories?lang=${lng}`,
+    categoriesName: (lng)=>`/categories?lang=${lng}`,
+    favoriteItems: (lng)=> `/products?item=8&lang=${lng}`,
     homeVideoData: "/index-video",
-    mostlyStoryCakeStore: "pages/index-video",
+    mostlyStoryCakeStore: (lng)=> `pages/index-video?lang=${lng}`,
     // -------------about page datas--  ?item=8  ------------------------
-    about: "/about",
-    aboutFeatures: "/about-features",    
+    about:(lng)=> `/about?lang=${lng}`,
+    aboutFeatures: (lng)=> `/about-features?lang=${lng}`,    
     // -------------product page datas--------------------------
-    allProduct: "/products",
-    similarProducts : (slug) => `/products/${slug}/similar`,
+    allProduct:(lng)=> `/products?lang=${lng}`,
+    similarProducts : (slug,lng) => `/products/${slug}/similar?lang=${lng}`,
     // contact
     postContactMail: "/contact",
-    getContactDatas: "/contact",   
+    getContactDatas:(lng)=> `/contact?lang=${lng}`,   
     // global
-    branches: "/branches",
+    branches:(lng)=> `/branches?lang=${lng}`,
     social: "/socials",
     productsAndProductsDetailHeaderBgImgUrl: "/pages/products-header",
     searchResultHeaderBgImgUrl: "/pages/search-header",   
-
-    // settings: (lng) => `/settings?lang=${lng}`,
-    // contacts: (lng) => `/branches?lang=${lng}`,
-    // categoriesName: (lng) => `/categories?lang=${lng}`,
-    // products: (lng, sort) => `/products?lang=${lng}&sort=${sort}`,
-    // search: (lng) => `/products?lang=${lng}&search=`,
 };
 export default urls;

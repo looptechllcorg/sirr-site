@@ -12,6 +12,7 @@ import Loading from "../../Components/Loading/Loading";
 import urls from "../../ApiValues/urls";
 import SocialWhatsappIcon from "../../assets/icons/SocialWhatsappIcon";
 import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../Contexts/LanguageContext";
 
 export default function PrDetailsPage() {
     const { socialDatas, productsAndProductsDetailHeaderBgImg } = useContext(ApiGlobalContext);
@@ -19,12 +20,13 @@ export default function PrDetailsPage() {
     const [oneProductData, setOneProductData] = useState({});
     const [prDetailsLoading, setPrDetailsLoading] = useState(true);   
     const [similarProducts, setSimilarProducts] = useState([]);
-    const {t} = useTranslation()
+    const {t} = useTranslation();
+    const {siteLang} = useContext(LanguageContext);
      
 
     const getOneproduct = async () => {
         try {
-            const ResOneProduct = await sirrSite.api().get(`${sirrSite.baseUrl}/products/${slug}`);
+            const ResOneProduct = await sirrSite.api().get(`${sirrSite.baseUrl}/products/${slug}?lang=${siteLang}`);
             setOneProductData(ResOneProduct.data.data);
             setPrDetailsLoading(false);
         } catch (error) {
@@ -36,7 +38,7 @@ export default function PrDetailsPage() {
     const getsimilarProducts = async () => {
         try {
             console.log(urls.similarProducts(slug));
-            const res = await sirrSite.api().get(urls.similarProducts(slug));
+            const res = await sirrSite.api().get(urls.similarProducts(slug,siteLang));
             setSimilarProducts(res.data.data);
         } catch (error) {   
             console.log(error);
@@ -45,12 +47,10 @@ export default function PrDetailsPage() {
     useEffect(() => {
         getOneproduct();
         getsimilarProducts();
-    }, [slug]);
+    }, [slug,siteLang]);
     //    console.log("one pro-- ",oneProductData);
     // console.log("simi", similarProducts);  
     
-   
-
     return (
         <>
             {prDetailsLoading ? (
@@ -69,7 +69,7 @@ export default function PrDetailsPage() {
                             </div>
                             <div className={style.prDetailsInfo}>
                                 <h3 className={style.prDetailsTitle}>{oneProductData.title}</h3>
-                                <span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
+                <span className={style.prDetailsPrice}>{oneProductData.price} ₼</span>
                                 <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.WebCallMe}>
                                     <SocialWhatsappIcon color="green" className={style.prDetailsWharsapp} /> {t("go-to-whatsapp")}
                                 </a>
@@ -79,7 +79,10 @@ export default function PrDetailsPage() {
                                 <div className={style.PrDetailsSize}>
                                     {t("size")}:
                                     <span className={style.unitQuantity}>
-                                        {oneProductData.quantity} {oneProductData.unit}
+                                        {oneProductData.quantity}z {" "}
+                                        {oneProductData.unit === "Piece" ? t("price") :
+    oneProductData.unit === "Kilogram" ? t("kilogram") :
+    oneProductData.unit === "Gram" ? t("gram") : null}
                                     </span>
                                 </div>
                                 <a target="_blank" rel="noreferrer" href={socialDatas && socialDatas["site.social_whatsapp"]} className={style.MobileCallMe}>

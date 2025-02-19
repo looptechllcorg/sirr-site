@@ -8,6 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";  
 
 export default function TextAndImgSideBySide({ branchesInfoDatas, branchesImagesDatas, bgColor }) {
+  
+//   console.log("tefff=", branchesImagesDatas);
+  
     return (
         <div className={style.TextAndImg}>
             <div style={{ backgroundColor: bgColor }} className={style.TextWrapper}>
