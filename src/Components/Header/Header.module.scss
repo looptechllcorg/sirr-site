@@ -139,8 +139,8 @@
 
 				.MobileLangSearch {
 					display: flex;
-					// justify-content: space-between;
-					justify-content: flex-end;
+					justify-content: space-between;
+					// justify-content: flex-end;
 					align-items: center;
 					width: 100%;
 					padding: 30px 15px 12px;
@@ -151,6 +151,9 @@
 							font-size: 18px;
 							margin-right: 11px;
 							cursor: pointer;
+						}
+						.activeLang{
+							color: black;
 						}
 					}
 

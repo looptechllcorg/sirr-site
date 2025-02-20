@@ -21,7 +21,6 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 
 
 export default function Header() {
-    //   bagladim deyende acilasidir 
     const { siteLang, onChangeLang, onClickLang } = useContext(LanguageContext);
      const {socialDatas} = useContext(ApiGlobalContext) ;
     const { searchInpValue, onChangeInput, handleSearch,
@@ -64,7 +63,7 @@ export default function Header() {
     };   
 
     window.addEventListener("scroll", FuncNavColorChange);
-   
+
     return (
         <section className={`${style.header} ${navColorChange ? style.navBlack : ""}`}>
             <div style={{ padding: 0 }} className="container">
@@ -75,13 +74,13 @@ export default function Header() {
                     <div className={`${style.navPages} ${showHiddenMenu ? style.hiddenMenu : ""}`}>
                         <div className={style.MobileLangSearch}>
                             <div className={style.mobileLang}>
-                                <span onClick={() => onClickLang("az")} className={style.langCategory}>
+                                <span  onClick={() => {onClickLang("az");FuncShowHidenMenu();}} className={`${style.langCategory} ${siteLang === "az" ? style.activeLang : ""}`}>
                                     AZ
                                 </span>
-                                <span onClick={() => onClickLang("en")} className={style.langCategory}>
+                                <span  onClick={() => {onClickLang("en");FuncShowHidenMenu();}} className={`${style.langCategory} ${siteLang === "en" ? style.activeLang : ""}`}>
                                     EN
                                 </span>
-                                <span onClick={() => onClickLang("ru")} className={style.langCategory}>
+                                <span  onClick={() => {onClickLang("ru");FuncShowHidenMenu();}} className={`${style.langCategory} ${siteLang === "ru" ? style.activeLang : ""}`}>
                                     RU
                                 </span>
                             </div>
@@ -93,7 +92,7 @@ export default function Header() {
                             <ul className={style.navPageList}>
                                 <li>
                                     <NavLink
-                                        onClick={showHiddenMenu}
+                                        onClick={()=>FuncShowHidenMenu()}
                                         to={"/about-us"}
                                         style={({ isActive }) => {
                                             return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -104,7 +103,7 @@ export default function Header() {
                                 </li>
                                 <li>
                                     <NavLink
-                                        onClick={showHiddenMenu}
+                                        onClick={()=>FuncShowHidenMenu()}
                                         to={"/products"}
                                         style={({ isActive }) => {
                                             return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};
@@ -115,7 +114,7 @@ export default function Header() {
                                 </li>
                                 <li>
                                     <NavLink
-                                        onClick={showHiddenMenu}
+                                        onClick={()=>FuncShowHidenMenu()}
                                         to={"/contact"}
                                         style={({ isActive }) => {
                                             return isActive ? { color: "rgba(230, 168, 76, 1)" } : {};

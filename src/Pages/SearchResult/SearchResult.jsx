@@ -11,12 +11,19 @@ import { ApiGlobalContext } from "../../Contexts/ApiGlobalContext";
 import ReactPaginate from "react-paginate";
 import { useTranslation } from "react-i18next";
 import Loading from "../../Components/Loading/Loading";
+import { LanguageContext } from "../../Contexts/LanguageContext";
+import { useSearchParams } from "react-router-dom";
 
 export default function SearchResult() {
     const { searchInpValue, onChangeInput, searchResult, handleKeyDownHeaderInputSearchresult, handleSearch, emptyResult, currentPageSearch, pageCount, handlePageChange, ClearInputValue } = useContext(SearchContext);
     const { searchResultHeaderBgImg } = useContext(ApiGlobalContext);
+    const {siteLang}= useContext(LanguageContext);
+    const {t} = useTranslation();
+    const [searchParams] = useSearchParams();
+    const searchQuery= searchParams.get("search");
 
-    const {t} = useTranslation()
+    console.log("ttt=", searchQuery);
+    
 
     const onClickResult = () => {    
         if (searchInpValue !== "") {
@@ -29,8 +36,13 @@ export default function SearchResult() {
         if (searchInpValue) {
             handleSearch(searchInpValue);
         }
-        
-    }, []);
+    }, [siteLang]); 
+
+    useEffect(() => {
+            handleSearch(searchQuery);
+    }, [siteLang]); 
+     
+    
 
 
     if(!searchResult.data) return <Loading />

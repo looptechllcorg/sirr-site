@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import sirrSite from "../Helpers/Sirr";
 import { useSearchParams } from "react-router-dom";
+import { LanguageContext } from "./LanguageContext";
 
 export const SearchContext = createContext();
     
@@ -16,6 +17,7 @@ export const SearchProvider = ({ children }) => {
     const [emptyResult, setEmptyResult] = useState(false);
     const [noIcon, setNoIcon] = useState(true);
     const [showHiddenMenu, setShowHiddenMenu] = useState(false);
+    const {siteLang} = useContext(LanguageContext);
     // const [load, setLoad] = useState(true);
 
     const [pageCount, setPageCount] = useState(2);
@@ -34,11 +36,11 @@ export const SearchProvider = ({ children }) => {
         window.scrollTo({ top: 300, behavior: "smooth" });
     };
 
-    const handleSearch = async (s = null, page = null) => {   
+    const handleSearch = async (s = null) => {   
         try {
-            if (!page) page = currentPageSearch;
+            // if (!page) page = currentPageSearch;
             if (!s) return;
-            const response = await sirrSite.api().get(`/products?search=${s}`, { params: { page: page } });
+            const response = await sirrSite.api().get(`/products?search=${s}&lang=${siteLang}`);
             let result = response.data.data;
             setPageCount(response.data.data.last_page);
             if (!result.length) setEmptyResult(true);
