@@ -146,14 +146,14 @@
 					padding: 30px 15px 12px;
 
 					.mobileLang {
-						color: white;
+						color: rgba(255, 255, 255, .6);
 						.langCategory {
 							font-size: 18px;
 							margin-right: 11px;
 							cursor: pointer;
-						}
+						} 
 						.activeLang{
-							color: black;
+							color: rgba(255, 255, 255, 1);
 						}
 					}
 

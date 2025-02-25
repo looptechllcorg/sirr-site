@@ -22,7 +22,6 @@ export default function SearchResult() {
     const [searchParams] = useSearchParams();
     const searchQuery= searchParams.get("search");
 
-    console.log("ttt=", searchQuery);
     
 
     const onClickResult = () => {    
