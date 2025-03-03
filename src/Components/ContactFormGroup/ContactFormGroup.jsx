@@ -15,7 +15,7 @@ import urls from "../../ApiValues/urls";
 import { useTranslation } from "react-i18next";
 
 export default function ContactFormGroup() {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     const validationSchema = Yup.object({
         firstname: Yup.string().required(`${t("firstName-error")}`),
         lastname: Yup.string().required(`${t("lastName-error")}`),

@@ -79,7 +79,7 @@ export default function PrDetailsPage() {
                                 <div className={style.PrDetailsSize}>
                                     {t("size")}:
                                     <span className={style.unitQuantity}>
-                                        {oneProductData.quantity}z {" "}
+                                        {oneProductData.quantity} {" "}
                                         {oneProductData.unit === "Piece" ? t("price") :
     oneProductData.unit === "Kilogram" ? t("kilogram") :
     oneProductData.unit === "Gram" ? t("gram") : null}

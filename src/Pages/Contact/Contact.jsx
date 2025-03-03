@@ -47,7 +47,7 @@ export default function Contact() {
                             <SiteWay data={[`${t("home-page")}`, `${t("contact-us")}`]} paddingStyle={0} />
                         {getContactDatas["contact-main"] && <TextAndImgSideBySide bgColor={"transparent"} branchesInfoDatas={getContactDatas["contact-main"]} branchesImagesDatas={JSON.parse(getContactDatas["contact-main"]["gallery"])} />}
 
-                        <ContactFormGroup />
+                        <ContactFormGroup />  
 
                         <BranchesAndMap />  
                     </div>
